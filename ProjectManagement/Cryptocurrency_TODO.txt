@@ -1,0 +1,16 @@
+
+Cryptocurrency Tracker: Tasks
+============================= 
+
+See: Roadmap.txt for more generic project vision 
+
+Milestone #1: 1. Create the repo, import the code, remove traces of who the tech test was for 
+
+Tasks: 
+[ ] Create a git repo 
+[ ] Add gitignore 
+[ ] Import the tech test code 
+[ ] Rename the project 
+[ ] Update the code to remove traces of who the test was done for 
+[ ] Put a localizable string Navbar title 
+[ ] Upload to Bitbucket (create a private repo)

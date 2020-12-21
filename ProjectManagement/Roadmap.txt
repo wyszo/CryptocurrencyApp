@@ -1,0 +1,27 @@
+
+Cryptocurrency Tracker: Roadmap
+=============================== 
+
+General project vision 
+----------------------
+
+The tech test app adapted to show and follow cryptocurrency market data instead. 
+
+Roadmap
+------- 
+
+-> 1. Create the repo, import the code, remove traces of who the tech test was for 
+2. Migrate to Swift 5
+3. Update Analytics to point to my endpoint
+4. Update json data for cryptocurrency 
+5. Switch Analytics over to Firebase 
+6. Improve code quality
+	6.1. Add Cocoapods (or Swift Package Manager)
+	6.2. Use R.swift for localizable strings 
+	6.3. Introduce PromiseKit for async networking 
+	6.4. Introduce Resolver for DI 
+	6.5. Switch over unit tests to SwiftyMocky 
+	6.6. Review app architecture 
+	6.7. Apply UI styling 
+7. Introduce historical graphs 
+8. Switch over to the live APIs to get the real data
