@@ -7,8 +7,7 @@ See: Roadmap.txt for more generic project vision
 Milestone #1: 1. Create the repo, import the code, remove traces of who the tech test was for 
 
 Tasks: 
-[ ] Create a git repo 
-[ ] Add gitignore 
+[ ] Create a new XCode project
 [ ] Import the tech test code 
 [ ] Rename the project 
 [ ] Update the code to remove traces of who the test was done for 
