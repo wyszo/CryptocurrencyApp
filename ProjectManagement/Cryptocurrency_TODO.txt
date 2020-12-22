@@ -7,8 +7,9 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks: 
-[ ] Replace do-try with guard-let for Router.createRootVC
 [ ] Put a localizable string Navbar title
+[ ] Add R.swift library (and localize strings using it)
+[ ] Update Model and JSON file to Cryptocurrency
 [ ] Turn off stats analytics for now
 [ ] Rename FruitListVC to CryptocurrencyListVC
 [ ] Rename FruitListVM to CryptocurrencyListVM
@@ -18,8 +19,7 @@ Tasks:
 [ ] Update JSONs 
 [ ] Update Fruit reference in Tests
 [ ] Separate scheme from host in APISettings
+[ ] Inject dependencies using Resolver
 [ ] Maybe get a remote config file from Firebase (potentially with API settings and baseURL, etc)
-[ ] Integrate Firebase Crashlytics for the project
-[ ] Update Model to Cryptocurrency 
 [ ] Enable Firebase Performance Measurement (and possibly deprecate manually using PerformanceTimer)
 [ ] Review the code file by file and refactor and improve 

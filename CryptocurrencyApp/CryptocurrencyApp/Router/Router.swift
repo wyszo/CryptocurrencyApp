@@ -22,41 +22,57 @@ class Router: RouterProtocol {
     }
     
     func createRootViewController() -> UINavigationController? {
-        var listVC: FruitListViewController?
-        do {
-            let timer: PerformanceTimer = PerformanceTimer()
-            listVC = try UIStoryboard.main.viewController(ofType: FruitListViewController.self)
-            listVC?.viewModel = FruitListViewModel(dataProvider: diContainer.fruitsDataProvider)
-            listVC?.router = self
-            listVC?.analyticsProvider = diContainer.analyticsProvider
-            listVC?.viewDidFinishDrawing = { [weak self] in
-                let timeInMs = timer.timeEllapsedInMs()
-                let screenInfo = ScreenInfo(screenId: .fruitList)
-                self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
-            }
-        } catch let error {
-            assertionFailure("Root View Controller initialisation failed with error: \(error)")
+        guard let vc = createListViewController() else {
+            assertionFailure("Root ViewController initialization failed!")
+            return nil
+        }
+        return UINavigationController(rootViewController: vc)
+    }
+    
+    private func createListViewController() -> UIViewController? {
+        guard let listVC = try? UIStoryboard.main.viewController(ofType: FruitListViewController.self) else {
+            assertionFailure("List ViewController initialization failed!")
+            return nil
         }
         
-        guard let viewController = listVC else { return nil }
-        navigationController =  UINavigationController(rootViewController: viewController)
-        return navigationController
+        let timer: PerformanceTimer = PerformanceTimer()
+        listVC.viewModel = FruitListViewModel(dataProvider: diContainer.fruitsDataProvider)
+        listVC.router = self
+        listVC.analyticsProvider = diContainer.analyticsProvider
+        
+        listVC.viewDidFinishDrawing = { [weak self] in
+            let timeInMs = timer.timeEllapsedInMs()
+            let screenInfo = ScreenInfo(screenId: .fruitList)
+            self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
+        }
+        return listVC
     }
     
     func presentFruitDetailViewController(fruit: Fruit) {
-        do {
-            let timer: PerformanceTimer = PerformanceTimer()
-            let controller = try UIStoryboard.main.viewController(ofType: FruitDetailViewController.self)
-            controller.viewModel = FruitDetailViewModel(fruit: fruit)
-            navigationController?.pushViewController(controller, animated: true)
-            
-            controller.viewDidFinishDrawing = { [weak self] in
-                let timeInMs = timer.timeEllapsedInMs()
-                let screenInfo = ScreenInfo(screenId: .fruitDetail)
-                self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
-            }
-        } catch let error {
-            assertionFailure("View Controller initialisation failed with error: \(error)")
+        guard let controller = createFruitDetailViewController(fruit: fruit) else {
+            assertionFailure("Fruit ViewController initialization failed!"); return
         }
+        guard let navigationController = navigationController else {
+            assertionFailure("Missing navigationController!"); return
+        }
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    private func createFruitDetailViewController(fruit: Fruit) -> UIViewController? {
+        guard let controller = try? UIStoryboard.main.viewController(ofType: FruitDetailViewController.self) else {
+            assertionFailure("Fruit ViewController initialization failed!")
+            return nil
+        }
+        
+        let timer: PerformanceTimer = PerformanceTimer()
+        controller.viewModel = FruitDetailViewModel(fruit: fruit)
+        navigationController?.pushViewController(controller, animated: true)
+        
+        controller.viewDidFinishDrawing = { [weak self] in
+            let timeInMs = timer.timeEllapsedInMs()
+            let screenInfo = ScreenInfo(screenId: .fruitDetail)
+            self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
+        }
+        return controller
     }
 }

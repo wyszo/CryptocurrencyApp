@@ -39,15 +39,21 @@ class FruitListViewController: UIViewController {
             self?.viewModel?.fetch()
         }
         adapter.didSelectRow = { [weak self] row in
-            guard let `self` = self else { return }
-            assert(self.router != nil)
+            guard let `self` = self else {
+                assertionFailure("Unexpected closure; ViewController deallocated!")
+                return
+            }
+            guard let router = self.router else {
+                assertionFailure("Router can't be nil!")
+                return
+            }
 
             guard let fruit = self.viewModel?.fruitAtIndex(row) else {
                 assertionFailure("data model inconsistency, row doesn't exist")
                 self.analyticsProvider?.errorDidOccur(error: TableAdapterError.dataInconsistencyError)
                 return
             }
-            self.router?.presentFruitDetailViewController(fruit: fruit)
+            router.presentFruitDetailViewController(fruit: fruit)
         }
         adapter.cellForRow = { [weak self] row, cell in
             cell.textLabel?.text = self?.viewModel?.fruitAtIndex(row)?.type
