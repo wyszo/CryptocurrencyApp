@@ -1,0 +1,13 @@
+platform :ios, '12.0'
+
+target 'CryptocurrencyApp' do
+  use_frameworks!
+
+  pod 'Firebase/Analytics', '~> 6.18'
+  pod 'Firebase/Crashlytics', '~> 6.18'
+
+  target 'CryptocurrencyAppTests' do
+    inherit! :search_paths
+  end
+
+end
