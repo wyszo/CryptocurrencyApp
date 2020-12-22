@@ -7,9 +7,20 @@ See: Roadmap.txt for more generic project vision
 Milestone #1: 1. Create the repo, import the code, remove traces of who the tech test was for 
 
 Tasks: 
-[ ] Create a new XCode project
-[ ] Import the tech test code 
-[ ] Rename the project 
-[ ] Update the code to remove traces of who the test was done for 
 [ ] Put a localizable string Navbar title 
+[ ] Turn off analytics for now 
+[ ] Update Analytics ScreenId to ScreenName 
 [ ] Upload to Bitbucket (create a private repo)
+[ ] Rename FruitListVC to CryptocurrencyListVC
+[ ] Rename FruitListVM to CryptocurrencyListVM
+[ ] Rename FruitDetailVC
+[ ] Rename FruitDetailVM
+[ ] Rename Fruit 
+[ ] Update JSONs 
+[ ] Update Fruit reference in Tests
+[ ] Separate scheme from host in APISettings
+[ ] Maybe get a remote config file from Firebase (potentially with API settings and baseURL, etc)
+[ ] Integrate Firebase Crashlytics for the project
+[ ] Update Model to Cryptocurrency 
+[ ] Enable Firebase Performance Measurement (and possibly deprecate manually using PerformanceTimer)
+[ ] Review the code file by file and refactor and improve 
