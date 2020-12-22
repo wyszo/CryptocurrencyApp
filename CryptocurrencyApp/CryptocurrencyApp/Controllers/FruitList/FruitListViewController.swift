@@ -16,8 +16,8 @@ class FruitListViewController: UIViewController {
     
     var router: RouterProtocol?
     var analyticsProvider: AnalyticsProviderProtocol?
-    var viewModel: FruitListViewModel?
-    {
+    
+    var viewModel: FruitListViewModel? {
         didSet {
             viewModel?.fetch()
             viewModel?.viewModelDidChange = { [weak self] fruits in
@@ -30,8 +30,13 @@ class FruitListViewController: UIViewController {
         super.viewDidLoad()
         viewDidFinishDrawing?()
         
+        navigationItem.title = viewModel?.navbarTitle
+        initializeList()
+    }
+    
+    private func initializeList() {
         let adapter = TableViewAdapter(tableView: tableView,
-                                       cellReuseId: cellReuseId,
+                                       cellReuseId: Constants.cellReuseId,
                                        allowRefreshControl: true)
         self.adapter = adapter
         
@@ -58,11 +63,12 @@ class FruitListViewController: UIViewController {
         adapter.cellForRow = { [weak self] row, cell in
             cell.textLabel?.text = self?.viewModel?.fruitAtIndex(row)?.type
         }
-        
         if let fruits = viewModel?.fruits {
             adapter.numberOfItems = fruits.count
         }
     }
     
-    let cellReuseId = "FruitCellIdentifier"
+    struct Constants {
+        static let cellReuseId = "FruitCellIdentifier"
+    }
 }

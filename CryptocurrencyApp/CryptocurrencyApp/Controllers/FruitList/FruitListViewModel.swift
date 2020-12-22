@@ -10,6 +10,10 @@ import Foundation
 class FruitListViewModel {
     typealias FruitsCallback = ([Fruit]) -> ()
     
+    var navbarTitle: String {
+        return "Fruit List"
+    }
+    
     var fruits: [Fruit] = [] {
         didSet {
             viewModelDidChange?(fruits)

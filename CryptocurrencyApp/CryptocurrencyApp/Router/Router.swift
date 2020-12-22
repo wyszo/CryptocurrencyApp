@@ -26,7 +26,8 @@ class Router: RouterProtocol {
             assertionFailure("Root ViewController initialization failed!")
             return nil
         }
-        return UINavigationController(rootViewController: vc)
+        navigationController = UINavigationController(rootViewController: vc)
+        return navigationController
     }
     
     private func createListViewController() -> UIViewController? {
@@ -66,7 +67,6 @@ class Router: RouterProtocol {
         
         let timer: PerformanceTimer = PerformanceTimer()
         controller.viewModel = FruitDetailViewModel(fruit: fruit)
-        navigationController?.pushViewController(controller, animated: true)
         
         controller.viewDidFinishDrawing = { [weak self] in
             let timeInMs = timer.timeEllapsedInMs()
