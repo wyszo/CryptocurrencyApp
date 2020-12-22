@@ -5,6 +5,8 @@ target 'CryptocurrencyApp' do
 
   pod 'Firebase/Analytics', '~> 6.18'
   pod 'Firebase/Crashlytics', '~> 6.18'
+  pod 'PromiseKit', '~> 6.13.1', :inhibit_warnings => true
+  pod 'Resolver', '~> 1.2.1'
 
   target 'CryptocurrencyAppTests' do
     inherit! :search_paths
