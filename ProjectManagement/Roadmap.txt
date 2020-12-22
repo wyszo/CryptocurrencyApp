@@ -10,9 +10,12 @@ The tech test app adapted to show and follow cryptocurrency market data instead.
 Roadmap
 ------- 
 
--> 1. Create the repo, import the code, remove traces of who the tech test was for 
-2. Migrate to Swift 5
-3. Update Analytics to point to my endpoint
+Done: 
++. Create the repo, import the code and clean it up
++. Migrate to Swift 5
++. Update Analytics to point to my endpoint
+
+Next: 
 4. Update json data for cryptocurrency 
 5. Switch Analytics over to Firebase 
 6. Improve code quality

@@ -4,13 +4,12 @@ Cryptocurrency Tracker: Tasks
 
 See: Roadmap.txt for more generic project vision 
 
-Milestone #1: 1. Create the repo, import the code, remove traces of who the tech test was for 
+Milestone #3: Update data to handle cryptocurrencies
 
 Tasks: 
 [ ] Put a localizable string Navbar title 
-[ ] Turn off analytics for now 
-[ ] Update Analytics ScreenId to ScreenName 
-[ ] Upload to Bitbucket (create a private repo)
+[ ] Rename AnalyticsProvider to AnalyticsStatsEndpointProvider 
+[ ] Turn off stats analytics for now 
 [ ] Rename FruitListVC to CryptocurrencyListVC
 [ ] Rename FruitListVM to CryptocurrencyListVM
 [ ] Rename FruitDetailVC

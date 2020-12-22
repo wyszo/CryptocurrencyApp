@@ -7,8 +7,13 @@
 
 import Foundation
 
+enum ScreenId: String {
+    case fruitList
+    case fruitDetail
+}
+
 struct ScreenInfo {
-    let screenId: String
+    let screenId: ScreenId
 }
 
 protocol AnalyticsProviderProtocol {

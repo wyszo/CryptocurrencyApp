@@ -38,7 +38,7 @@ class AnalyticsProviderTests: XCTestCase {
                                     timeInMs: timeInMs)
         
         XCTAssertEqual(mockHttpClient.capturedRequestsCount, 1)
-        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats")
+        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/wyszo/master/stats")
         XCTAssertEqual(mockHttpClient.lastCapturedHttpMethod, .get)
         
         let expectedQueryParams: [String: String] = [
@@ -53,13 +53,13 @@ class AnalyticsProviderTests: XCTestCase {
      *   Then:  stats endpoint request should be made with event=display and data=timeInMs query params
      */
     func testScreenDidShow() {
-        let mockedScreenInfo = ScreenInfo(screenId: "mockedScreen")
+        let mockedScreenInfo = ScreenInfo(screenId: .fruitDetail)
         let timeInMs = 1200
         
         sut.screenDidShow(screenInfo: mockedScreenInfo, timeInMs: timeInMs)
         
         XCTAssertEqual(mockHttpClient.capturedRequestsCount, 1)
-        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats")
+        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/wyszo/master/stats")
         XCTAssertEqual(mockHttpClient.lastCapturedHttpMethod, .get)
         
         let expectedQueryParams: [String: String] = [
@@ -78,7 +78,7 @@ class AnalyticsProviderTests: XCTestCase {
         sut.errorDidOccur(error: error)
         
         XCTAssertEqual(mockHttpClient.capturedRequestsCount, 1)
-        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/stats")
+        XCTAssertEqual(mockHttpClient.lastCapturedPath, "https://raw.githubusercontent.com/wyszo/master/stats")
         XCTAssertEqual(mockHttpClient.lastCapturedHttpMethod, .get)
         
         let expectedQueryParams: [String: String] = [

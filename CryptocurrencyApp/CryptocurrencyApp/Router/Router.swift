@@ -31,7 +31,7 @@ class Router: RouterProtocol {
             listVC?.analyticsProvider = diContainer.analyticsProvider
             listVC?.viewDidFinishDrawing = { [weak self] in
                 let timeInMs = timer.timeEllapsedInMs()
-                let screenInfo = ScreenInfo(screenId: "fruitList")
+                let screenInfo = ScreenInfo(screenId: .fruitList)
                 self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
             }
         } catch let error {
@@ -52,7 +52,7 @@ class Router: RouterProtocol {
             
             controller.viewDidFinishDrawing = { [weak self] in
                 let timeInMs = timer.timeEllapsedInMs()
-                let screenInfo = ScreenInfo(screenId: "fruitDetail")
+                let screenInfo = ScreenInfo(screenId: .fruitDetail)
                 self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
             }
         } catch let error {
