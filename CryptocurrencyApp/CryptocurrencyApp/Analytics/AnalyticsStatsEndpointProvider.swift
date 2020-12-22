@@ -1,5 +1,5 @@
 //
-//  AnalyticsProvider.swift
+//  AnalyticsStatsEndpointProvider.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -7,7 +7,10 @@
 
 import Foundation
 
-public class AnalyticsProvider: AnalyticsProviderProtocol {
+/**
+ * Analytics provider implementation connecting to a static 'stats' endpoint
+ */
+public class AnalyticsStatsEndpointProvider: AnalyticsProviderProtocol {
     private let httpClient: HttpClient
     
     init(httpClient: HttpClient) {

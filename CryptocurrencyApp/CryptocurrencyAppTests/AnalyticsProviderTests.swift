@@ -11,13 +11,13 @@ import XCTest
 class AnalyticsProviderTests: XCTestCase {
     
     /** Normally I don't use force unwrap, but IMO in test code it's acceptable */
-    private var sut: AnalyticsProvider!
+    private var sut: AnalyticsStatsEndpointProvider!
     private let fixtures = Fixtures()
     private var mockHttpClient: MockHttpClient!
     
     override func setUp() {
         mockHttpClient = MockHttpClient()
-        sut = AnalyticsProvider(httpClient: mockHttpClient)
+        sut = AnalyticsStatsEndpointProvider(httpClient: mockHttpClient)
     }
     
     override func tearDown() {

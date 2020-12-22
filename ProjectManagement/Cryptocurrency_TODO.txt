@@ -7,9 +7,9 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks: 
-[ ] Put a localizable string Navbar title 
-[ ] Rename AnalyticsProvider to AnalyticsStatsEndpointProvider 
-[ ] Turn off stats analytics for now 
+[ ] Replace do-try with guard-let for Router.createRootVC
+[ ] Put a localizable string Navbar title
+[ ] Turn off stats analytics for now
 [ ] Rename FruitListVC to CryptocurrencyListVC
 [ ] Rename FruitListVM to CryptocurrencyListVM
 [ ] Rename FruitDetailVC

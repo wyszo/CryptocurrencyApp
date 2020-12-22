@@ -13,7 +13,7 @@
 		43012A3E25918F54009AE472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3D25918F54009AE472 /* Assets.xcassets */; };
 		43012A4125918F54009AE472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3F25918F54009AE472 /* LaunchScreen.storyboard */; };
 		43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5A25919389009AE472 /* TableViewAdapter.swift */; };
-		43012A5F259193BE009AE472 /* AnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5D259193BE009AE472 /* AnalyticsProvider.swift */; };
+		43012A5F259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */; };
 		43012A60259193BE009AE472 /* AnalyticsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */; };
 		43012A6825919431009AE472 /* FruitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6325919431009AE472 /* FruitListViewController.swift */; };
 		43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6425919431009AE472 /* FruitListViewModel.swift */; };
@@ -69,7 +69,7 @@
 		43012A4725918F55009AE472 /* CryptocurrencyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43012A4D25918F55009AE472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43012A5A25919389009AE472 /* TableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
-		43012A5D259193BE009AE472 /* AnalyticsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsProvider.swift; sourceTree = "<group>"; };
+		43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsStatsEndpointProvider.swift; sourceTree = "<group>"; };
 		43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsProviderProtocol.swift; sourceTree = "<group>"; };
 		43012A6325919431009AE472 /* FruitListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewController.swift; sourceTree = "<group>"; };
 		43012A6425919431009AE472 /* FruitListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewModel.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		43012A5C259193BE009AE472 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				43012A5D259193BE009AE472 /* AnalyticsProvider.swift */,
+				43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */,
 				43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */,
 			);
 			path = Analytics;
@@ -518,7 +518,7 @@
 				43012AA3259243E4009AE472 /* AppInitializer.swift in Sources */,
 				43012A762591956E009AE472 /* StoryboardExtensions.swift in Sources */,
 				43012A3725918F51009AE472 /* SceneDelegate.swift in Sources */,
-				43012A5F259193BE009AE472 /* AnalyticsProvider.swift in Sources */,
+				43012A5F259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift in Sources */,
 				43012A752591956E009AE472 /* Decoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

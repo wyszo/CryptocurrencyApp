@@ -9,20 +9,20 @@ import Foundation
 
 protocol DIContainerProtocol {
     var httpClient: HttpClient { get }
-    var analyticsProvider: AnalyticsProvider { get }
+    var analyticsProvider: AnalyticsStatsEndpointProvider { get }
     var fruitsDataProvider: FruitsDataProvider { get }
 }
 
 struct DIContainer: DIContainerProtocol {
     let httpClient: HttpClient
-    let analyticsProvider: AnalyticsProvider
+    let analyticsProvider: AnalyticsStatsEndpointProvider
     let fruitsDataProvider: FruitsDataProvider
     
     init() {
         let requestSender = DefaultRequestSender()
         
         httpClient = DefaultHttpClient(requestSender: requestSender)
-        analyticsProvider = AnalyticsProvider(httpClient: httpClient)
+        analyticsProvider = AnalyticsStatsEndpointProvider(httpClient: httpClient)
         fruitsDataProvider = DefaultFruitsDataProvider(httpClient: httpClient,
                                                        analyticsProvider: analyticsProvider)
     }

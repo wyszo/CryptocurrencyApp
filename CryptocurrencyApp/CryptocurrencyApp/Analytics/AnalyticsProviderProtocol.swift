@@ -1,5 +1,5 @@
 //
-//  AnalyticsProvider.swift
+//  AnalyticsProviderProtocol.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
