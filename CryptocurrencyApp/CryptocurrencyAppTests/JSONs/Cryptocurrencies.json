@@ -1,0 +1,24 @@
+
+{
+    "cryptocurrencies":[
+        {
+            "name": "Bitcoin",
+            "shortName": "BTC",
+            "priceUSD": 23574.77,
+            "7dChangePercent": 14.40
+        },
+        {
+            "name": "Litecoin",
+            "shortName": "LTC",
+            "priceUSD": 105.03,
+            "7dChangePercent": -5.13
+        },
+        {
+            "name": "Ethereum",
+            "shortName": "ETH",
+            "priceUSD": 608.92,
+            "7dChangePercent": -2.74
+        }
+    ],
+    "marketCapBilionsUSD": 641.02
+}

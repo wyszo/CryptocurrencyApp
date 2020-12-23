@@ -42,6 +42,8 @@
 		43012A9C2591987F009AE472 /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A972591987F009AE472 /* MockHttpClient.swift */; };
 		43012AA125923EC7009AE472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43012AA025923EC7009AE472 /* GoogleService-Info.plist */; };
 		43012AA3259243E4009AE472 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AA2259243E4009AE472 /* AppInitializer.swift */; };
+		43012AA52593DCCB009AE472 /* Cryptocurrencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 43012AA42593DCCB009AE472 /* Cryptocurrencies.json */; };
+		43012AA82593E621009AE472 /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AA72593E621009AE472 /* Cryptocurrency.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
 		EE63AE022C95CF3A9281C6D9 /* Pods_CryptocurrencyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA49E6BEE71AB95D82562EC /* Pods_CryptocurrencyAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,8 @@
 		43012A972591987F009AE472 /* MockHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
 		43012AA025923EC7009AE472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43012AA2259243E4009AE472 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
+		43012AA42593DCCB009AE472 /* Cryptocurrencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cryptocurrencies.json; sourceTree = "<group>"; };
+		43012AA72593E621009AE472 /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5D56C195AA3623E5963A2B /* Pods-CryptocurrencyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9547CBB5E42BB1245FAECD07 /* Pods-CryptocurrencyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				43012A79259196B5009AE472 /* Fruit.swift */,
+				43012AA72593E621009AE472 /* Cryptocurrency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,8 +297,8 @@
 		43012A912591987F009AE472 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
-				43012A922591987F009AE472 /* Fruits.json */,
-				43012A932591987F009AE472 /* MalformedFruits.json */,
+				43012AA62593DCD8009AE472 /* Fruits */,
+				43012AA42593DCCB009AE472 /* Cryptocurrencies.json */,
 				43012A942591987F009AE472 /* JSONEncodable.swift */,
 			);
 			path = JSONs;
@@ -314,6 +319,15 @@
 				43012AA025923EC7009AE472 /* GoogleService-Info.plist */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		43012AA62593DCD8009AE472 /* Fruits */ = {
+			isa = PBXGroup;
+			children = (
+				43012A922591987F009AE472 /* Fruits.json */,
+				43012A932591987F009AE472 /* MalformedFruits.json */,
+			);
+			path = Fruits;
 			sourceTree = "<group>";
 		};
 		BA98D6AEB85C31B52B93E4C3 /* Pods */ = {
@@ -425,6 +439,7 @@
 			files = (
 				43012A992591987F009AE472 /* MalformedFruits.json in Resources */,
 				43012A982591987F009AE472 /* Fruits.json in Resources */,
+				43012AA52593DCCB009AE472 /* Cryptocurrencies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +531,7 @@
 				43012A6E259194DF009AE472 /* FruitsDataProvider.swift in Sources */,
 				43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */,
 				43012AA3259243E4009AE472 /* AppInitializer.swift in Sources */,
+				43012AA82593E621009AE472 /* Cryptocurrency.swift in Sources */,
 				43012A762591956E009AE472 /* StoryboardExtensions.swift in Sources */,
 				43012A3725918F51009AE472 /* SceneDelegate.swift in Sources */,
 				43012A5F259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift in Sources */,
