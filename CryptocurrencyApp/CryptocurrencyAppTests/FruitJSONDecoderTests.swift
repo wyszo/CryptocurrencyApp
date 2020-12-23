@@ -23,7 +23,7 @@ class FruitJSONDecoderTests: XCTestCase {
     /**
      *  When: JSONData in a correct format is passed for parsing
      *   Then:   No exceptions are raised
-     *    And:   Data It is parsed correctly into model files
+     *    And:   Data is parsed correctly into model files
      */
     func testParsingValidJSON() {
         guard let jsonData = fixtures.fruitsJSONData else {

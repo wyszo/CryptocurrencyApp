@@ -28,6 +28,10 @@ class Fixtures {
         return JSONData(fromFile: "Fruits")
     }
     
+    var cryptocurrencyJSONData: Data? {
+        return JSONData(fromFile: "Cryptocurrencies")
+    }
+    
     var malformedFruitsJSONData: Data? {
         return JSONData(fromFile: "MalformedFruits")
     }

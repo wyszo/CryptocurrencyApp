@@ -21,6 +21,7 @@ struct Cryptocurrency: Codable, Equatable {
     }
 }
 
-struct CryptocurrenciesList {
+struct CryptocurrencyList: Codable, Equatable {
+    let cryptocurrencies: [Cryptocurrency]
     let marketCapBilionsUSD: Double
 }
