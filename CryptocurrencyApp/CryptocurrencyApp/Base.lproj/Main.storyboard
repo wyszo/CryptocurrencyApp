@@ -10,7 +10,7 @@
         <!--Fruit Detail View Controller-->
         <scene sceneID="Cmy-Tj-5Bd">
             <objects>
-                <viewController storyboardIdentifier="FruitDetailViewController" id="gmv-sI-0MK" customClass="FruitDetailViewController" customModule="BBCFruitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FruitDetailViewController" id="gmv-sI-0MK" customClass="FruitDetailViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dgZ-eO-O4O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
         <!--Fruit List View Controller-->
         <scene sceneID="NBy-js-9K1">
             <objects>
-                <viewController storyboardIdentifier="FruitListViewController" id="R6P-JG-CEe" customClass="FruitListViewController" customModule="BBCFruitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FruitListViewController" id="R6P-JG-CEe" customClass="FruitListViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="naj-JI-KTx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,6 +116,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5s-zA-O2e" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-593" y="138"/>
+        </scene>
+        <!--Cryptocurrency List View Controller-->
+        <scene sceneID="mNc-kS-yiP">
+            <objects>
+                <viewController storyboardIdentifier="CryptocurrencyListViewController" id="AEC-g3-RKd" customClass="CryptocurrencyListViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XgN-fx-PGb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p68-dh-7fW">
+                                <rect key="frame" x="20" y="44" width="374" height="810"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FruitCellIdentifier" id="9Iz-42-Ueb" userLabel="CryptocurrencyCellIdentifier">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Iz-42-Ueb" id="EF2-9o-AQ7">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p68-dh-7fW" firstAttribute="leading" secondItem="RCv-fr-JiQ" secondAttribute="leading" constant="20" id="cnA-wr-2ST"/>
+                            <constraint firstItem="RCv-fr-JiQ" firstAttribute="trailing" secondItem="p68-dh-7fW" secondAttribute="trailing" constant="20" id="muv-uF-EXm"/>
+                            <constraint firstItem="RCv-fr-JiQ" firstAttribute="bottom" secondItem="p68-dh-7fW" secondAttribute="bottom" constant="8" id="syH-vD-sql"/>
+                            <constraint firstItem="p68-dh-7fW" firstAttribute="top" secondItem="RCv-fr-JiQ" secondAttribute="top" id="yCK-Fb-CxA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RCv-fr-JiQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oAV-8A-hKb"/>
+                    <connections>
+                        <outlet property="tableView" destination="p68-dh-7fW" id="32y-F2-Sih"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgD-h4-Enf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594" y="829"/>
         </scene>
     </scenes>
 </document>

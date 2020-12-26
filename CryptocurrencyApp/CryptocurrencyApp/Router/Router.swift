@@ -22,7 +22,7 @@ class Router: RouterProtocol {
     }
     
     func createRootViewController() -> UINavigationController? {
-        guard let vc = createListViewController() else {
+        guard let vc = createCryptocurrencyListViewController() else {
             assertionFailure("Root ViewController initialization failed!")
             return nil
         }
@@ -30,7 +30,15 @@ class Router: RouterProtocol {
         return navigationController
     }
     
-    private func createListViewController() -> UIViewController? {
+    private func createCryptocurrencyListViewController() -> UIViewController? {
+        guard let listVC = try? UIStoryboard.main.viewController(ofType: CryptocurrencyListViewController.self) else {
+            assertionFailure("CryptocurrencyListViewController initialization failed!")
+            return nil
+        }
+        return listVC
+    }
+    
+    private func createFruitListViewController() -> UIViewController? {
         guard let listVC = try? UIStoryboard.main.viewController(ofType: FruitListViewController.self) else {
             assertionFailure("List ViewController initialization failed!")
             return nil
