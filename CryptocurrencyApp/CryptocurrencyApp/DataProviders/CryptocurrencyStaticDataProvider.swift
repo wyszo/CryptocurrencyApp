@@ -8,7 +8,7 @@
 import PromiseKit
 
 /**
- * A temporary class returning the cryptocurrency list it was created with 
+ * Temporary class returning the cryptocurrency list it was created with (mock)
  */
 class CryptocurrencyStaticDataProvider: CryptocurrencyDataProviderProtocol {
     

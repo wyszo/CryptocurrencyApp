@@ -19,11 +19,21 @@ class CryptocurrencyListViewModel {
     @Injected var dataProvider: CryptocurrencyDataProviderProtocol
     
     func fetch() -> Promise<CryptocurrencyList> {
-        assertionFailure("Not implemented yet!")
-        return Promise(error: CryptocurrencyListError.notImplementedYet)
+        let promise = dataProvider.getCryptocurrencies()
+        _ = promise.done { list in
+            self.cryptocurrencyList = list
+        }
+        promise.catch { _ in
+            self.cryptocurrencyList = nil
+        }
+        return promise
     }
-}
-
-enum CryptocurrencyListError: Error {
-    case notImplementedYet
+    
+    func itemAtIndex(_ index: Int) -> Cryptocurrency? {
+        guard let currencies = cryptocurrencyList?.cryptocurrencies, index < currencies.count else {
+            assertionFailure("index out of bounds")
+            return nil
+        }
+        return currencies[index]
+    }
 }

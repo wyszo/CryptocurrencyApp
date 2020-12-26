@@ -19,6 +19,10 @@ struct Cryptocurrency: Codable, Equatable {
         case priceUSD
         case sevenDaysChangePercent = "7dChangePercent"
     }
+    
+    var shortDescription: String {
+        return name + " (" + shortName + ")"
+    }
 }
 
 struct CryptocurrencyList: Codable, Equatable {

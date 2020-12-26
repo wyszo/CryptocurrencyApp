@@ -17,7 +17,12 @@ class CryptocurrencyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeStrings()
         initializeList()
+    }
+    
+    private func initializeStrings() {
+        navigationItem.title = viewModel.navbarTitle
     }
     
     private func initializeList() {
@@ -27,20 +32,38 @@ class CryptocurrencyListViewController: UIViewController {
         
         self.adapter = adapter
         
+        viewModel.fetch().done { [weak self] cryptoList in
+            guard let `self` = self else {
+                assertionFailure("ViewController instance deallocated prematurely!")
+                return
+            }
+            guard let adapter = self.adapter else {
+                assertionFailure("Adapter instance deallocated prematurely!")
+                return
+            }
+            adapter.numberOfItems = cryptoList.cryptocurrencies.count
+        }.catch { error in
+            assertionFailure("Error handling not implemented yet")
+        }
+        
         adapter.didPullToRefresh = { [weak self] in
             guard let `self` = self else {
-                assertionFailure("ViewController class deallocated prematurely!")
+                assertionFailure("ViewController instance deallocated prematurely!")
                 return
             }
             _ = self.viewModel.fetch()
         }
         
         adapter.didSelectRow = { _ in
-            assertionFailure("not implemented yet")
+            assertionFailure("Not implemented yet")
         }
         
-        adapter.cellForRow = { _, _ in
-            assertionFailure("not implemented yet")
+        adapter.cellForRow = { [weak self] row, cell in
+            guard let `self` = self else {
+                assertionFailure("ViewController class deallocated unnexpectedly!")
+                return
+            }
+            cell.textLabel?.text = self.viewModel.itemAtIndex(row)?.shortDescription
         }
     }
     
