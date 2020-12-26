@@ -11,14 +11,14 @@ Tasks:
 [ ] Add CryptocurrencyListViewController
 [ ] Add CryptocurrencyDetailViewController
 [ ] Put a localizable string Navbar title
-[ ] Add R.swift library (and localize strings using it)
+[ ] Localize strings using R.swift library
+[ ] Wire Swiftlint
 [ ] Turn off stats analytics for now
 [ ] Rename FruitListVC to CryptocurrencyListVC
 [ ] Rename FruitListVM to CryptocurrencyListVM
 [ ] Rename FruitDetailVC
 [ ] Rename FruitDetailVM
 [ ] Rename Fruit 
-[ ] Update JSONs 
 [ ] Update Fruit reference in Tests
 [ ] Separate scheme from host in APISettings
 [ ] Inject dependencies using Resolver

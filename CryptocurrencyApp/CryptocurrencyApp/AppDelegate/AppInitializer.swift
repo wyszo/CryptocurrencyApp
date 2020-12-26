@@ -6,9 +6,19 @@
 //
 
 import Firebase
+import Resolver
 
 class AppInitialiser {
-    func initializeLibraries() {
+    func initializeApp() {
+        initializeLibraries()
+        initializeDependencyInjection()
+    }
+    
+    private func initializeLibraries() {
         FirebaseApp.configure()
+    }
+    
+    private func initializeDependencyInjection() {
+        Resolver.registerDependencies()
     }
 }

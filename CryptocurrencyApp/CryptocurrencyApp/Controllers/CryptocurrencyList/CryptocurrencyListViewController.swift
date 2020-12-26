@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Resolver
 
 class CryptocurrencyListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var adapter: TableViewAdapter?
+    @Injected private var router: RouterProtocol
+    @Injected private var viewModel: CryptocurrencyListViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +27,12 @@ class CryptocurrencyListViewController: UIViewController {
         
         self.adapter = adapter
         
-        adapter.didPullToRefresh = {
-            assertionFailure("not implemented yet")
+        adapter.didPullToRefresh = { [weak self] in
+            guard let `self` = self else {
+                assertionFailure("ViewController class deallocated prematurely!")
+                return
+            }
+            _ = self.viewModel.fetch()
         }
         
         adapter.didSelectRow = { _ in
