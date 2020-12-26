@@ -46,6 +46,7 @@
 		43012AA82593E621009AE472 /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AA72593E621009AE472 /* Cryptocurrency.swift */; };
 		43012AAA259401D0009AE472 /* CryptocurrencyDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AA9259401D0009AE472 /* CryptocurrencyDecoderTests.swift */; };
 		43012AAC259484AB009AE472 /* CryptocurrencyDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AAB259484AB009AE472 /* CryptocurrencyDataProvider.swift */; };
+		43012AB32594876C009AE472 /* CryptocurrencyDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AB22594876C009AE472 /* CryptocurrencyDataProviderTests.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
 		EE63AE022C95CF3A9281C6D9 /* Pods_CryptocurrencyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA49E6BEE71AB95D82562EC /* Pods_CryptocurrencyAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		43012AA72593E621009AE472 /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
 		43012AA9259401D0009AE472 /* CryptocurrencyDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyDecoderTests.swift; sourceTree = "<group>"; };
 		43012AAB259484AB009AE472 /* CryptocurrencyDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyDataProvider.swift; sourceTree = "<group>"; };
+		43012AB22594876C009AE472 /* CryptocurrencyDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyDataProviderTests.swift; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5D56C195AA3623E5963A2B /* Pods-CryptocurrencyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9547CBB5E42BB1245FAECD07 /* Pods-CryptocurrencyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				43012A8E25919838009AE472 /* FruitsDataProviderTests.swift */,
+				43012AB22594876C009AE472 /* CryptocurrencyDataProviderTests.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				43012A8B259197EA009AE472 /* FruitDetailViewModelTests.swift in Sources */,
 				43012A8A259197EA009AE472 /* Fixtures.swift in Sources */,
 				43012A8C259197EA009AE472 /* AnalyticsProviderTests.swift in Sources */,
+				43012AB32594876C009AE472 /* CryptocurrencyDataProviderTests.swift in Sources */,
 				43012A8F25919838009AE472 /* FruitJSONDecoderTests.swift in Sources */,
 				43012A9B2591987F009AE472 /* MockAnalyticsProvider.swift in Sources */,
 				43012A9025919838009AE472 /* FruitsDataProviderTests.swift in Sources */,
