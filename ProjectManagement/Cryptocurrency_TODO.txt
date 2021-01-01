@@ -13,6 +13,8 @@ Tasks:
 [ ] Put a localizable string Navbar title
 [ ] Localize strings using R.swift library
 [ ] Wire Swiftlint
+[ ] Display < 0 price change in red
+[ ] Display > 0 price change in green
 [ ] Turn off stats analytics for now
 [ ] Rename FruitListVC to CryptocurrencyListVC
 [ ] Rename FruitListVM to CryptocurrencyListVM

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Resolver
 
 protocol RouterProtocol {
     func createRootViewController() -> UINavigationController?
@@ -16,7 +17,7 @@ protocol RouterProtocol {
     func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency)
 }
 
-class Router: RouterProtocol {
+class Router: RouterProtocol, Resolving {
     
     private var navigationController: UINavigationController?
     private let diContainer: DIContainerProtocol
@@ -92,7 +93,7 @@ class Router: RouterProtocol {
     }
     
     func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency) {
-        guard let controller = createCryptocurrencyDetailViewController( cryptocurrency) else {
+        guard let controller = createCryptocurrencyDetailViewController(cryptocurrency) else {
             assertionFailure("CryptocurrencyDetailViewController initialization failed!"); return
         }
         guard let navigationController = navigationController else {
@@ -106,6 +107,8 @@ class Router: RouterProtocol {
             assertionFailure("CryptocurrencyDetailViewController initialization failed!")
             return nil
         }
+        
+        controller.viewModel = resolver.optional(args: cryptocurrency)
         return controller
     }
 }

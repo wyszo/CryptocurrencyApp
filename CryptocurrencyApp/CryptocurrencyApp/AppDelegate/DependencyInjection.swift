@@ -27,6 +27,10 @@ extension Resolver {
         register {
             CryptocurrencyListViewModel()
         }.scope(unique)
+        
+        register { (_, args) in
+            CryptocurrencyDetailViewModel(cryptocurrency: args())
+        }.scope(unique)
     }
     
     private static func registerDataProviders() {
@@ -52,6 +56,6 @@ private extension Cryptocurrency {
         return Cryptocurrency(name: "Ethereum",
                               shortName: "ETH",
                               priceUSD: 608.92,
-                              sevenDaysChangePercent: -2.74)
+                              changePercent7d: -2.74)
     }
 }
