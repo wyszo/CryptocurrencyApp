@@ -17,7 +17,7 @@ extension Resolver {
         }
         register(RouterProtocol.self) {
             Router(diContainer: resolve())
-        }
+        }.scope(cached)
 
         registerViewModels()
         registerDataProviders()
