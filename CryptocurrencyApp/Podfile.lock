@@ -83,12 +83,16 @@ PODS:
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
   - PromisesObjC (1.2.11)
+  - R.swift (5.3.1):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
   - Resolver (1.2.1)
 
 DEPENDENCIES:
   - Firebase/Analytics (~> 6.18)
   - Firebase/Crashlytics (~> 6.18)
   - PromiseKit (~> 6.13.1)
+  - R.swift (~> 5.3.1)
   - Resolver (~> 1.2.1)
 
 SPEC REPOS:
@@ -108,6 +112,8 @@ SPEC REPOS:
     - nanopb
     - PromiseKit
     - PromisesObjC
+    - R.swift
+    - R.swift.Library
     - Resolver
 
 SPEC CHECKSUMS:
@@ -126,8 +132,10 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
 
-PODFILE CHECKSUM: ede0e21b73b99bd0518497ea62f617398626c182
+PODFILE CHECKSUM: 16c39ad0c9fba09b95abc982181e7af57e82456a
 
 COCOAPODS: 1.9.0

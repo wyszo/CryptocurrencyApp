@@ -15,7 +15,7 @@ class FruitDetailViewController: UIViewController {
     
     var viewDidFinishDrawing: VoidCallback?
     
-    var viewModel: FruitDetailViewModel? {
+    var viewModel: FruitDetailViewModel! {
         didSet {
             updateUI()
         }

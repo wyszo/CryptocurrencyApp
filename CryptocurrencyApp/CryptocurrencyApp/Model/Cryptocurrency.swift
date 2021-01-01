@@ -11,13 +11,11 @@ struct Cryptocurrency: Codable, Equatable {
     let name: String
     let shortName: String
     let priceUSD: Double
-    let sevenDaysChangePercent: Double
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case shortName
-        case priceUSD
-        case sevenDaysChangePercent = "7dChangePercent"
+    let changePercent7d: Double
+    
+    var shortDescription: String {
+        return name + " (" + shortName + ")"
     }
 }
 

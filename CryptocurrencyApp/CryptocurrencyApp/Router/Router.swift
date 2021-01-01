@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import Resolver
 
 protocol RouterProtocol {
     func createRootViewController() -> UINavigationController?
+    
+    // deprecated
     func presentFruitDetailViewController(fruit: Fruit)
+    
+    func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency)
 }
 
-class Router: RouterProtocol {
+class Router: RouterProtocol, Resolving {
     
     private var navigationController: UINavigationController?
     private let diContainer: DIContainerProtocol
@@ -22,7 +27,7 @@ class Router: RouterProtocol {
     }
     
     func createRootViewController() -> UINavigationController? {
-        guard let vc = createListViewController() else {
+        guard let vc = createCryptocurrencyListViewController() else {
             assertionFailure("Root ViewController initialization failed!")
             return nil
         }
@@ -30,7 +35,16 @@ class Router: RouterProtocol {
         return navigationController
     }
     
-    private func createListViewController() -> UIViewController? {
+    private func createCryptocurrencyListViewController() -> UIViewController? {
+        guard let listVC = try? UIStoryboard.main.viewController(ofType: CryptocurrencyListViewController.self) else {
+            assertionFailure("CryptocurrencyListViewController initialization failed!")
+            return nil
+        }
+        return listVC
+    }
+    
+    // deprecated
+    private func createFruitListViewController() -> UIViewController? {
         guard let listVC = try? UIStoryboard.main.viewController(ofType: FruitListViewController.self) else {
             assertionFailure("List ViewController initialization failed!")
             return nil
@@ -49,6 +63,7 @@ class Router: RouterProtocol {
         return listVC
     }
     
+    // deprecated
     func presentFruitDetailViewController(fruit: Fruit) {
         guard let controller = createFruitDetailViewController(fruit: fruit) else {
             assertionFailure("Fruit ViewController initialization failed!"); return
@@ -59,6 +74,7 @@ class Router: RouterProtocol {
         navigationController.pushViewController(controller, animated: true)
     }
     
+    // deprecated
     private func createFruitDetailViewController(fruit: Fruit) -> UIViewController? {
         guard let controller = try? UIStoryboard.main.viewController(ofType: FruitDetailViewController.self) else {
             assertionFailure("Fruit ViewController initialization failed!")
@@ -73,6 +89,26 @@ class Router: RouterProtocol {
             let screenInfo = ScreenInfo(screenId: .fruitDetail)
             self?.diContainer.analyticsProvider.screenDidShow(screenInfo: screenInfo, timeInMs: timeInMs)
         }
+        return controller
+    }
+    
+    func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency) {
+        guard let controller = createCryptocurrencyDetailViewController(cryptocurrency) else {
+            assertionFailure("CryptocurrencyDetailViewController initialization failed!"); return
+        }
+        guard let navigationController = navigationController else {
+            assertionFailure("Missing navigationController!"); return
+        }
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+    private func createCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency) -> UIViewController? {
+        guard let controller = try? UIStoryboard.main.viewController(ofType: CryptocurrencyDetailViewController.self) else {
+            assertionFailure("CryptocurrencyDetailViewController initialization failed!")
+            return nil
+        }
+        
+        controller.viewModel = resolver.optional(args: cryptocurrency)
         return controller
     }
 }

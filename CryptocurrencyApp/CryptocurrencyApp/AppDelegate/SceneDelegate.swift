@@ -6,20 +6,18 @@
 //
 
 import UIKit
+import Resolver
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private var router: RouterProtocol?
-    private let diContainer = DIContainer()
+    @Injected private var router: RouterProtocol
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-
-        self.router = Router(diContainer: diContainer)
         
-        self.window?.rootViewController = self.router?.createRootViewController()
+        self.window?.rootViewController = self.router.createRootViewController()
         self.window?.makeKeyAndVisible()
     }
 }
