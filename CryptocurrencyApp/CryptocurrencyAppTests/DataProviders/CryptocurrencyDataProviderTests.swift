@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SwiftyMocky
 @testable import CryptocurrencyApp
 
 class CryptocurrencyDataProviderTests: XCTestCase {

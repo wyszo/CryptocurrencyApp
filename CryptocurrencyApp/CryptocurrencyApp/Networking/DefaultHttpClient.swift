@@ -2,36 +2,42 @@
 //  DefaultHttpClient.swift
 //  CryptocurrencyApp
 //
-//  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
+//  Copyright © 2021 Thomas Wyszomirski. All rights reserved.
 //
 
 import Foundation
+import PromiseKit
+import Resolver
 
-/**
- * Alternatively we could just use Alamofire
- */
 class DefaultHttpClient: HttpClient {
-    private let requestSender: URLRequestSender
-    
-    init(requestSender: URLRequestSender = DefaultRequestSender()) {
-        self.requestSender = requestSender
-    }
-    
+    @Injected private var requestSender: URLRequestSender
+
     func sendRequest(method: HttpMethod,
                      path: String,
-                     queryParameters: [String: String]? = nil,
-                     completion: @escaping NetworkResponse) throws {
+                     queryParameters: [String: String]? = nil) -> Promise<Data> {
         
-        var urlComponents = URLComponents(string: path)
-        
-        if let params = queryParameters {
-            urlComponents?.queryItems = params.map { return URLQueryItem(name: $0.key, value: $0.value) }
-        }        
-        guard let absoluteURL = urlComponents?.url else {
-            throw HttpClientError.InvalidParameters
+        return Promise<Data> { seal in
+            var urlComponents = URLComponents(string: path)
+            
+            if let params = queryParameters {
+                urlComponents?.queryItems = params.map {
+                    return URLQueryItem(name: $0.key,
+                                        value: $0.value)
+                }
+            }
+            guard let absoluteURL = urlComponents?.url else {
+                seal.reject(HttpClientError.InvalidParameters)
+                return
+            }
+            
+            let request = URLRequest(url: absoluteURL)
+            requestSender.send(request: request)
+                .done { data in
+                    seal.fulfill(data)
+                }
+                .catch { error in
+                    seal.reject(error)
+                }
         }
-        
-        let request = URLRequest(url: absoluteURL)
-        requestSender.send(request: request, completion: completion)
     }
 }

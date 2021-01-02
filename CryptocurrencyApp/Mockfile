@@ -1,0 +1,14 @@
+sourceryCommand: null
+sourceryTemplate: null
+CryptocurrencyAppTests:
+  sources:
+    include:
+    - ./CryptocurrencyApp
+  output: ./CryptocurrencyAppTests/Mock.generated.swift
+  targets:
+  - CryptocurrencyAppTests
+  testable:
+  - CryptocurrencyApp
+  import:
+  - Foundation
+  - PromiseKit

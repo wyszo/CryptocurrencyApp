@@ -8,20 +8,20 @@
 import Foundation
 
 protocol DIContainerProtocol {
-    var httpClient: HttpClient { get }
+    var httpClient: DeprecatedHttpClient { get }
     var analyticsProvider: AnalyticsStatsEndpointProvider { get }
     var fruitsDataProvider: FruitsDataProvider { get }
 }
 
 struct DIContainer: DIContainerProtocol {
-    let httpClient: HttpClient
+    let httpClient: DeprecatedHttpClient
     let analyticsProvider: AnalyticsStatsEndpointProvider
     let fruitsDataProvider: FruitsDataProvider
     
     init() {
-        let requestSender = DefaultRequestSender()
+        let requestSender = DefaultDeprecatedRequestSender()
         
-        httpClient = DefaultHttpClient(requestSender: requestSender)
+        httpClient = DefaultDeprecatedHttpClient(requestSender: requestSender)
         analyticsProvider = AnalyticsStatsEndpointProvider(httpClient: httpClient)
         fruitsDataProvider = DefaultFruitsDataProvider(httpClient: httpClient,
                                                        analyticsProvider: analyticsProvider)

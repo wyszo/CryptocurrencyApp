@@ -11,6 +11,8 @@ target 'CryptocurrencyApp' do
 
   target 'CryptocurrencyAppTests' do
     inherit! :search_paths
+    
+    pod 'SwiftyMocky', '~> 4.0.1'
   end
 
 end

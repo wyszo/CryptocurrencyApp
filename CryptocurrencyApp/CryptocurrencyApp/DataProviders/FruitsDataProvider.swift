@@ -14,7 +14,7 @@ protocol FruitsDataProvider {
 }
 
 class DefaultFruitsDataProvider: FruitsDataProvider {
-    private let httpClient: HttpClient
+    private let httpClient: DeprecatedHttpClient
     private let analyticsProvider: AnalyticsProviderProtocol
     
     lazy var fruitsRequestMetadata: RequestMetadata = {
@@ -23,7 +23,7 @@ class DefaultFruitsDataProvider: FruitsDataProvider {
                                apiHost: APISettings.host)
     }()
     
-    init(httpClient: HttpClient,
+    init(httpClient: DeprecatedHttpClient,
          analyticsProvider: AnalyticsProviderProtocol) {
         self.httpClient = httpClient
         self.analyticsProvider = analyticsProvider
@@ -67,7 +67,7 @@ class DefaultFruitsDataProvider: FruitsDataProvider {
     }
 }
 
-struct APISettings {
-    // ideally scheme should be separate from host
+private struct APISettings {
+    // ideally schema should be separate from host
     static let host = "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/"
 }

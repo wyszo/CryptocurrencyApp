@@ -19,8 +19,19 @@ extension Resolver {
             Router(diContainer: resolve())
         }.scope(cached)
 
+        registerNetworkingStack()
         registerViewModels()
         registerDataProviders()
+    }
+    
+    private static func registerNetworkingStack() {
+        register(URLRequestSender.self) {
+            DefaultRequestSender()
+        }.scope(unique)
+        
+        register(HttpClient.self) {
+            DefaultHttpClient()
+        }.scope(cached)
     }
     
     private static func registerViewModels() {
@@ -34,13 +45,13 @@ extension Resolver {
     }
     
     private static func registerDataProviders() {
-        // Real data provider - temporarily turned off
-        /**
-        register {
+        register(CryptocurrencyDataProviderProtocol.self) {
             CryptocurrencyDataProvider()
         }.scope(unique)
-         */
-        
+         
+        /**
+         * Mocked data provider - turned off now
+         *
         register(CryptocurrencyDataProviderProtocol.self) {
             let cryptocurrencies: [Cryptocurrency] = [
                 Cryptocurrency.ethereum()
@@ -48,9 +59,13 @@ extension Resolver {
             let list = CryptocurrencyList(cryptocurrencies: cryptocurrencies, marketCapBilionsUSD: 500)
             return CryptocurrencyStaticDataProvider(cryptocurrencyList: list)
         }
+         */
     }
 }
 
+/**
+ * Mocked data extension - deprecated
+ *
 private extension Cryptocurrency {
     static func ethereum() -> Cryptocurrency {
         return Cryptocurrency(name: "Ethereum",
@@ -59,3 +74,4 @@ private extension Cryptocurrency {
                               changePercent7d: -2.74)
     }
 }
+*/

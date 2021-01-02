@@ -2,37 +2,33 @@
 //  URLRequestSender.swift
 //  CryptocurrencyApp
 //
-//  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
+//  Copyright © 2021 Thomas Wyszomirski. All rights reserved.
 //
 
 import Foundation
+import PromiseKit
 
-public typealias NetworkResponse = (Result<Data, Error>, Int) -> ()
-
-public protocol URLRequestSender {
-    func send(request: URLRequest,
-              completion: @escaping NetworkResponse)
+public protocol URLRequestSender: AutoMockable {
+    func send(request: URLRequest) -> Promise<Data>
 }
 
 public class DefaultRequestSender: URLRequestSender {
     private let session = URLSession.shared
     
-    public func send(request: URLRequest,
-                     completion: @escaping NetworkResponse) {
-        let requestTimer = PerformanceTimer()
-        
-        let task = URLSession.shared
-            .dataTask(with: request) { (data, response, error) in
-            let timeInMs = requestTimer.timeEllapsedInMs()
-                
-            DispatchQueue.main.async {
-                if let error = error {
-                    completion(.failure(error), timeInMs)
-                    return
+    public func send(request: URLRequest) -> Promise<Data> {
+
+        return Promise<Data> { seal in
+            let task = URLSession
+                .shared
+                .dataTask(with: request) { (data, response, error) in
+                    DispatchQueue.main.async {
+                        if let error = error {
+                            seal.reject(error)
+                        }
+                        seal.fulfill(data ?? Data())
+                    }
                 }
-                completion(.success(data ?? Data()), timeInMs)
-            }
+            task.resume()
         }
-        task.resume()
     }
 }
