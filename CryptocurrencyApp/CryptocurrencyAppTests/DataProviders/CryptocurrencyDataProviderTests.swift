@@ -6,8 +6,8 @@
 //
 
 import XCTest
-@testable import CryptocurrencyApp
 import SwiftyMocky
+@testable import CryptocurrencyApp
 
 class CryptocurrencyDataProviderTests: XCTestCase {
     private var sut: CryptocurrencyDataProvider!

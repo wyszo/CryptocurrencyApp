@@ -16,6 +16,7 @@ Done:
 +. Update Analytics to point to my endpoint
 +. Update json data for cryptocurrency 
 +. Add Cocoapods, Resolver for DI
++. Fetching Cryptocurrency json data from S3 bucket
 
 Next: 
 5. Switch Analytics over to Firebase 
