@@ -8,7 +8,7 @@
 import Foundation
 import PromiseKit
 
-public protocol URLRequestSender {
+public protocol URLRequestSender: AutoMockable {
     func send(request: URLRequest) -> Promise<Data>
 }
 

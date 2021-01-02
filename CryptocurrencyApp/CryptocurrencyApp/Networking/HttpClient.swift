@@ -8,7 +8,7 @@
 import Foundation
 import PromiseKit
 
-public protocol HttpClient {
+public protocol HttpClient: AutoMockable {
     func sendRequest(method: HttpMethod,
                      path: String,
                      queryParameters: [String: String]?) -> Promise<Data>

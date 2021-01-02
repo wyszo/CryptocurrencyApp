@@ -87,6 +87,9 @@ PODS:
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - Resolver (1.2.1)
+  - Sourcery (1.0.2)
+  - SwiftyMocky (4.0.1):
+    - Sourcery (>= 1.0)
 
 DEPENDENCIES:
   - Firebase/Analytics (~> 6.18)
@@ -94,6 +97,7 @@ DEPENDENCIES:
   - PromiseKit (~> 6.13.1)
   - R.swift (~> 5.3.1)
   - Resolver (~> 1.2.1)
+  - SwiftyMocky (~> 4.0.1)
 
 SPEC REPOS:
   trunk:
@@ -115,6 +119,8 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - Resolver
+    - Sourcery
+    - SwiftyMocky
 
 SPEC CHECKSUMS:
   Firebase: 0490eca762a72e4f1582319539153897f1508dee
@@ -135,7 +141,9 @@ SPEC CHECKSUMS:
   R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
+  Sourcery: e8951e8759ef6a3a0cce412db64832dd23343041
+  SwiftyMocky: 707d9cdd5decef8083f6dc76892977ee1cf8bbce
 
-PODFILE CHECKSUM: 16c39ad0c9fba09b95abc982181e7af57e82456a
+PODFILE CHECKSUM: 3a1ea9ce76e0d69af42cf25b995b6ae0decf59b3
 
 COCOAPODS: 1.9.0
