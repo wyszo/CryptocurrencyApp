@@ -19,8 +19,15 @@ extension Resolver {
             Router(diContainer: resolve())
         }.scope(cached)
 
+        registerNetworkingStack()
         registerViewModels()
         registerDataProviders()
+    }
+    
+    private static func registerNetworkingStack() {
+        register(URLRequestSender.self) {
+            DefaultRequestSender()
+        }.scope(unique)
     }
     
     private static func registerViewModels() {

@@ -7,24 +7,6 @@
 
 import Foundation
 
-public enum HttpMethod: String {
-    case get
-    case post
-    case put
-    case delete
-    case path
-}
-
-public struct RequestMetadata: Equatable {
-    let type: HttpMethod
-    let apiPath: String
-    let apiHost: String
-}
-
-enum HttpClientError: Error {
-    case InvalidParameters
-}
-
 @available(*, deprecated, message: "To be replaced by the new http client")
 public protocol DeprecatedHttpClient {
     func sendRequest(method: HttpMethod,

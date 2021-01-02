@@ -7,8 +7,9 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks: 
-[ ] Recreate network stack with PromiseKit and URLSession
-[ ] Add CryptocurrencyDataProvider
+[ ] Wire the new network stack to the CryptocurrencyDataProvider
+[ ] Update unit tests for the new network stack
+[ ] Update unit tests for CryptocurrencyDataProvider 
 [ ] Add CryptocurrencyListViewController
 [ ] Add CryptocurrencyDetailViewController
 [ ] Put a localizable string Navbar title
