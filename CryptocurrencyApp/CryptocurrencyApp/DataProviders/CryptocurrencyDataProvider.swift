@@ -7,6 +7,7 @@
 
 import Foundation
 import PromiseKit
+import Resolver
 
 protocol CryptocurrencyDataProviderProtocol {
     func getCryptocurrencies() -> Promise<CryptocurrencyList>
@@ -14,10 +15,37 @@ protocol CryptocurrencyDataProviderProtocol {
 
 class CryptocurrencyDataProvider: CryptocurrencyDataProviderProtocol {
     
+    @Injected private var httpClient: HttpClient
+    
     func getCryptocurrencies() -> Promise<CryptocurrencyList> {
-        assertionFailure("Not implemented yet!")
-        let sampleList = CryptocurrencyList(cryptocurrencies: [],
-                                            marketCapBilionsUSD: 0)
-        return Promise.value(sampleList)
+        
+        let metadata = RequestMetadata(type: .get,
+                                       apiPath: RequestConstants.getCryptocurrenciesPath,
+                                       apiHost: APISettings.host)
+        
+        return Promise<CryptocurrencyList> { seal in
+            httpClient.sendRequest(metadata: metadata).done { data in
+                let decoder = DefaultJSONDecoder<CryptocurrencyList>()
+                do {
+                    let list = try decoder.decode(data: data)
+                    seal.fulfill(list)
+                } catch (let error) {
+                    assertionFailure("JSON Decoding error: \(error.localizedDescription)")
+                    seal.reject(error)
+                }
+            }.catch { error in
+                // This will need to be handled in the UI, not as an assertion
+                assertionFailure("Network error: \(error.localizedDescription)")
+                seal.reject(error)
+            }
+        }
     }
+    
+    struct RequestConstants {
+        static let getCryptocurrenciesPath = "Cryptocurrencies.json"
+    }
+}
+
+private struct APISettings {
+    static let host = "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/"
 }

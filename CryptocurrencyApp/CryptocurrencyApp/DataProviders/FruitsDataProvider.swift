@@ -67,7 +67,7 @@ class DefaultFruitsDataProvider: FruitsDataProvider {
     }
 }
 
-struct APISettings {
-    // ideally scheme should be separate from host
+private struct APISettings {
+    // ideally schema should be separate from host
     static let host = "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master/"
 }

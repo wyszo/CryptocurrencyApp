@@ -7,13 +7,16 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks: 
-[ ] Wire the new network stack to the CryptocurrencyDataProvider
+[ ] Rename RequestMetadata to RequestDescriptor
+[ ] Remove list data on pull to refresh
 [ ] Update unit tests for the new network stack
 [ ] Update unit tests for CryptocurrencyDataProvider 
 [ ] Add CryptocurrencyListViewController
 [ ] Add CryptocurrencyDetailViewController
 [ ] Put a localizable string Navbar title
 [ ] Localize strings using R.swift library
+[ ] Add unit tests for CryptocurrencyDataProvider getCryptocurrencies error
+[ ] handle CryptocurrencyDataProvider network error in the UI 
 [ ] Wire Swiftlint
 [ ] Display < 0 price change in red
 [ ] Display > 0 price change in green
@@ -24,7 +27,7 @@ Tasks:
 [ ] Rename FruitDetailVM
 [ ] Rename Fruit 
 [ ] Update Fruit reference in Tests
-[ ] Separate scheme from host in APISettings
+[ ] Separate schema from host in APISettings in CryptocurrencyDataProvider
 [ ] Inject dependencies using Resolver
 [ ] Maybe get a remote config file from Firebase (potentially with API settings and baseURL, etc)
 [ ] Enable Firebase Performance Measurement (and possibly deprecate manually using PerformanceTimer)
