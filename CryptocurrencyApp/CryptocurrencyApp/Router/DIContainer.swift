@@ -19,9 +19,9 @@ struct DIContainer: DIContainerProtocol {
     let fruitsDataProvider: FruitsDataProvider
     
     init() {
-        let requestSender = DefaultRequestSender()
+        let requestSender = DefaultDeprecatedRequestSender()
         
-        httpClient = DefaultHttpClient(requestSender: requestSender)
+        httpClient = DefaultDeprecatedHttpClient(requestSender: requestSender)
         analyticsProvider = AnalyticsStatsEndpointProvider(httpClient: httpClient)
         fruitsDataProvider = DefaultFruitsDataProvider(httpClient: httpClient,
                                                        analyticsProvider: analyticsProvider)

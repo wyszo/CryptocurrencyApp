@@ -1,5 +1,5 @@
 //
-//  DefaultHttpClient.swift
+//  DefaultDeprecatedHttpClient.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -10,10 +10,11 @@ import Foundation
 /**
  * Alternatively we could just use Alamofire
  */
-class DefaultHttpClient: DeprecatedHttpClient {
+@available(*, deprecated, message: "To be replaced by the new DefaultDeprecatedHttpClient")
+class DefaultDeprecatedHttpClient: DeprecatedHttpClient {
     private let requestSender: DeprecatedURLRequestSender
     
-    init(requestSender: DeprecatedURLRequestSender = DefaultRequestSender()) {
+    init(requestSender: DeprecatedURLRequestSender = DefaultDeprecatedRequestSender()) {
         self.requestSender = requestSender
     }
     
