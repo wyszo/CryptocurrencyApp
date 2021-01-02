@@ -25,7 +25,8 @@ enum HttpClientError: Error {
     case InvalidParameters
 }
 
-public protocol HttpClient {
+@available(*, deprecated, message: "To be replaced by the new http client")
+public protocol DeprecatedHttpClient {
     func sendRequest(method: HttpMethod,
                      path: String,
                      queryParameters: [String: String]?,
@@ -35,7 +36,7 @@ public protocol HttpClient {
                      completion: @escaping NetworkResponse) throws
 }
 
-extension HttpClient {
+extension DeprecatedHttpClient {
     // Default implementation allowing to skip queryParams
     func sendRequest(method: HttpMethod,
                      path: String,

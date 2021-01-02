@@ -14,7 +14,7 @@ protocol FruitsDataProvider {
 }
 
 class DefaultFruitsDataProvider: FruitsDataProvider {
-    private let httpClient: HttpClient
+    private let httpClient: DeprecatedHttpClient
     private let analyticsProvider: AnalyticsProviderProtocol
     
     lazy var fruitsRequestMetadata: RequestMetadata = {
@@ -23,7 +23,7 @@ class DefaultFruitsDataProvider: FruitsDataProvider {
                                apiHost: APISettings.host)
     }()
     
-    init(httpClient: HttpClient,
+    init(httpClient: DeprecatedHttpClient,
          analyticsProvider: AnalyticsProviderProtocol) {
         self.httpClient = httpClient
         self.analyticsProvider = analyticsProvider

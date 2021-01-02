@@ -11,9 +11,9 @@ import Foundation
  * Analytics provider implementation connecting to a static 'stats' endpoint
  */
 public class AnalyticsStatsEndpointProvider: AnalyticsProviderProtocol {
-    private let httpClient: HttpClient
+    private let httpClient: DeprecatedHttpClient
     
-    init(httpClient: HttpClient) {
+    init(httpClient: DeprecatedHttpClient) {
         self.httpClient = httpClient
     }
     

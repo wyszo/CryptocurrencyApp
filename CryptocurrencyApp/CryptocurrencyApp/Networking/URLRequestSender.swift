@@ -1,5 +1,5 @@
 //
-//  URLRequestSender.swift
+//  DeprecatedURLRequestSender.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -9,12 +9,13 @@ import Foundation
 
 public typealias NetworkResponse = (Result<Data, Error>, Int) -> ()
 
-public protocol URLRequestSender {
+@available(*, deprecated, message: "To be replaced by the new URLSender")
+public protocol DeprecatedURLRequestSender {
     func send(request: URLRequest,
               completion: @escaping NetworkResponse)
 }
 
-public class DefaultRequestSender: URLRequestSender {
+public class DefaultRequestSender: DeprecatedURLRequestSender {
     private let session = URLSession.shared
     
     public func send(request: URLRequest,

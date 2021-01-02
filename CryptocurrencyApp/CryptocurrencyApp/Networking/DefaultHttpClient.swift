@@ -10,10 +10,10 @@ import Foundation
 /**
  * Alternatively we could just use Alamofire
  */
-class DefaultHttpClient: HttpClient {
-    private let requestSender: URLRequestSender
+class DefaultHttpClient: DeprecatedHttpClient {
+    private let requestSender: DeprecatedURLRequestSender
     
-    init(requestSender: URLRequestSender = DefaultRequestSender()) {
+    init(requestSender: DeprecatedURLRequestSender = DefaultRequestSender()) {
         self.requestSender = requestSender
     }
     

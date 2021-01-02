@@ -8,13 +8,13 @@
 import Foundation
 
 protocol DIContainerProtocol {
-    var httpClient: HttpClient { get }
+    var httpClient: DeprecatedHttpClient { get }
     var analyticsProvider: AnalyticsStatsEndpointProvider { get }
     var fruitsDataProvider: FruitsDataProvider { get }
 }
 
 struct DIContainer: DIContainerProtocol {
-    let httpClient: HttpClient
+    let httpClient: DeprecatedHttpClient
     let analyticsProvider: AnalyticsStatsEndpointProvider
     let fruitsDataProvider: FruitsDataProvider
     

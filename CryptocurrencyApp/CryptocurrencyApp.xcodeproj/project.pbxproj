@@ -26,7 +26,7 @@
 		43012A772591956E009AE472 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A732591956E009AE472 /* Closures.swift */; };
 		43012A7A259196B5009AE472 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A79259196B5009AE472 /* Fruit.swift */; };
 		43012A7F259196E0009AE472 /* DefaultHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7C259196E0009AE472 /* DefaultHttpClient.swift */; };
-		43012A80259196E0009AE472 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7D259196E0009AE472 /* HttpClient.swift */; };
+		43012A80259196E0009AE472 /* DeprecatedHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */; };
 		43012A81259196E0009AE472 /* URLRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7E259196E0009AE472 /* URLRequestSender.swift */; };
 		43012A8525919707009AE472 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8325919707009AE472 /* Router.swift */; };
 		43012A8625919707009AE472 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8425919707009AE472 /* DIContainer.swift */; };
@@ -94,7 +94,7 @@
 		43012A732591956E009AE472 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		43012A79259196B5009AE472 /* Fruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		43012A7C259196E0009AE472 /* DefaultHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultHttpClient.swift; sourceTree = "<group>"; };
-		43012A7D259196E0009AE472 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedHttpClient.swift; sourceTree = "<group>"; };
 		43012A7E259196E0009AE472 /* URLRequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestSender.swift; sourceTree = "<group>"; };
 		43012A8325919707009AE472 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		43012A8425919707009AE472 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				43012A7C259196E0009AE472 /* DefaultHttpClient.swift */,
-				43012A7D259196E0009AE472 /* HttpClient.swift */,
+				43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */,
 				43012A7E259196E0009AE472 /* URLRequestSender.swift */,
 			);
 			path = Networking;
@@ -605,7 +605,7 @@
 				43012A7A259196B5009AE472 /* Fruit.swift in Sources */,
 				43012A6825919431009AE472 /* FruitListViewController.swift in Sources */,
 				43012A772591956E009AE472 /* Closures.swift in Sources */,
-				43012A80259196E0009AE472 /* HttpClient.swift in Sources */,
+				43012A80259196E0009AE472 /* DeprecatedHttpClient.swift in Sources */,
 				43012A7F259196E0009AE472 /* DefaultHttpClient.swift in Sources */,
 				43012AC225979C54009AE472 /* CryptocurrencyStaticDataProvider.swift in Sources */,
 				43012A8625919707009AE472 /* DIContainer.swift in Sources */,

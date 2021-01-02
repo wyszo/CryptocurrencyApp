@@ -8,7 +8,7 @@
 import Foundation
 @testable import CryptocurrencyApp
 
-class MockHttpClient: HttpClient {
+class MockHttpClient: DeprecatedHttpClient {
     var capturedRequestsCount = 0
     
     var lastCapturedHttpMethod: HttpMethod?
