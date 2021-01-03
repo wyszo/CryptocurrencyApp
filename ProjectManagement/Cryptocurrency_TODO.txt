@@ -9,6 +9,7 @@ Milestone #3: Update data to handle cryptocurrencies
 Tasks: 
 [ ] Rename RequestMetadata to RequestDescriptor
 [ ] Remove list data on pull to refresh
+[ ] Improve project Readme
 [ ] Update unit tests for the new network stack
 [ ] Update unit tests for CryptocurrencyDataProvider 
 [ ] Add CryptocurrencyListViewController
