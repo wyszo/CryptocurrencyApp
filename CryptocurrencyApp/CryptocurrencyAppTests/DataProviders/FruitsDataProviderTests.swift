@@ -150,20 +150,20 @@ class FruitsDataProviderTests: XCTestCase {
     }
     
     /**
-     *  Given:   getFruitsRequest is made
+     *  Given:  getFruitsRequest is made
      *  When:   network request returns an error
      *   Then:  completion block is called with correct error
      *    And:  analytics request failure method is called
      */
     func testNetworkCallFails() {
-        mockHttpClient.errorToReturn = MockError.mockError
+        mockHttpClient.errorToReturn = MockedError.genericError
         
         sut.getFruits { result in
             switch result {
             case .success:
                 XCTFail("incorrect response")
             case .failure(let error):
-                XCTAssertTrue(error as NSError == MockError.mockError as NSError)
+                XCTAssertTrue(error as NSError == MockedError.genericError as NSError)
             }
         }
         XCTAssertEqual(mockAnalyticsProvider.networkRequestCompletedCalledCount, 0)

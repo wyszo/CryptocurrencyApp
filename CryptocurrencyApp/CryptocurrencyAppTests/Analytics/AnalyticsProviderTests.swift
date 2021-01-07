@@ -74,7 +74,7 @@ class AnalyticsProviderTests: XCTestCase {
      *   Then:  stats endpoint request should be made with event=error and data=error.localizedDescription query params
      */
     func testErrorDidOccur() {
-        let error = MockError.mockError
+        let error = MockedError.genericError
         sut.errorDidOccur(error: error)
         
         XCTAssertEqual(mockHttpClient.capturedRequestsCount, 1)
@@ -90,14 +90,14 @@ class AnalyticsProviderTests: XCTestCase {
 }
 
 
-public enum MockError: Error {
-    case mockError
+enum MockedError: Error {
+    case genericError
 }
 
-extension MockError: LocalizedError {
+extension MockedError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .mockError:
+        case .genericError:
             return NSLocalizedString("Mock error localized description.", comment: "Mock error")
         }
     }

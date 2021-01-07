@@ -7,13 +7,28 @@
 
 import XCTest
 import SwiftyMocky
+import PromiseKit
 @testable import CryptocurrencyApp
 
-class CryptocurrencyDataProviderTests: XCTestCase {
+import Resolver
+
+class TestDependenciesResolver: Resolving {
+    
+    init() {
+        resolver.register(HttpClient.self) {
+            return HttpClientMock()
+        }
+    }
+}
+
+class CryptocurrencyDataProviderTests: XCTestCase, Resolving {
     private var sut: CryptocurrencyDataProvider!
     private let fixtures = Fixtures()
+    private let dependenciesResolver = TestDependenciesResolver()
+    private var httpClient: HttpClientMock!
     
     override func setUp() {
+        httpClient = (resolver.optional(HttpClient.self) as! HttpClientMock)
         sut = CryptocurrencyDataProvider()
     }
     
@@ -25,8 +40,20 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  When: getCryptocurrencies method is called
      *  Then: correct http network request is made
      *  And:  returned promise completes
+     *  And:  it should return correct value
      */
     func testRequest() {
+        let testBundle = Bundle(for: type(of: self))
+        let url = testBundle.url(forResource: "Cryptocurrencies",
+                                 withExtension: "json")!
+        let stubbedData = try! Data(contentsOf: url)
+        let stubbedPromise = Promise.value(stubbedData)
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        let result = sut.getCryptocurrencies()
+        
         XCTFail("Not implemented yet!")
     }
     
@@ -36,6 +63,10 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  getCryptocurrencies returns an empty array
      */
     func testSuccessEmptyResponse() {
+        let stubbedList = CryptocurrencyList(cryptocurrencies: [],
+                                             marketCapBilionsUSD: 0)
+        let stubbedPromise = Promise.value(stubbedList)
+        
         XCTFail("Not implemented yet!")
     }
     
