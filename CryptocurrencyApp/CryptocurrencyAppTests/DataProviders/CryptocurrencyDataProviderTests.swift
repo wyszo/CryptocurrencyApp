@@ -10,25 +10,15 @@ import SwiftyMocky
 import PromiseKit
 @testable import CryptocurrencyApp
 
-import Resolver
-
-class TestDependenciesResolver: Resolving {
-    
-    init() {
-        resolver.register(HttpClient.self) {
-            return HttpClientMock()
-        }
-    }
-}
-
-class CryptocurrencyDataProviderTests: XCTestCase, Resolving {
+class CryptocurrencyDataProviderTests: XCTestCase {
     private var sut: CryptocurrencyDataProvider!
     private let fixtures = Fixtures()
+    private let fileReader = FileReader()
     private let dependenciesResolver = TestDependenciesResolver()
     private var httpClient: HttpClientMock!
     
     override func setUp() {
-        httpClient = (resolver.optional(HttpClient.self) as! HttpClientMock)
+        httpClient = dependenciesResolver.resolveHttpClientMock()
         sut = CryptocurrencyDataProvider()
     }
     
@@ -43,11 +33,7 @@ class CryptocurrencyDataProviderTests: XCTestCase, Resolving {
      *  And:  it should return correct value
      */
     func testRequest() {
-        let testBundle = Bundle(for: type(of: self))
-        let url = testBundle.url(forResource: "Cryptocurrencies",
-                                 withExtension: "json")!
-        let stubbedData = try! Data(contentsOf: url)
-        let stubbedPromise = Promise.value(stubbedData)
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
         
         Given(httpClient, .sendRequest(metadata: .any,
                                        willReturn: stubbedPromise))
