@@ -65,6 +65,7 @@
 		43BDFDC225A9ABA300F3672F /* CryptocurrencyFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDC125A9ABA300F3672F /* CryptocurrencyFixtures.swift */; };
 		43BDFDC425AA16DC00F3672F /* CryptocurrenciesMalformed.json in Resources */ = {isa = PBXBuildFile; fileRef = 43BDFDC325AA16DC00F3672F /* CryptocurrenciesMalformed.json */; };
 		43BDFDC625AA191B00F3672F /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDC525AA191B00F3672F /* Assertions.swift */; };
+		43BDFDCA25AA456300F3672F /* DefaultHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */; };
 		43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */; };
 		43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
@@ -146,6 +147,7 @@
 		43BDFDC125A9ABA300F3672F /* CryptocurrencyFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyFixtures.swift; sourceTree = "<group>"; };
 		43BDFDC325AA16DC00F3672F /* CryptocurrenciesMalformed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CryptocurrenciesMalformed.json; sourceTree = "<group>"; };
 		43BDFDC525AA191B00F3672F /* Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assertions.swift; sourceTree = "<group>"; };
+		43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHttpClientTests.swift; sourceTree = "<group>"; };
 		43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDependenciesResolver.swift; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,8 +232,9 @@
 				43BDFDC025A9AB9100F3672F /* Fixtures */,
 				43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */,
 				43012A912591987F009AE472 /* JSONs */,
-				43012A952591987F009AE472 /* Mocks */,
 				43012AB025948672009AE472 /* Analytics */,
+				43012A952591987F009AE472 /* Mocks */,
+				43BDFDC925AA432A00F3672F /* Networking */,
 				43012AAD2594862A009AE472 /* DataProviders */,
 				43012AAE2594863B009AE472 /* Decoders */,
 				43DA6D8625A83BE500C1EF06 /* Utilities */,
@@ -467,6 +470,14 @@
 				43BDFDC125A9ABA300F3672F /* CryptocurrencyFixtures.swift */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		43BDFDC925AA432A00F3672F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		43DA6D8625A83BE500C1EF06 /* Utilities */ = {
@@ -726,6 +737,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43012A9C2591987F009AE472 /* MockHttpClient.swift in Sources */,
+				43BDFDCA25AA456300F3672F /* DefaultHttpClientTests.swift in Sources */,
 				43012A8B259197EA009AE472 /* FruitDetailViewModelTests.swift in Sources */,
 				43BDFDB925A841B700F3672F /* FileReader.swift in Sources */,
 				43012A8A259197EA009AE472 /* Fixtures.swift in Sources */,

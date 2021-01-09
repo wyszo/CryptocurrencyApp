@@ -106,23 +106,25 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         XCTAssert(capturedError is DecodingError)
     }
     
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  network request fails with an error
-     *  Then:  getCryptocurrencies returns the error
-     */
     func testNetworkRequestError() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  And:   getCryptocurrencies request has not completed yet
-     *  When:  getCryptocurrencies is called again
-     *  Then:  Only one request should be made
-     */
-    func testTwoSubsequentCallsMakeOnlyOneRequest() {
-        XCTFail("Not implemented yet!")
+        // Given: network communication stubbed and returning an error
+        let errorToReturn = MockedError.genericError
+        let stubbedPromise = Promise<Data>(error: errorToReturn)
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result, value: &capturedList, error: &capturedError)
+
+        // Then: it should return the stubbed error
+        XCTAssertNil(capturedList)
+        XCTAssertNotNil(capturedError)
+        XCTAssertEqual(capturedError as? MockedError, errorToReturn)
     }
     
     /**

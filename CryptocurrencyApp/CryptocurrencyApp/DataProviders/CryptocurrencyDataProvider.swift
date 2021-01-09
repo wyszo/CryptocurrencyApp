@@ -35,7 +35,7 @@ class CryptocurrencyDataProvider: CryptocurrencyDataProviderProtocol {
                 }
             }.catch { error in
                 // This will need to be handled in the UI, not as an assertion
-                assertionFailure("Network error: \(error.localizedDescription)")
+                assertionFailureIfNotTesting("Network error: \(error.localizedDescription)")
                 seal.reject(error)
             }
         }
