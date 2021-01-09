@@ -60,6 +60,8 @@
 		43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */; };
 		43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACE25A10123009AE472 /* AutoMockable.swift */; };
 		43BDFDB925A841B700F3672F /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDB825A841B700F3672F /* FileReader.swift */; };
+		43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBC25A99D3900F3672F /* TestUtilities.swift */; };
+		43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBA25A99D1400F3672F /* Environment.swift */; };
 		43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */; };
 		43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
@@ -136,6 +138,8 @@
 		43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultHttpClient.swift; path = CryptocurrencyApp/Networking/DefaultHttpClient.swift; sourceTree = SOURCE_ROOT; };
 		43012ACE25A10123009AE472 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		43BDFDB825A841B700F3672F /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		43BDFDBA25A99D1400F3672F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		43BDFDBC25A99D3900F3672F /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
 		43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDependenciesResolver.swift; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -301,11 +305,12 @@
 		43012A6F2591956E009AE472 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				43012A702591956E009AE472 /* PerformanceTimer.swift */,
-				43012A712591956E009AE472 /* Decoder.swift */,
-				43012A722591956E009AE472 /* StoryboardExtensions.swift */,
-				43012A732591956E009AE472 /* Closures.swift */,
 				43012ACE25A10123009AE472 /* AutoMockable.swift */,
+				43012A732591956E009AE472 /* Closures.swift */,
+				43012A712591956E009AE472 /* Decoder.swift */,
+				43BDFDBA25A99D1400F3672F /* Environment.swift */,
+				43012A722591956E009AE472 /* StoryboardExtensions.swift */,
+				43012A702591956E009AE472 /* PerformanceTimer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 			children = (
 				43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */,
 				43BDFDB825A841B700F3672F /* FileReader.swift */,
+				43BDFDBC25A99D3900F3672F /* TestUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 				43012A8525919707009AE472 /* Router.swift in Sources */,
 				43012AC625A0D663009AE472 /* URLRequestSender.swift in Sources */,
 				43012A6B25919431009AE472 /* FruitDetailViewModel.swift in Sources */,
+				43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */,
 				43012A6E259194DF009AE472 /* FruitsDataProvider.swift in Sources */,
 				43012AB8259767CF009AE472 /* CryptocurrencyListViewController.swift in Sources */,
 				43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */,
@@ -708,6 +715,7 @@
 				43012A8F25919838009AE472 /* FruitJSONDecoderTests.swift in Sources */,
 				43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */,
 				43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */,
+				43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */,
 				43012AC42597A488009AE472 /* CryptocurrencyListViewModelTests.swift in Sources */,
 				43012A9B2591987F009AE472 /* MockAnalyticsProvider.swift in Sources */,
 				43012A9025919838009AE472 /* FruitsDataProviderTests.swift in Sources */,

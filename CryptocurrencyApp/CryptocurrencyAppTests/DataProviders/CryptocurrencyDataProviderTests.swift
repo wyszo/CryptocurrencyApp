@@ -39,8 +39,10 @@ class CryptocurrencyDataProviderTests: XCTestCase {
                                        willReturn: stubbedPromise))
         
         let result = sut.getCryptocurrencies()
+        waitFor(promise: result)
         
         XCTFail("Not implemented yet!")
+        Verify(httpClient, 1, .sendRequest(metadata: .any))
     }
     
     /**

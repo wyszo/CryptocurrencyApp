@@ -16,6 +16,9 @@ class TestDependenciesResolver: Resolving {
     }
     
     private func registerMocks() {
+        resolver.register(RouterProtocol.self) {
+            return RouterProtocolMock()
+        }
         resolver.register(HttpClient.self) {
             return HttpClientMock()
         }
