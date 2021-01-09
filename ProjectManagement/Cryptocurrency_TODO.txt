@@ -8,6 +8,8 @@ Milestone #3: Update data to handle cryptocurrencies
 
 Tasks:
 [ ] Update unit tests for CryptocurrencyDataProvider
+[ ] Make analytics call on getCryptocurrencies
+[ ] Write a unit test for that
 [ ] Rename RequestMetadata to RequestDescriptor
 [ ] Remove list data on pull to refresh
 [ ] Improve project Readme

@@ -1,0 +1,14 @@
+{
+    "cryptocurrencies": [
+        {
+            "malformed": true
+        },
+        {
+            "name": "Ethereum",
+            "shortName": "ETH",
+            "priceUSD": 608.92,
+            "changePercent7d": -2.74
+        }
+    ],
+    "marketCapBilionsUSD": 641.02
+}

@@ -8,7 +8,7 @@
 import Foundation
 
 class Environment {
-    static func isRunningTests() -> Bool {
+    static func isRunningUnitTests() -> Bool {
         if let _ = NSClassFromString("XCTest") {
             return true
         }

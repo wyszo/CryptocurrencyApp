@@ -46,7 +46,7 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
     }
     
-    func testRequestParsesResult() {
+    func testRequestParsesResultCorrectly() {
         // Given: network communication stubbed and returning valid data
         let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
         
@@ -67,6 +67,14 @@ class CryptocurrencyDataProviderTests: XCTestCase {
     }
     
     /**
+     * When: getCryptocurrencies method is called
+     * Then: analytics call should be made
+     */
+    func testRequestAnalytics() {
+        XCTFail("Not implemented yet")
+    }
+    
+    /**
      *  Given: getCryptocurrencies request is made
      *  When:  server returns json with an empty list
      *  Then:  getCryptocurrencies returns an empty array
@@ -78,14 +86,24 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         
         XCTFail("Not implemented yet!")
     }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  server returns json with an non-empty list
-     *  Then:  getCryptocurrencies returns correct array
-     */
-    func testSuccessNonEmptyResponse() {
-        XCTFail("Not implemented yet!")
+
+    func testReceivedMalformedJson() {
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("CryptocurrenciesMalformed.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result, value: &capturedList, error: &capturedError)
+        
+        // And: it should return a decoding error
+        XCTAssertNil(capturedList)
+        XCTAssertNotNil(capturedError)
+        XCTAssert(capturedError is DecodingError)
     }
     
     /**
@@ -94,23 +112,6 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  getCryptocurrencies returns the error
      */
     func testNetworkRequestError() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  server returns malformed json
-     *  Then:  getCryptocurrencies returns correct error
-     */
-    func testMalformedJsonReturned() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  When: getCryptocurrencies request is made
-     *  Then: an analytics request is made
-     */
-    func testAnalytics() {
         XCTFail("Not implemented yet!")
     }
     
