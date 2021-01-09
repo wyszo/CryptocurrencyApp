@@ -11,13 +11,29 @@ import PromiseKit
 extension XCTestCase {
     
     func waitFor<T>(promise: Promise<T>) {
+        var result: T?
+        var error: Error?
+        waitFor(promise: promise, value: &result, error: &error)
+    }
+    
+    func waitFor<T>(promise: Promise<T>,
+                    value: inout T?,
+                    error: inout Error?) {
         let waitExpectation = XCTestExpectation(description: "Wating on a promise")
         
-        promise.done { _ in
+        var capturedValue: T?
+        var capturedError: Error?
+        
+        promise.done { result in
+            capturedValue = result
             waitExpectation.fulfill()
-        }.catch { _ in
+        }.catch { error in
+            capturedError = error
             waitExpectation.fulfill()
         }
         wait(for: [waitExpectation], timeout: 0.1)
+        
+        value = capturedValue
+        error = capturedError
     }
 }

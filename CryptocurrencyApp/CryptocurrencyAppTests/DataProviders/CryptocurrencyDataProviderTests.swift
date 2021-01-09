@@ -26,23 +26,44 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         sut = nil
     }
     
-    /**
-     *  When: getCryptocurrencies method is called
-     *  Then: correct http network request is made
-     *  And:  returned promise completes
-     *  And:  it should return correct value
-     */
-    func testRequest() {
+    func testRequestSend() {
+        // Given: network communication stubbed
         let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
         
         Given(httpClient, .sendRequest(metadata: .any,
                                        willReturn: stubbedPromise))
         
+        // When: getCryptocurrencies method is called
         let result = sut.getCryptocurrencies()
         waitFor(promise: result)
         
-        XCTFail("Not implemented yet!")
+        // Then: correct network request is made
         Verify(httpClient, 1, .sendRequest(metadata: .any))
+
+        let expectedRequest = RequestMetadata(type: .get,
+                                              apiPath: "Cryptocurrencies.json",
+                                              apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
+        Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
+    }
+    
+    func testRequestParsesResult() {
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result, value: &capturedList, error: &capturedError)
+        
+        // Then: it should return a valid and correct cryptocurrencies list
+        let expectedList = CryptocurrencyFixtures().defaultList
+        XCTAssertEqual(capturedList, expectedList)
+        XCTAssertNil(capturedError)
     }
     
     /**

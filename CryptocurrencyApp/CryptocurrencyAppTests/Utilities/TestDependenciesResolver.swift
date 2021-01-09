@@ -11,7 +11,9 @@ import Resolver
 class TestDependenciesResolver: Resolving {
     
     init() {
-        Resolver.defaultScope = Resolver.unique
+        Resolver.reset()
+        Resolver.defaultScope = Resolver.cached
+        
         registerMocks()
     }
     
