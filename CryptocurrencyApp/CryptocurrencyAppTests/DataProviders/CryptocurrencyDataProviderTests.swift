@@ -24,6 +24,7 @@ class CryptocurrencyDataProviderTests: XCTestCase {
     
     override func tearDown() {
         sut = nil
+        dependenciesResolver.resetState()
     }
     
     func testRequestSend() {

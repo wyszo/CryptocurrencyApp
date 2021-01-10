@@ -13,8 +13,8 @@
 		43012A3E25918F54009AE472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3D25918F54009AE472 /* Assets.xcassets */; };
 		43012A4125918F54009AE472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3F25918F54009AE472 /* LaunchScreen.storyboard */; };
 		43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5A25919389009AE472 /* TableViewAdapter.swift */; };
-		43012A5F259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */; };
-		43012A60259193BE009AE472 /* AnalyticsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */; };
+		43012A5F259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */; };
+		43012A60259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */; };
 		43012A6825919431009AE472 /* FruitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6325919431009AE472 /* FruitListViewController.swift */; };
 		43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6425919431009AE472 /* FruitListViewModel.swift */; };
 		43012A6A25919431009AE472 /* FruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6625919431009AE472 /* FruitDetailViewController.swift */; };
@@ -67,6 +67,10 @@
 		43BDFDC625AA191B00F3672F /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDC525AA191B00F3672F /* Assertions.swift */; };
 		43BDFDCA25AA456300F3672F /* DefaultHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */; };
 		43BDFDCC25AB30BF00F3672F /* CryptocurrenciesEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = 43BDFDCB25AB30BF00F3672F /* CryptocurrenciesEmpty.json */; };
+		43BDFDCE25AB31E600F3672F /* AnalyticsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDCD25AB31E600F3672F /* AnalyticsProviderProtocol.swift */; };
+		43BDFDD225AB337200F3672F /* DebugLogAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDD125AB337200F3672F /* DebugLogAnalyticsProvider.swift */; };
+		43BDFDD425AB33DB00F3672F /* DefaultAnayticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDD325AB33DB00F3672F /* DefaultAnayticsProvider.swift */; };
+		43BDFDD625AB33FA00F3672F /* FirebaseAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDD525AB33FA00F3672F /* FirebaseAnalyticsProvider.swift */; };
 		43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */; };
 		43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
@@ -96,8 +100,8 @@
 		43012A4725918F55009AE472 /* CryptocurrencyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43012A4D25918F55009AE472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43012A5A25919389009AE472 /* TableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
-		43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsStatsEndpointProvider.swift; sourceTree = "<group>"; };
-		43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsProviderProtocol.swift; sourceTree = "<group>"; };
+		43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedAnalyticsStatsEndpointProvider.swift; sourceTree = "<group>"; };
+		43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedAnalyticsProviderProtocol.swift; sourceTree = "<group>"; };
 		43012A6325919431009AE472 /* FruitListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewController.swift; sourceTree = "<group>"; };
 		43012A6425919431009AE472 /* FruitListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewModel.swift; sourceTree = "<group>"; };
 		43012A6625919431009AE472 /* FruitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitDetailViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,10 @@
 		43BDFDC525AA191B00F3672F /* Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assertions.swift; sourceTree = "<group>"; };
 		43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHttpClientTests.swift; sourceTree = "<group>"; };
 		43BDFDCB25AB30BF00F3672F /* CryptocurrenciesEmpty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CryptocurrenciesEmpty.json; sourceTree = "<group>"; };
+		43BDFDCD25AB31E600F3672F /* AnalyticsProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsProviderProtocol.swift; sourceTree = "<group>"; };
+		43BDFDD125AB337200F3672F /* DebugLogAnalyticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogAnalyticsProvider.swift; sourceTree = "<group>"; };
+		43BDFDD325AB33DB00F3672F /* DefaultAnayticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnayticsProvider.swift; sourceTree = "<group>"; };
+		43BDFDD525AB33FA00F3672F /* FirebaseAnalyticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsProvider.swift; sourceTree = "<group>"; };
 		43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		43DA6D8725A83BE500C1EF06 /* TestDependenciesResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDependenciesResolver.swift; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -268,8 +276,9 @@
 		43012A5C259193BE009AE472 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				43012A5D259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift */,
-				43012A5E259193BE009AE472 /* AnalyticsProviderProtocol.swift */,
+				43BDFDD025AB336100F3672F /* Providers */,
+				43BDFDCF25AB334100F3672F /* Deprecated */,
+				43BDFDCD25AB31E600F3672F /* AnalyticsProviderProtocol.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -481,6 +490,25 @@
 				43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		43BDFDCF25AB334100F3672F /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */,
+				43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		43BDFDD025AB336100F3672F /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				43BDFDD325AB33DB00F3672F /* DefaultAnayticsProvider.swift */,
+				43BDFDD125AB337200F3672F /* DebugLogAnalyticsProvider.swift */,
+				43BDFDD525AB33FA00F3672F /* FirebaseAnalyticsProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		43DA6D8625A83BE500C1EF06 /* Utilities */ = {
@@ -702,7 +730,9 @@
 				43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */,
 				43012ABC25976824009AE472 /* CryptocurrencyListViewModel.swift in Sources */,
 				43012A81259196E0009AE472 /* DeprecatedURLRequestSender.swift in Sources */,
+				43BDFDCE25AB31E600F3672F /* AnalyticsProviderProtocol.swift in Sources */,
 				43012A7A259196B5009AE472 /* Fruit.swift in Sources */,
+				43BDFDD425AB33DB00F3672F /* DefaultAnayticsProvider.swift in Sources */,
 				43BDFDC625AA191B00F3672F /* Assertions.swift in Sources */,
 				43012A6825919431009AE472 /* FruitListViewController.swift in Sources */,
 				43012A772591956E009AE472 /* Closures.swift in Sources */,
@@ -710,6 +740,7 @@
 				43012A7F259196E0009AE472 /* DefaultDeprecatedHttpClient.swift in Sources */,
 				43012AC225979C54009AE472 /* CryptocurrencyStaticDataProvider.swift in Sources */,
 				43012A8625919707009AE472 /* DIContainer.swift in Sources */,
+				43BDFDD225AB337200F3672F /* DebugLogAnalyticsProvider.swift in Sources */,
 				43012A6A25919431009AE472 /* FruitDetailViewController.swift in Sources */,
 				43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */,
 				43012AAC259484AB009AE472 /* CryptocurrencyDataProvider.swift in Sources */,
@@ -718,7 +749,7 @@
 				43012A742591956E009AE472 /* PerformanceTimer.swift in Sources */,
 				43012A3525918F51009AE472 /* AppDelegate.swift in Sources */,
 				43012ABE2597683E009AE472 /* CryptocurrencyDetailViewModel.swift in Sources */,
-				43012A60259193BE009AE472 /* AnalyticsProviderProtocol.swift in Sources */,
+				43012A60259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift in Sources */,
 				43012A8525919707009AE472 /* Router.swift in Sources */,
 				43012AC625A0D663009AE472 /* URLRequestSender.swift in Sources */,
 				43012A6B25919431009AE472 /* FruitDetailViewModel.swift in Sources */,
@@ -730,8 +761,9 @@
 				43012AA82593E621009AE472 /* Cryptocurrency.swift in Sources */,
 				43012A762591956E009AE472 /* StoryboardExtensions.swift in Sources */,
 				43012A3725918F51009AE472 /* SceneDelegate.swift in Sources */,
-				43012A5F259193BE009AE472 /* AnalyticsStatsEndpointProvider.swift in Sources */,
+				43012A5F259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift in Sources */,
 				43012AC0259793D7009AE472 /* DependencyInjection.swift in Sources */,
+				43BDFDD625AB33FA00F3672F /* FirebaseAnalyticsProvider.swift in Sources */,
 				43012A752591956E009AE472 /* Decoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

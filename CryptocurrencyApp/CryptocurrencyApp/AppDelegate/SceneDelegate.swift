@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, Resolving {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
 
-        self.router = resolver.resolve()
+        self.router = resolver.resolve(RouterProtocol.self)
         self.window?.rootViewController = self.router.createRootViewController()
         self.window?.makeKeyAndVisible()
     }

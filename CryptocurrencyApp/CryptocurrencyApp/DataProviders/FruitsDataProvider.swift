@@ -15,7 +15,7 @@ protocol FruitsDataProvider {
 
 class DefaultFruitsDataProvider: FruitsDataProvider {
     private let httpClient: DeprecatedHttpClient
-    private let analyticsProvider: AnalyticsProviderProtocol
+    private let analyticsProvider: DeprecatedAnalyticsProviderProtocol
     
     lazy var fruitsRequestMetadata: RequestMetadata = {
         return RequestMetadata(type: .get,
@@ -24,7 +24,7 @@ class DefaultFruitsDataProvider: FruitsDataProvider {
     }()
     
     init(httpClient: DeprecatedHttpClient,
-         analyticsProvider: AnalyticsProviderProtocol) {
+         analyticsProvider: DeprecatedAnalyticsProviderProtocol) {
         self.httpClient = httpClient
         self.analyticsProvider = analyticsProvider
     }

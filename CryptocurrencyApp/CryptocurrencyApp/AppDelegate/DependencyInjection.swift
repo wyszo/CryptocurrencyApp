@@ -19,9 +19,20 @@ extension Resolver {
             Router(diContainer: resolve())
         }.scope(cached)
 
+        registerAnalytics()
         registerNetworkingStack()
         registerViewModels()
         registerDataProviders()
+    }
+    
+    private static func registerAnalytics() {
+        register { return DebugLogAnalyticsProvider() }
+        register { return FirebaseAnalyticsProvider() }
+        
+        register(AnalyticsProviderProtocol.self) {
+            DefaultAnalyticsProvider(enabledDebugLog: true,
+                                     enableFirebase: false)
+        }.scope(cached)
     }
     
     private static func registerNetworkingStack() {

@@ -7,7 +7,7 @@
 
 @testable import CryptocurrencyApp
 
-public class MockAnalyticsProvider: AnalyticsProviderProtocol {
+public class MockAnalyticsProvider: DeprecatedAnalyticsProviderProtocol {
     
     var networkRequestCompletedCalledCount = 0
     var screenDidShowCalledCount = 0

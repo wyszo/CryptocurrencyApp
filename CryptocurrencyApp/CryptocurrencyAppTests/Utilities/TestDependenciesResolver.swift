@@ -11,9 +11,12 @@ import Resolver
 class TestDependenciesResolver: Resolving {
     
     init() {
+        resetState()
+    }
+    
+    func resetState() {
         Resolver.reset()
         Resolver.defaultScope = Resolver.cached
-        
         registerMocks()
     }
     

@@ -7,10 +7,15 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks:
+[ ] Implement missing CryptocurrencyListViewModel tests
+[ ] Implement DebugLogAnalyticsProvider
+[ ] Implement all failing unit tests, so that I can merge unit_test_fixes branch with develop
 [ ] Update unit tests for CryptocurrencyDataProvider
 [ ] Make analytics call on getCryptocurrencies
 [ ] Write a unit test for that
+[ ] Implement FirebaseAnalyticsProvider
 [ ] Rename RequestMetadata to RequestDescriptor
+[ ] Cleanup switching between mock and real data provider in DependencyInjection.swift
 [ ] Remove list data on pull to refresh
 [ ] Improve project Readme
 [ ] Update unit tests for the new network stack

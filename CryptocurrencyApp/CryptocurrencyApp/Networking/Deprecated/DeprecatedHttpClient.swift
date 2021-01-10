@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(*, deprecated, message: "To be replaced by the new http client")
+@available(*, deprecated, message: "Replaced by the new http client")
 public protocol DeprecatedHttpClient {
     func sendRequest(method: HttpMethod,
                      path: String,
