@@ -37,4 +37,9 @@ class CryptocurrencyFixtures {
             ethereum
         ], marketCapBilionsUSD: 641.02)
     }
+    
+    var emptyList: CryptocurrencyList {
+        return CryptocurrencyList(cryptocurrencies: [],
+                                  marketCapBilionsUSD: 500)
+    }
 }

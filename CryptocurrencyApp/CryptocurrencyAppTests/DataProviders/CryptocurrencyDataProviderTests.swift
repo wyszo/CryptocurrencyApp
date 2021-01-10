@@ -58,7 +58,9 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         
         var capturedList: CryptocurrencyList?
         var capturedError: Error?
-        waitFor(promise: result, value: &capturedList, error: &capturedError)
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
         
         // Then: it should return a valid and correct cryptocurrencies list
         let expectedList = CryptocurrencyFixtures().defaultList
@@ -80,11 +82,25 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  getCryptocurrencies returns an empty array
      */
     func testSuccessEmptyResponse() {
-        let stubbedList = CryptocurrencyList(cryptocurrencies: [],
-                                             marketCapBilionsUSD: 0)
-        let stubbedPromise = Promise.value(stubbedList)
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("CryptocurrenciesEmpty.json")
         
-        XCTFail("Not implemented yet!")
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
+        
+        // Then: it should return a valid empty cryptocurrencies list
+        let expectedList = CryptocurrencyFixtures().emptyList
+        XCTAssertEqual(capturedList, expectedList)
+        XCTAssertNil(capturedError)
     }
 
     func testReceivedMalformedJson() {
@@ -98,7 +114,9 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         let result = sut.getCryptocurrencies()
         var capturedList: CryptocurrencyList?
         var capturedError: Error?
-        waitFor(promise: result, value: &capturedList, error: &capturedError)
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
         
         // And: it should return a decoding error
         XCTAssertNil(capturedList)
@@ -119,7 +137,9 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         
         var capturedList: CryptocurrencyList?
         var capturedError: Error?
-        waitFor(promise: result, value: &capturedList, error: &capturedError)
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
 
         // Then: it should return the stubbed error
         XCTAssertNil(capturedList)
@@ -135,6 +155,36 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  both calls return correct value
      */
     func testTwoSubsequentRequestsReturnCorrectSuccessValues() {
-        XCTFail("Not implemented yet!")
+        
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // And: getCryptocurrencies has been called but has not finished yet
+        let resultOne = sut.getCryptocurrencies()
+        var capturedListOne: CryptocurrencyList?
+        var capturedErrorOne: Error?
+        
+        // And: another getCryptocurrencies call was made but has not finished
+        let resultTwo = sut.getCryptocurrencies()
+        var capturedListTwo: CryptocurrencyList?
+        var capturedErrorTwo: Error?
+        
+        // When: the requests succeed
+        waitFor(promise: resultOne,
+                value: &capturedListOne,
+                error: &capturedErrorOne)
+        waitFor(promise: resultTwo,
+                value: &capturedListTwo,
+                error: &capturedErrorTwo)
+        
+        // Then: both calls return correct values
+        let expectedList = CryptocurrencyFixtures().defaultList
+        XCTAssertEqual(capturedListOne, expectedList)
+        XCTAssertNil(capturedErrorOne)
+        XCTAssertEqual(capturedListTwo, expectedList)
+        XCTAssertNil(capturedErrorTwo)
     }
 }
