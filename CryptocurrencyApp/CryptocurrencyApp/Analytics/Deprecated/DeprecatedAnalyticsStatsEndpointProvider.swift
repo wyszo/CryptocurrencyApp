@@ -10,7 +10,8 @@ import Foundation
 /**
  * Analytics provider implementation connecting to a static 'stats' endpoint
  */
-public class AnalyticsStatsEndpointProvider: AnalyticsProviderProtocol {
+@available(*, deprecated, message: "To be replaced by the Firebase analytics provider")
+public class DeprecatedAnalyticsStatsEndpointProvider: DeprecatedAnalyticsProviderProtocol {
     private let httpClient: DeprecatedHttpClient
     
     init(httpClient: DeprecatedHttpClient) {

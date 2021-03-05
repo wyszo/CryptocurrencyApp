@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let appInitializer = AppInitialiser()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        guard Environment.isRunningUnitTests() == false else {
+            return true
+        }
         appInitializer.initializeApp()
         return true
     }

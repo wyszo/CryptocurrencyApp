@@ -15,7 +15,7 @@ class FruitListViewController: UIViewController {
     var viewDidFinishDrawing: VoidCallback?
     
     var router: RouterProtocol?
-    var analyticsProvider: AnalyticsProviderProtocol?
+    var analyticsProvider: DeprecatedAnalyticsProviderProtocol?
     
     var viewModel: FruitListViewModel? {
         didSet {

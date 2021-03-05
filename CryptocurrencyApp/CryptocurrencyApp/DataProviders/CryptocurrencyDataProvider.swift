@@ -30,12 +30,12 @@ class CryptocurrencyDataProvider: CryptocurrencyDataProviderProtocol {
                     let list = try decoder.decode(data: data)
                     seal.fulfill(list)
                 } catch (let error) {
-                    assertionFailure("JSON Decoding error: \(error.localizedDescription)")
+                    assertionFailureIfNotTesting("JSON Decoding error: \(error.localizedDescription)")
                     seal.reject(error)
                 }
             }.catch { error in
                 // This will need to be handled in the UI, not as an assertion
-                assertionFailure("Network error: \(error.localizedDescription)")
+                assertionFailureIfNotTesting("Network error: \(error.localizedDescription)")
                 seal.reject(error)
             }
         }

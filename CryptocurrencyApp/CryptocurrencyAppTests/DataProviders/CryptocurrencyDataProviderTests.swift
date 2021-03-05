@@ -7,27 +7,74 @@
 
 import XCTest
 import SwiftyMocky
+import PromiseKit
 @testable import CryptocurrencyApp
 
 class CryptocurrencyDataProviderTests: XCTestCase {
     private var sut: CryptocurrencyDataProvider!
     private let fixtures = Fixtures()
+    private let fileReader = FileReader()
+    private let dependenciesResolver = TestDependenciesResolver()
+    private var httpClient: HttpClientMock!
     
     override func setUp() {
+        httpClient = dependenciesResolver.resolveHttpClientMock()
         sut = CryptocurrencyDataProvider()
     }
     
     override func tearDown() {
         sut = nil
+        dependenciesResolver.resetState()
+    }
+    
+    func testRequestSend() {
+        // Given: network communication stubbed
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        waitFor(promise: result)
+        
+        // Then: correct network request is made
+        Verify(httpClient, 1, .sendRequest(metadata: .any))
+
+        let expectedRequest = RequestMetadata(type: .get,
+                                              apiPath: "Cryptocurrencies.json",
+                                              apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
+        Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
+    }
+    
+    func testRequestParsesResultCorrectly() {
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
+        
+        // Then: it should return a valid and correct cryptocurrencies list
+        let expectedList = CryptocurrencyFixtures().defaultList
+        XCTAssertEqual(capturedList, expectedList)
+        XCTAssertNil(capturedError)
     }
     
     /**
-     *  When: getCryptocurrencies method is called
-     *  Then: correct http network request is made
-     *  And:  returned promise completes
+     * When: getCryptocurrencies method is called
+     * Then: analytics call should be made
      */
-    func testRequest() {
-        XCTFail("Not implemented yet!")
+    func testRequestAnalytics() {
+        XCTFail("Not implemented yet")
     }
     
     /**
@@ -36,52 +83,69 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  getCryptocurrencies returns an empty array
      */
     func testSuccessEmptyResponse() {
-        XCTFail("Not implemented yet!")
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("CryptocurrenciesEmpty.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
+        
+        // Then: it should return a valid empty cryptocurrencies list
+        let expectedList = CryptocurrencyFixtures().emptyList
+        XCTAssertEqual(capturedList, expectedList)
+        XCTAssertNil(capturedError)
+    }
+
+    func testReceivedMalformedJson() {
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("CryptocurrenciesMalformed.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
+        
+        // And: it should return a decoding error
+        XCTAssertNil(capturedList)
+        XCTAssertNotNil(capturedError)
+        XCTAssert(capturedError is DecodingError)
     }
     
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  server returns json with an non-empty list
-     *  Then:  getCryptocurrencies returns correct array
-     */
-    func testSuccessNonEmptyResponse() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  network request fails with an error
-     *  Then:  getCryptocurrencies returns the error
-     */
     func testNetworkRequestError() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  When:  server returns malformed json
-     *  Then:  getCryptocurrencies returns correct error
-     */
-    func testMalformedJsonReturned() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  When: getCryptocurrencies request is made
-     *  Then: an analytics request is made
-     */
-    func testAnalytics() {
-        XCTFail("Not implemented yet!")
-    }
-    
-    /**
-     *  Given: getCryptocurrencies request is made
-     *  And:   getCryptocurrencies request has not completed yet
-     *  When:  getCryptocurrencies is called again
-     *  Then:  Only one request should be made
-     */
-    func testTwoSubsequentCallsMakeOnlyOneRequest() {
-        XCTFail("Not implemented yet!")
+        // Given: network communication stubbed and returning an error
+        let errorToReturn = MockedError.genericError
+        let stubbedPromise = Promise<Data>(error: errorToReturn)
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // When: getCryptocurrencies method is called
+        let result = sut.getCryptocurrencies()
+        
+        var capturedList: CryptocurrencyList?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedList,
+                error: &capturedError)
+
+        // Then: it should return the stubbed error
+        XCTAssertNil(capturedList)
+        XCTAssertNotNil(capturedError)
+        XCTAssertEqual(capturedError as? MockedError, errorToReturn)
     }
     
     /**
@@ -92,6 +156,36 @@ class CryptocurrencyDataProviderTests: XCTestCase {
      *  Then:  both calls return correct value
      */
     func testTwoSubsequentRequestsReturnCorrectSuccessValues() {
-        XCTFail("Not implemented yet!")
+        
+        // Given: network communication stubbed and returning valid data
+        let stubbedPromise = fileReader.promiseFromFile("Cryptocurrencies.json")
+        
+        Given(httpClient, .sendRequest(metadata: .any,
+                                       willReturn: stubbedPromise))
+        
+        // And: getCryptocurrencies has been called but has not finished yet
+        let resultOne = sut.getCryptocurrencies()
+        var capturedListOne: CryptocurrencyList?
+        var capturedErrorOne: Error?
+        
+        // And: another getCryptocurrencies call was made but has not finished
+        let resultTwo = sut.getCryptocurrencies()
+        var capturedListTwo: CryptocurrencyList?
+        var capturedErrorTwo: Error?
+        
+        // When: the requests succeed
+        waitFor(promise: resultOne,
+                value: &capturedListOne,
+                error: &capturedErrorOne)
+        waitFor(promise: resultTwo,
+                value: &capturedListTwo,
+                error: &capturedErrorTwo)
+        
+        // Then: both calls return correct values
+        let expectedList = CryptocurrencyFixtures().defaultList
+        XCTAssertEqual(capturedListOne, expectedList)
+        XCTAssertNil(capturedErrorOne)
+        XCTAssertEqual(capturedListTwo, expectedList)
+        XCTAssertNil(capturedErrorTwo)
     }
 }

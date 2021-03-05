@@ -8,7 +8,7 @@
 import UIKit
 import Resolver
 
-protocol RouterProtocol {
+protocol RouterProtocol: AutoMockable {
     func createRootViewController() -> UINavigationController?
     
     // deprecated
