@@ -27,9 +27,23 @@ class TestDependenciesResolver: Resolving {
         resolver.register(HttpClient.self) {
             return HttpClientMock()
         }
+        resolver.register(AnalyticsProviderProtocol.self) {
+            return AnalyticsProviderProtocolMock()
+        }
+        resolver.register(CryptoDataProviderProtocol.self) {
+            return CryptoDataProviderProtocolMock()
+        }
     }
     
     func resolveHttpClientMock() -> HttpClientMock {
         return resolver.optional(HttpClient.self) as! HttpClientMock
+    }
+    
+    func resolveAnalyticsProviderMock() -> AnalyticsProviderProtocolMock {
+        return resolver.optional(AnalyticsProviderProtocol.self) as! AnalyticsProviderProtocolMock
+    }
+    
+    func resolveCryptoDataProviderProtocolMock() -> CryptoDataProviderProtocolMock {
+        return resolver.optional(CryptoDataProviderProtocol.self) as! CryptoDataProviderProtocolMock
     }
 }

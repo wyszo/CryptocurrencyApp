@@ -14,7 +14,7 @@ protocol RouterProtocol: AutoMockable {
     // deprecated
     func presentFruitDetailViewController(fruit: Fruit)
     
-    func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency)
+    func presentCryptoDetailViewController(_ cryptocurrency: Cryptocurrency)
 }
 
 class Router: RouterProtocol, Resolving {
@@ -27,7 +27,7 @@ class Router: RouterProtocol, Resolving {
     }
     
     func createRootViewController() -> UINavigationController? {
-        guard let vc = createCryptocurrencyListViewController() else {
+        guard let vc = createCryptoListViewController() else {
             assertionFailure("Root ViewController initialization failed!")
             return nil
         }
@@ -35,9 +35,9 @@ class Router: RouterProtocol, Resolving {
         return navigationController
     }
     
-    private func createCryptocurrencyListViewController() -> UIViewController? {
-        guard let listVC = try? UIStoryboard.main.viewController(ofType: CryptocurrencyListViewController.self) else {
-            assertionFailure("CryptocurrencyListViewController initialization failed!")
+    private func createCryptoListViewController() -> UIViewController? {
+        guard let listVC = try? UIStoryboard.main.viewController(ofType: CryptoListViewController.self) else {
+            assertionFailure("CryptoListViewController initialization failed!")
             return nil
         }
         return listVC
@@ -92,9 +92,9 @@ class Router: RouterProtocol, Resolving {
         return controller
     }
     
-    func presentCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency) {
-        guard let controller = createCryptocurrencyDetailViewController(cryptocurrency) else {
-            assertionFailure("CryptocurrencyDetailViewController initialization failed!"); return
+    func presentCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) {
+        guard let controller = createCryptoDetailViewController(cryptocurrency) else {
+            assertionFailure("CryptoDetailViewController initialization failed!"); return
         }
         guard let navigationController = navigationController else {
             assertionFailure("Missing navigationController!"); return
@@ -102,9 +102,9 @@ class Router: RouterProtocol, Resolving {
         navigationController.pushViewController(controller, animated: true)
     }
     
-    private func createCryptocurrencyDetailViewController(_ cryptocurrency: Cryptocurrency) -> UIViewController? {
-        guard let controller = try? UIStoryboard.main.viewController(ofType: CryptocurrencyDetailViewController.self) else {
-            assertionFailure("CryptocurrencyDetailViewController initialization failed!")
+    private func createCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) -> UIViewController? {
+        guard let controller = try? UIStoryboard.main.viewController(ofType: CryptoDetailViewController.self) else {
+            assertionFailure("CryptoDetailViewController initialization failed!")
             return nil
         }
         

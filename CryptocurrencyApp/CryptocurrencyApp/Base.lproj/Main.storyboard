@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="-593" y="138"/>
         </scene>
-        <!--Cryptocurrency List View Controller-->
+        <!--Crypto List View Controller-->
         <scene sceneID="mNc-kS-yiP">
             <objects>
-                <viewController storyboardIdentifier="CryptocurrencyListViewController" id="AEC-g3-RKd" customClass="CryptocurrencyListViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CryptoListViewController" id="AEC-g3-RKd" customClass="CryptoListViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XgN-fx-PGb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="-594" y="829"/>
         </scene>
-        <!--Cryptocurrency Detail View Controller-->
+        <!--Crypto Detail View Controller-->
         <scene sceneID="pYu-hS-4B3">
             <objects>
-                <viewController storyboardIdentifier="CryptocurrencyDetailViewController" id="lyx-Pw-OAL" customClass="CryptocurrencyDetailViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CryptoDetailViewController" id="lyx-Pw-OAL" customClass="CryptoDetailViewController" customModule="CryptocurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TAN-hR-B02">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

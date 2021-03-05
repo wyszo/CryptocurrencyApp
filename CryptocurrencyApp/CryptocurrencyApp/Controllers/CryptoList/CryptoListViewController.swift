@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyListViewController.swift
+//  CryptoListViewController.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -8,12 +8,12 @@
 import UIKit
 import Resolver
 
-class CryptocurrencyListViewController: UIViewController {
+class CryptoListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var adapter: TableViewAdapter?
     @Injected private var router: RouterProtocol
-    @Injected private var viewModel: CryptocurrencyListViewModel
+    @Injected private var viewModel: CryptoListViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class CryptocurrencyListViewController: UIViewController {
                 return
             }
             self.viewModel.itemSelected(cryptocurrency: currency)
-            self.router.presentCryptocurrencyDetailViewController(currency)
+            self.router.presentCryptoDetailViewController(currency)
         }
         
         adapter.cellForRow = { [weak self] row, cell in
@@ -80,3 +80,4 @@ class CryptocurrencyListViewController: UIViewController {
         static let cellReuseId = "CryptocurrencyCellIdentifier"
     }
 }
+

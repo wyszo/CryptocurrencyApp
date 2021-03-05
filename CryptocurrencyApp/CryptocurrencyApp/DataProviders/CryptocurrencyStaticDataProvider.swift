@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyStaticDataProvider.swift
+//  CryptoStaticDataProvider.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -10,7 +10,8 @@ import PromiseKit
 /**
  * Temporary class returning the cryptocurrency list it was created with (mock)
  */
-class CryptocurrencyStaticDataProvider: CryptocurrencyDataProviderProtocol {
+@available(*, deprecated)
+class CryptoStaticDataProvider: CryptoDataProviderProtocol {
     
     private let cryptocurrencyList: CryptocurrencyList
     

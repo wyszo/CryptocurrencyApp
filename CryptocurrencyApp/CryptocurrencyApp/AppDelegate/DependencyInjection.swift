@@ -47,28 +47,28 @@ extension Resolver {
     
     private static func registerViewModels() {
         register {
-            CryptocurrencyListViewModel()
+            CryptoListViewModel()
         }.scope(unique)
         
         register { (_, args) in
-            CryptocurrencyDetailViewModel(cryptocurrency: args())
+            CryptoDetailViewModel(cryptocurrency: args())
         }.scope(unique)
     }
     
     private static func registerDataProviders() {
-        register(CryptocurrencyDataProviderProtocol.self) {
-            CryptocurrencyDataProvider()
+        register(CryptoDataProviderProtocol.self) {
+            CryptoDataProvider()
         }.scope(unique)
          
         /**
          * Mocked data provider - turned off now
          *
-        register(CryptocurrencyDataProviderProtocol.self) {
+        register(CryptoDataProviderProtocol.self) {
             let cryptocurrencies: [Cryptocurrency] = [
                 Cryptocurrency.ethereum()
             ]
             let list = CryptocurrencyList(cryptocurrencies: cryptocurrencies, marketCapBilionsUSD: 500)
-            return CryptocurrencyStaticDataProvider(cryptocurrencyList: list)
+            return CryptoStaticDataProvider(cryptocurrencyList: list)
         }
          */
     }
