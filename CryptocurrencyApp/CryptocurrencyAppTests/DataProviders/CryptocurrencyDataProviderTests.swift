@@ -37,6 +37,7 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         // When: getCryptocurrencies method is called
         let result = sut.getCryptocurrencies()
         waitFor(promise: result)
+        waitFor(promise: stubbedPromise)
         
         // Then: correct network request is made
         Verify(httpClient, 1, .sendRequest(metadata: .any))

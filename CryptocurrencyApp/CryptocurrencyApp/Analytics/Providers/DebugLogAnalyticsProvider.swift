@@ -9,9 +9,13 @@ import Foundation
 
 class DebugLogAnalyticsProvider: AnalyticsProviderProtocol {
     func cryptocurrencyListItemSelected(_ crypto: Cryptocurrency) {
-        // TODO: print only in debug mode
-        print("") // maybe print method name here (and the object name)
-        
-        assertionFailure("Not implemented yet")
+        logEvent(message: crypto.name)
+    }
+    
+    private func logEvent(message: String = "", function: String = #function) {
+        guard Environment.debug else {
+            return
+        }
+        print("[Analytics]: \(function) \(message)")
     }
 }

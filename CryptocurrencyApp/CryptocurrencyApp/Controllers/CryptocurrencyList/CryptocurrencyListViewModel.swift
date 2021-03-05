@@ -16,7 +16,8 @@ class CryptocurrencyListViewModel {
     
     private var cryptocurrencyList: CryptocurrencyList?
     
-    @Injected var dataProvider: CryptocurrencyDataProviderProtocol
+    @Injected private var dataProvider: CryptocurrencyDataProviderProtocol
+    @Injected private var analyticsProvider: AnalyticsProviderProtocol
     
     func fetch() -> Promise<CryptocurrencyList> {
         let promise = dataProvider.getCryptocurrencies()
@@ -35,5 +36,9 @@ class CryptocurrencyListViewModel {
             return nil
         }
         return currencies[index]
+    }
+    
+    func itemSelected(cryptocurrency: Cryptocurrency) {
+        analyticsProvider.cryptocurrencyListItemSelected(cryptocurrency)
     }
 }

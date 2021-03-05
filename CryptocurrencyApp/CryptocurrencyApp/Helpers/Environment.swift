@@ -8,10 +8,18 @@
 import Foundation
 
 class Environment {
-    static func isRunningUnitTests() -> Bool {
+    static var unitTests: Bool {
         if let _ = NSClassFromString("XCTest") {
             return true
         }
         return false
+    }
+    
+    static var debug: Bool {
+        #if DEBUG
+        return true
+        #else
+        return false
+        #endif
     }
 }

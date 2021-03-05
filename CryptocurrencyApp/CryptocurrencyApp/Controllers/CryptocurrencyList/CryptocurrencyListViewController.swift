@@ -56,13 +56,14 @@ class CryptocurrencyListViewController: UIViewController {
         
         adapter.didSelectRow = { [weak self] row in
             guard let `self` = self else {
-                assertionFailure("Unexpected closure; ViewController deallocated!")
+                assertionFailure("ViewController deallocated!")
                 return
             }
             guard let currency = self.viewModel.itemAtIndex(row) else {
-                assertionFailure("data model inconsistency, row doesn't exist")
+                assertionFailure("Data model inconsistency, row doesn't exist")
                 return
             }
+            self.viewModel.itemSelected(cryptocurrency: currency)
             self.router.presentCryptocurrencyDetailViewController(currency)
         }
         

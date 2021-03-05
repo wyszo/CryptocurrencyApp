@@ -51,3 +51,4 @@ class DefaultHttpClientTests: XCTestCase {
         XCTFail("Not implemented yet!")
     }
 }
+
