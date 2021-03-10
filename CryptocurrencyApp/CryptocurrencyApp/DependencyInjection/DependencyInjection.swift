@@ -12,12 +12,7 @@ extension Resolver {
         register {
             AppInitialiser()
         }
-        register(DIContainerProtocol.self) {
-            DIContainer()
-        }
-        register(RouterProtocol.self) {
-            Router(diContainer: resolve())
-        }.scope(cached)
+        register(RouterProtocol.self) { return Router() }.scope(cached)
 
         registerAnalytics()
         registerNetworkingStack()
