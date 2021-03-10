@@ -12,6 +12,7 @@ Tasks:
 [ ] Update unit tests for CryptocurrencyDataProvider
 [ ] Write a unit test for that
 [ ] Explain the app architecture in the Readme file
+[ ] Put ViewControllers storyboard initialisation in resolver
 [ ] Implement FirebaseAnalyticsProvider
 [ ] Rename RequestMetadata to RequestDescriptor
 [ ] Cleanup switching between mock and real data provider in DependencyInjection.swift

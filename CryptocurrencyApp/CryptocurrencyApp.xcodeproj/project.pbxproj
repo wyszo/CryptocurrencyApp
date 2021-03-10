@@ -36,10 +36,12 @@
 		43012AC42597A488009AE472 /* CryptoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC32597A487009AE472 /* CryptoListViewModelTests.swift */; };
 		43012AC625A0D663009AE472 /* URLRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC525A0D663009AE472 /* URLRequestSender.swift */; };
 		43012AC925A0D812009AE472 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC825A0D812009AE472 /* HttpClient.swift */; };
-		43012ACB25A0D86D009AE472 /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */; };
+		43012ACB25A0D86D009AE472 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACA25A0D86D009AE472 /* HttpMethod.swift */; };
 		43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */; };
 		43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACE25A10123009AE472 /* AutoMockable.swift */; };
 		4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16825F9520A00BFF90A /* ScreenId.swift */; };
+		4382D16B25F9568200BFF90A /* RequestDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16A25F9568200BFF90A /* RequestDescriptor.swift */; };
+		4382D16E25F956C000BFF90A /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16D25F956C000BFF90A /* HttpError.swift */; };
 		43BDFDB925A841B700F3672F /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDB825A841B700F3672F /* FileReader.swift */; };
 		43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBC25A99D3900F3672F /* TestUtilities.swift */; };
 		43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBA25A99D1400F3672F /* Environment.swift */; };
@@ -104,10 +106,12 @@
 		43012AC32597A487009AE472 /* CryptoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelTests.swift; sourceTree = "<group>"; };
 		43012AC525A0D663009AE472 /* URLRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestSender.swift; sourceTree = "<group>"; };
 		43012AC825A0D812009AE472 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
+		43012ACA25A0D86D009AE472 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultHttpClient.swift; path = CryptocurrencyApp/Networking/DefaultHttpClient.swift; sourceTree = SOURCE_ROOT; };
 		43012ACE25A10123009AE472 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		4382D16825F9520A00BFF90A /* ScreenId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenId.swift; sourceTree = "<group>"; };
+		4382D16A25F9568200BFF90A /* RequestDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDescriptor.swift; sourceTree = "<group>"; };
+		4382D16D25F956C000BFF90A /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		43BDFDB825A841B700F3672F /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		43BDFDBA25A99D1400F3672F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		43BDFDBC25A99D3900F3672F /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
@@ -289,7 +293,7 @@
 				43012AC525A0D663009AE472 /* URLRequestSender.swift */,
 				43012AC825A0D812009AE472 /* HttpClient.swift */,
 				43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */,
-				43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */,
+				4382D16C25F9568800BFF90A /* Supporting Files */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -377,6 +381,16 @@
 				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
 			);
 			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		4382D16C25F9568800BFF90A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43012ACA25A0D86D009AE472 /* HttpMethod.swift */,
+				4382D16D25F956C000BFF90A /* HttpError.swift */,
+				4382D16A25F9568200BFF90A /* RequestDescriptor.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		43BDFDC025A9AB9100F3672F /* Fixtures */ = {
@@ -619,8 +633,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */,
-				43012ACB25A0D86D009AE472 /* NetworkingEnums.swift in Sources */,
+				43012ACB25A0D86D009AE472 /* HttpMethod.swift in Sources */,
 				43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */,
+				4382D16E25F956C000BFF90A /* HttpError.swift in Sources */,
 				43012ABC25976824009AE472 /* CryptoListViewModel.swift in Sources */,
 				43BDFDCE25AB31E600F3672F /* AnalyticsProviderProtocol.swift in Sources */,
 				43BDFDD425AB33DB00F3672F /* DefaultAnayticsProvider.swift in Sources */,
@@ -630,6 +645,7 @@
 				43BDFDD225AB337200F3672F /* DebugLogAnalyticsProvider.swift in Sources */,
 				43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */,
 				43012AAC259484AB009AE472 /* CryptoDataProvider.swift in Sources */,
+				4382D16B25F9568200BFF90A /* RequestDescriptor.swift in Sources */,
 				4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */,
 				43012ABA259767FF009AE472 /* CryptoDetailViewController.swift in Sources */,
 				43012AC925A0D812009AE472 /* HttpClient.swift in Sources */,

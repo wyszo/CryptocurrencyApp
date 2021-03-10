@@ -13,7 +13,7 @@ public protocol HttpClient: AutoMockable {
                      path: String,
                      queryParameters: [String: String]?) -> Promise<Data>
     
-    func sendRequest(metadata: RequestMetadata) -> Promise<Data>
+    func sendRequest(metadata: RequestDescriptor) -> Promise<Data>
 }
 
 extension HttpClient {
@@ -30,7 +30,7 @@ extension HttpClient {
     /**
      * Default implementation automatically populating path from metadata
      */
-    func sendRequest(metadata: RequestMetadata) -> Promise<Data> {
+    func sendRequest(metadata: RequestDescriptor) -> Promise<Data> {
         return sendRequest(method: metadata.type,
                            path: metadata.fullUriString)
     }

@@ -39,9 +39,9 @@ class CryptoDataProviderTests: XCTestCase {
         // Then: correct network request is made
         Verify(httpClient, 1, .sendRequest(metadata: .any))
 
-        let expectedRequest = RequestMetadata(type: .get,
-                                              apiPath: "Cryptocurrencies.json",
-                                              apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
+        let expectedRequest = RequestDescriptor(type: .get,
+                                                apiPath: "Cryptocurrencies.json",
+                                                apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
         Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
     }
     

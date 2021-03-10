@@ -440,16 +440,16 @@ open class HttpClientMock: HttpClient, Mock {
 		return __value
     }
 
-    open func sendRequest(metadata: RequestMetadata) -> Promise<Data> {
-        addInvocation(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`)))
-		let perform = methodPerformValue(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`))) as? (RequestMetadata) -> Void
+    open func sendRequest(metadata: RequestDescriptor) -> Promise<Data> {
+        addInvocation(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`)))
+		let perform = methodPerformValue(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`))) as? (RequestDescriptor) -> Void
 		perform?(`metadata`)
 		var __value: Promise<Data>
 		do {
-		    __value = try methodReturnValue(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`))).casted()
+		    __value = try methodReturnValue(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`))).casted()
 		} catch {
-			onFatalFailure("Stub return value not specified for sendRequest(metadata: RequestMetadata). Use given")
-			Failure("Stub return value not specified for sendRequest(metadata: RequestMetadata). Use given")
+			onFatalFailure("Stub return value not specified for sendRequest(metadata: RequestDescriptor). Use given")
+			Failure("Stub return value not specified for sendRequest(metadata: RequestDescriptor). Use given")
 		}
 		return __value
     }
@@ -471,7 +471,7 @@ open class HttpClientMock: HttpClient, Mock {
 
     fileprivate enum MethodType {
         case m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(Parameter<HttpMethod>, Parameter<String>, Parameter<[String: String]?>)
-        case m_sendRequest__metadata_metadata(Parameter<RequestMetadata>)
+        case m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>)
         case m_sendRequest__method_methodpath_path(Parameter<HttpMethod>, Parameter<String>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
@@ -525,7 +525,7 @@ open class HttpClientMock: HttpClient, Mock {
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>, willReturn: Promise<Data>...) -> MethodStub {
             return Given(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, willReturn: Promise<Data>...) -> MethodStub {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, willReturn: Promise<Data>...) -> MethodStub {
             return Given(method: .m_sendRequest__metadata_metadata(`metadata`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, willReturn: Promise<Data>...) -> MethodStub {
@@ -538,7 +538,7 @@ open class HttpClientMock: HttpClient, Mock {
 			willProduce(stubber)
 			return given
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, willProduce: (Stubber<Promise<Data>>) -> Void) -> MethodStub {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, willProduce: (Stubber<Promise<Data>>) -> Void) -> MethodStub {
             let willReturn: [Promise<Data>] = []
 			let given: Given = { return Given(method: .m_sendRequest__metadata_metadata(`metadata`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
 			let stubber = given.stub(for: (Promise<Data>).self)
@@ -558,7 +558,7 @@ open class HttpClientMock: HttpClient, Mock {
         fileprivate var method: MethodType
 
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>) -> Verify { return Verify(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`))}
-        public static func sendRequest(metadata: Parameter<RequestMetadata>) -> Verify { return Verify(method: .m_sendRequest__metadata_metadata(`metadata`))}
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>) -> Verify { return Verify(method: .m_sendRequest__metadata_metadata(`metadata`))}
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>) -> Verify { return Verify(method: .m_sendRequest__method_methodpath_path(`method`, `path`))}
     }
 
@@ -569,7 +569,7 @@ open class HttpClientMock: HttpClient, Mock {
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>, perform: @escaping (HttpMethod, String, [String: String]?) -> Void) -> Perform {
             return Perform(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`), performs: perform)
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, perform: @escaping (RequestMetadata) -> Void) -> Perform {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, perform: @escaping (RequestDescriptor) -> Void) -> Perform {
             return Perform(method: .m_sendRequest__metadata_metadata(`metadata`), performs: perform)
         }
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, perform: @escaping (HttpMethod, String) -> Void) -> Perform {
