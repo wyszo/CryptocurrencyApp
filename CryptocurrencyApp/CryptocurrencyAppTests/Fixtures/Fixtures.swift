@@ -10,30 +10,8 @@ import XCTest
 
 class Fixtures {
     
-    var apple: Fruit {
-        return Fruit(type: "Apple",
-                     priceInPence: 999,
-                     weightInGrams: 250)
-    }
-    
-    var boxedFruitsOneApple: BoxedFruit {
-        return BoxedFruit(fruit: [apple])
-    }
-    
-    var boxedFruitsEmpty: BoxedFruit {
-        return BoxedFruit(fruit: [])
-    }
-    
-    var fruitsJSONData: Data? {
-        return JSONData(fromFile: "Fruits")
-    }
-    
     var cryptocurrencyJSONData: Data? {
         return JSONData(fromFile: "Cryptocurrencies")
-    }
-    
-    var malformedFruitsJSONData: Data? {
-        return JSONData(fromFile: "MalformedFruits")
     }
     
     private func JSONData(fromFile filename: String) -> Data? {

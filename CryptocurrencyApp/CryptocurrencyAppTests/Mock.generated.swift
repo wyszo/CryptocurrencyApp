@@ -54,6 +54,12 @@ open class AnalyticsProviderProtocolMock: AnalyticsProviderProtocol, Mock {
 
 
 
+    open func screenView(_: ScreenId) {
+        addInvocation(.m_screenView)
+		let perform = methodPerformValue(.m_screenView) as? () -> Void
+		perform?()
+    }
+
     open func cryptocurrencyListItemSelected(_: Cryptocurrency) {
         addInvocation(.m_cryptocurrencyListItemSelected)
 		let perform = methodPerformValue(.m_cryptocurrencyListItemSelected) as? () -> Void
@@ -62,21 +68,27 @@ open class AnalyticsProviderProtocolMock: AnalyticsProviderProtocol, Mock {
 
 
     fileprivate enum MethodType {
+        case m_screenView
         case m_cryptocurrencyListItemSelected
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
             switch (lhs, rhs) {
+            case (.m_screenView, .m_screenView): return .match
+
             case (.m_cryptocurrencyListItemSelected, .m_cryptocurrencyListItemSelected): return .match
+            default: return .none
             }
         }
 
         func intValue() -> Int {
             switch self {
+            case .m_screenView: return 0
             case .m_cryptocurrencyListItemSelected: return 0
             }
         }
         func assertionName() -> String {
             switch self {
+            case .m_screenView: return ".screenView(_:)()"
             case .m_cryptocurrencyListItemSelected: return ".cryptocurrencyListItemSelected(_:)()"
             }
         }
@@ -96,6 +108,7 @@ open class AnalyticsProviderProtocolMock: AnalyticsProviderProtocol, Mock {
     public struct Verify {
         fileprivate var method: MethodType
 
+        public static func screenView() -> Verify { return Verify(method: .m_screenView)}
         public static func cryptocurrencyListItemSelected() -> Verify { return Verify(method: .m_cryptocurrencyListItemSelected)}
     }
 
@@ -103,6 +116,9 @@ open class AnalyticsProviderProtocolMock: AnalyticsProviderProtocol, Mock {
         fileprivate var method: MethodType
         var performs: Any
 
+        public static func screenView(perform: @escaping () -> Void) -> Perform {
+            return Perform(method: .m_screenView, performs: perform)
+        }
         public static func cryptocurrencyListItemSelected(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_cryptocurrencyListItemSelected, performs: perform)
         }
@@ -424,16 +440,16 @@ open class HttpClientMock: HttpClient, Mock {
 		return __value
     }
 
-    open func sendRequest(metadata: RequestMetadata) -> Promise<Data> {
-        addInvocation(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`)))
-		let perform = methodPerformValue(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`))) as? (RequestMetadata) -> Void
+    open func sendRequest(metadata: RequestDescriptor) -> Promise<Data> {
+        addInvocation(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`)))
+		let perform = methodPerformValue(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`))) as? (RequestDescriptor) -> Void
 		perform?(`metadata`)
 		var __value: Promise<Data>
 		do {
-		    __value = try methodReturnValue(.m_sendRequest__metadata_metadata(Parameter<RequestMetadata>.value(`metadata`))).casted()
+		    __value = try methodReturnValue(.m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>.value(`metadata`))).casted()
 		} catch {
-			onFatalFailure("Stub return value not specified for sendRequest(metadata: RequestMetadata). Use given")
-			Failure("Stub return value not specified for sendRequest(metadata: RequestMetadata). Use given")
+			onFatalFailure("Stub return value not specified for sendRequest(metadata: RequestDescriptor). Use given")
+			Failure("Stub return value not specified for sendRequest(metadata: RequestDescriptor). Use given")
 		}
 		return __value
     }
@@ -455,7 +471,7 @@ open class HttpClientMock: HttpClient, Mock {
 
     fileprivate enum MethodType {
         case m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(Parameter<HttpMethod>, Parameter<String>, Parameter<[String: String]?>)
-        case m_sendRequest__metadata_metadata(Parameter<RequestMetadata>)
+        case m_sendRequest__metadata_metadata(Parameter<RequestDescriptor>)
         case m_sendRequest__method_methodpath_path(Parameter<HttpMethod>, Parameter<String>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
@@ -509,7 +525,7 @@ open class HttpClientMock: HttpClient, Mock {
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>, willReturn: Promise<Data>...) -> MethodStub {
             return Given(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, willReturn: Promise<Data>...) -> MethodStub {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, willReturn: Promise<Data>...) -> MethodStub {
             return Given(method: .m_sendRequest__metadata_metadata(`metadata`), products: willReturn.map({ StubProduct.return($0 as Any) }))
         }
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, willReturn: Promise<Data>...) -> MethodStub {
@@ -522,7 +538,7 @@ open class HttpClientMock: HttpClient, Mock {
 			willProduce(stubber)
 			return given
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, willProduce: (Stubber<Promise<Data>>) -> Void) -> MethodStub {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, willProduce: (Stubber<Promise<Data>>) -> Void) -> MethodStub {
             let willReturn: [Promise<Data>] = []
 			let given: Given = { return Given(method: .m_sendRequest__metadata_metadata(`metadata`), products: willReturn.map({ StubProduct.return($0 as Any) })) }()
 			let stubber = given.stub(for: (Promise<Data>).self)
@@ -542,7 +558,7 @@ open class HttpClientMock: HttpClient, Mock {
         fileprivate var method: MethodType
 
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>) -> Verify { return Verify(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`))}
-        public static func sendRequest(metadata: Parameter<RequestMetadata>) -> Verify { return Verify(method: .m_sendRequest__metadata_metadata(`metadata`))}
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>) -> Verify { return Verify(method: .m_sendRequest__metadata_metadata(`metadata`))}
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>) -> Verify { return Verify(method: .m_sendRequest__method_methodpath_path(`method`, `path`))}
     }
 
@@ -553,7 +569,7 @@ open class HttpClientMock: HttpClient, Mock {
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, queryParameters: Parameter<[String: String]?>, perform: @escaping (HttpMethod, String, [String: String]?) -> Void) -> Perform {
             return Perform(method: .m_sendRequest__method_methodpath_pathqueryParameters_queryParameters(`method`, `path`, `queryParameters`), performs: perform)
         }
-        public static func sendRequest(metadata: Parameter<RequestMetadata>, perform: @escaping (RequestMetadata) -> Void) -> Perform {
+        public static func sendRequest(metadata: Parameter<RequestDescriptor>, perform: @escaping (RequestDescriptor) -> Void) -> Perform {
             return Perform(method: .m_sendRequest__metadata_metadata(`metadata`), performs: perform)
         }
         public static func sendRequest(method: Parameter<HttpMethod>, path: Parameter<String>, perform: @escaping (HttpMethod, String) -> Void) -> Perform {
@@ -689,12 +705,6 @@ open class RouterProtocolMock: RouterProtocol, Mock {
 		return __value
     }
 
-    open func presentFruitDetailViewController(fruit: Fruit) {
-        addInvocation(.m_presentFruitDetailViewController__fruit_fruit(Parameter<Fruit>.value(`fruit`)))
-		let perform = methodPerformValue(.m_presentFruitDetailViewController__fruit_fruit(Parameter<Fruit>.value(`fruit`))) as? (Fruit) -> Void
-		perform?(`fruit`)
-    }
-
     open func presentCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) {
         addInvocation(.m_presentCryptoDetailViewController__cryptocurrency(Parameter<Cryptocurrency>.value(`cryptocurrency`)))
 		let perform = methodPerformValue(.m_presentCryptoDetailViewController__cryptocurrency(Parameter<Cryptocurrency>.value(`cryptocurrency`))) as? (Cryptocurrency) -> Void
@@ -704,17 +714,11 @@ open class RouterProtocolMock: RouterProtocol, Mock {
 
     fileprivate enum MethodType {
         case m_createRootViewController
-        case m_presentFruitDetailViewController__fruit_fruit(Parameter<Fruit>)
         case m_presentCryptoDetailViewController__cryptocurrency(Parameter<Cryptocurrency>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
             switch (lhs, rhs) {
             case (.m_createRootViewController, .m_createRootViewController): return .match
-
-            case (.m_presentFruitDetailViewController__fruit_fruit(let lhsFruit), .m_presentFruitDetailViewController__fruit_fruit(let rhsFruit)):
-				var results: [Matcher.ParameterComparisonResult] = []
-				results.append(Matcher.ParameterComparisonResult(Parameter.compare(lhs: lhsFruit, rhs: rhsFruit, with: matcher), lhsFruit, rhsFruit, "fruit"))
-				return Matcher.ComparisonResult(results)
 
             case (.m_presentCryptoDetailViewController__cryptocurrency(let lhsCryptocurrency), .m_presentCryptoDetailViewController__cryptocurrency(let rhsCryptocurrency)):
 				var results: [Matcher.ParameterComparisonResult] = []
@@ -727,14 +731,12 @@ open class RouterProtocolMock: RouterProtocol, Mock {
         func intValue() -> Int {
             switch self {
             case .m_createRootViewController: return 0
-            case let .m_presentFruitDetailViewController__fruit_fruit(p0): return p0.intValue
             case let .m_presentCryptoDetailViewController__cryptocurrency(p0): return p0.intValue
             }
         }
         func assertionName() -> String {
             switch self {
             case .m_createRootViewController: return ".createRootViewController()"
-            case .m_presentFruitDetailViewController__fruit_fruit: return ".presentFruitDetailViewController(fruit:)"
             case .m_presentCryptoDetailViewController__cryptocurrency: return ".presentCryptoDetailViewController(_:)"
             }
         }
@@ -765,7 +767,6 @@ open class RouterProtocolMock: RouterProtocol, Mock {
         fileprivate var method: MethodType
 
         public static func createRootViewController() -> Verify { return Verify(method: .m_createRootViewController)}
-        public static func presentFruitDetailViewController(fruit: Parameter<Fruit>) -> Verify { return Verify(method: .m_presentFruitDetailViewController__fruit_fruit(`fruit`))}
         public static func presentCryptoDetailViewController(_ cryptocurrency: Parameter<Cryptocurrency>) -> Verify { return Verify(method: .m_presentCryptoDetailViewController__cryptocurrency(`cryptocurrency`))}
     }
 
@@ -775,9 +776,6 @@ open class RouterProtocolMock: RouterProtocol, Mock {
 
         public static func createRootViewController(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_createRootViewController, performs: perform)
-        }
-        public static func presentFruitDetailViewController(fruit: Parameter<Fruit>, perform: @escaping (Fruit) -> Void) -> Perform {
-            return Perform(method: .m_presentFruitDetailViewController__fruit_fruit(`fruit`), performs: perform)
         }
         public static func presentCryptoDetailViewController(_ cryptocurrency: Parameter<Cryptocurrency>, perform: @escaping (Cryptocurrency) -> Void) -> Perform {
             return Perform(method: .m_presentCryptoDetailViewController__cryptocurrency(`cryptocurrency`), performs: perform)

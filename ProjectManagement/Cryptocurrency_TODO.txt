@@ -10,10 +10,9 @@ Tasks:
 [ ] Implement all failing unit tests, so that I can merge unit_test_fixes branch with develop
 [ ] Implement missing CryptocurrencyListViewModel tests
 [ ] Update unit tests for CryptocurrencyDataProvider
-[ ] Make analytics call on getCryptocurrencies
 [ ] Write a unit test for that
-[ ] Make DefaultAnalyticsProvider generic and able to handle multiple analytics providers (instead of just two hardcoded ones)
 [ ] Explain the app architecture in the Readme file
+[ ] Put ViewControllers storyboard initialisation in resolver
 [ ] Implement FirebaseAnalyticsProvider
 [ ] Rename RequestMetadata to RequestDescriptor
 [ ] Cleanup switching between mock and real data provider in DependencyInjection.swift

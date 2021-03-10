@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Resolver
 
 class CryptoDetailViewModel {
     private let cryptocurrency: Cryptocurrency
+
+    @Injected private var analyticsProvider: AnalyticsProviderProtocol
     
     var name: String {
         return cryptocurrency.name
@@ -28,5 +31,9 @@ class CryptoDetailViewModel {
     
     init(cryptocurrency: Cryptocurrency) {
         self.cryptocurrency = cryptocurrency
+    }
+    
+    func attachedToView() {
+        analyticsProvider.screenView(.cryptocurrencyDetail)
     }
 }

@@ -8,6 +8,11 @@
 import Foundation
 
 class DebugLogAnalyticsProvider: AnalyticsProviderProtocol {
+    
+    func screenView(_ screenId: ScreenId) {
+        logEvent(message: String(describing: screenId))
+    }
+    
     func cryptocurrencyListItemSelected(_ crypto: Cryptocurrency) {
         logEvent(message: crypto.name)
     }

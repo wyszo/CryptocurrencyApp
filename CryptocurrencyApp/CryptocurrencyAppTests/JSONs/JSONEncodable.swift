@@ -17,5 +17,3 @@ extension JSONEncodable {
         return try? JSONEncoder().encode(self)
     }
 }
-
-extension BoxedFruit: JSONEncodable { }

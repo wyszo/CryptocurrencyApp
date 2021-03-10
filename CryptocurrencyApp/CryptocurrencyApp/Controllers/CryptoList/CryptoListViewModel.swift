@@ -19,6 +19,10 @@ class CryptoListViewModel {
     @Injected private var dataProvider: CryptoDataProviderProtocol
     @Injected private var analyticsProvider: AnalyticsProviderProtocol
     
+    func attachedToView() {
+        analyticsProvider.screenView(.cryptocurrencyList)
+    }
+    
     func fetch() -> Promise<CryptocurrencyList> {
         let promise = dataProvider.getCryptocurrencies()
         _ = promise.done { list in

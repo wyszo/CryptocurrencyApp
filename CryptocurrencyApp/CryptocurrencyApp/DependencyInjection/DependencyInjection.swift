@@ -12,12 +12,7 @@ extension Resolver {
         register {
             AppInitialiser()
         }
-        register(DIContainerProtocol.self) {
-            DIContainer()
-        }
-        register(RouterProtocol.self) {
-            Router(diContainer: resolve())
-        }.scope(cached)
+        register(RouterProtocol.self) { return Router() }.scope(cached)
 
         registerAnalytics()
         registerNetworkingStack()
@@ -26,12 +21,16 @@ extension Resolver {
     }
     
     private static func registerAnalytics() {
-        register { return DebugLogAnalyticsProvider() }
-        register { return FirebaseAnalyticsProvider() }
+        register { return DebugLogAnalyticsProvider() }.scope(cached)
+        register { return FirebaseAnalyticsProvider() }.scope(cached)
+        
+        let providers: [AnalyticsProviderProtocol] = [
+            resolve(DebugLogAnalyticsProvider.self),
+            // resolve(FirebaseAnalyticsProvider.self)
+        ]
         
         register(AnalyticsProviderProtocol.self) {
-            DefaultAnalyticsProvider(enabledDebugLog: true,
-                                     enableFirebase: false)
+            DefaultAnalyticsProvider(providers: providers)
         }.scope(cached)
     }
     

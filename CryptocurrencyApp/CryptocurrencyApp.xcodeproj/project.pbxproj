@@ -13,33 +13,13 @@
 		43012A3E25918F54009AE472 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3D25918F54009AE472 /* Assets.xcassets */; };
 		43012A4125918F54009AE472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43012A3F25918F54009AE472 /* LaunchScreen.storyboard */; };
 		43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5A25919389009AE472 /* TableViewAdapter.swift */; };
-		43012A5F259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */; };
-		43012A60259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */; };
-		43012A6825919431009AE472 /* FruitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6325919431009AE472 /* FruitListViewController.swift */; };
-		43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6425919431009AE472 /* FruitListViewModel.swift */; };
-		43012A6A25919431009AE472 /* FruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6625919431009AE472 /* FruitDetailViewController.swift */; };
-		43012A6B25919431009AE472 /* FruitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6725919431009AE472 /* FruitDetailViewModel.swift */; };
-		43012A6E259194DF009AE472 /* FruitsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A6D259194DF009AE472 /* FruitsDataProvider.swift */; };
 		43012A742591956E009AE472 /* PerformanceTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A702591956E009AE472 /* PerformanceTimer.swift */; };
 		43012A752591956E009AE472 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A712591956E009AE472 /* Decoder.swift */; };
 		43012A762591956E009AE472 /* StoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A722591956E009AE472 /* StoryboardExtensions.swift */; };
 		43012A772591956E009AE472 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A732591956E009AE472 /* Closures.swift */; };
-		43012A7A259196B5009AE472 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A79259196B5009AE472 /* Fruit.swift */; };
-		43012A7F259196E0009AE472 /* DefaultDeprecatedHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7C259196E0009AE472 /* DefaultDeprecatedHttpClient.swift */; };
-		43012A80259196E0009AE472 /* DeprecatedHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */; };
-		43012A81259196E0009AE472 /* DeprecatedURLRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A7E259196E0009AE472 /* DeprecatedURLRequestSender.swift */; };
 		43012A8525919707009AE472 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8325919707009AE472 /* Router.swift */; };
-		43012A8625919707009AE472 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8425919707009AE472 /* DIContainer.swift */; };
 		43012A8A259197EA009AE472 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A87259197EA009AE472 /* Fixtures.swift */; };
-		43012A8B259197EA009AE472 /* FruitDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A88259197EA009AE472 /* FruitDetailViewModelTests.swift */; };
-		43012A8C259197EA009AE472 /* AnalyticsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A89259197EA009AE472 /* AnalyticsProviderTests.swift */; };
-		43012A8F25919838009AE472 /* FruitJSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8D25919838009AE472 /* FruitJSONDecoderTests.swift */; };
-		43012A9025919838009AE472 /* FruitsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A8E25919838009AE472 /* FruitsDataProviderTests.swift */; };
-		43012A982591987F009AE472 /* Fruits.json in Resources */ = {isa = PBXBuildFile; fileRef = 43012A922591987F009AE472 /* Fruits.json */; };
-		43012A992591987F009AE472 /* MalformedFruits.json in Resources */ = {isa = PBXBuildFile; fileRef = 43012A932591987F009AE472 /* MalformedFruits.json */; };
 		43012A9A2591987F009AE472 /* JSONEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A942591987F009AE472 /* JSONEncodable.swift */; };
-		43012A9B2591987F009AE472 /* MockAnalyticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A962591987F009AE472 /* MockAnalyticsProvider.swift */; };
-		43012A9C2591987F009AE472 /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012A972591987F009AE472 /* MockHttpClient.swift */; };
 		43012AA125923EC7009AE472 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43012AA025923EC7009AE472 /* GoogleService-Info.plist */; };
 		43012AA3259243E4009AE472 /* AppInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AA2259243E4009AE472 /* AppInitializer.swift */; };
 		43012AA52593DCCB009AE472 /* Cryptocurrencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 43012AA42593DCCB009AE472 /* Cryptocurrencies.json */; };
@@ -56,9 +36,13 @@
 		43012AC42597A488009AE472 /* CryptoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC32597A487009AE472 /* CryptoListViewModelTests.swift */; };
 		43012AC625A0D663009AE472 /* URLRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC525A0D663009AE472 /* URLRequestSender.swift */; };
 		43012AC925A0D812009AE472 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012AC825A0D812009AE472 /* HttpClient.swift */; };
-		43012ACB25A0D86D009AE472 /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */; };
+		43012ACB25A0D86D009AE472 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACA25A0D86D009AE472 /* HttpMethod.swift */; };
 		43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */; };
 		43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACE25A10123009AE472 /* AutoMockable.swift */; };
+		4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16825F9520A00BFF90A /* ScreenId.swift */; };
+		4382D16B25F9568200BFF90A /* RequestDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16A25F9568200BFF90A /* RequestDescriptor.swift */; };
+		4382D16E25F956C000BFF90A /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16D25F956C000BFF90A /* HttpError.swift */; };
+		4382D17025F9589100BFF90A /* MockedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16F25F9589100BFF90A /* MockedError.swift */; };
 		43BDFDB925A841B700F3672F /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDB825A841B700F3672F /* FileReader.swift */; };
 		43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBC25A99D3900F3672F /* TestUtilities.swift */; };
 		43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBA25A99D1400F3672F /* Environment.swift */; };
@@ -100,33 +84,13 @@
 		43012A4725918F55009AE472 /* CryptocurrencyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocurrencyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43012A4D25918F55009AE472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43012A5A25919389009AE472 /* TableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
-		43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedAnalyticsStatsEndpointProvider.swift; sourceTree = "<group>"; };
-		43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedAnalyticsProviderProtocol.swift; sourceTree = "<group>"; };
-		43012A6325919431009AE472 /* FruitListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewController.swift; sourceTree = "<group>"; };
-		43012A6425919431009AE472 /* FruitListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitListViewModel.swift; sourceTree = "<group>"; };
-		43012A6625919431009AE472 /* FruitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitDetailViewController.swift; sourceTree = "<group>"; };
-		43012A6725919431009AE472 /* FruitDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitDetailViewModel.swift; sourceTree = "<group>"; };
-		43012A6D259194DF009AE472 /* FruitsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsDataProvider.swift; sourceTree = "<group>"; };
 		43012A702591956E009AE472 /* PerformanceTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTimer.swift; sourceTree = "<group>"; };
 		43012A712591956E009AE472 /* Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		43012A722591956E009AE472 /* StoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardExtensions.swift; sourceTree = "<group>"; };
 		43012A732591956E009AE472 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
-		43012A79259196B5009AE472 /* Fruit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
-		43012A7C259196E0009AE472 /* DefaultDeprecatedHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDeprecatedHttpClient.swift; sourceTree = "<group>"; };
-		43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedHttpClient.swift; sourceTree = "<group>"; };
-		43012A7E259196E0009AE472 /* DeprecatedURLRequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeprecatedURLRequestSender.swift; sourceTree = "<group>"; };
 		43012A8325919707009AE472 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		43012A8425919707009AE472 /* DIContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		43012A87259197EA009AE472 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
-		43012A88259197EA009AE472 /* FruitDetailViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitDetailViewModelTests.swift; sourceTree = "<group>"; };
-		43012A89259197EA009AE472 /* AnalyticsProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsProviderTests.swift; sourceTree = "<group>"; };
-		43012A8D25919838009AE472 /* FruitJSONDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitJSONDecoderTests.swift; sourceTree = "<group>"; };
-		43012A8E25919838009AE472 /* FruitsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitsDataProviderTests.swift; sourceTree = "<group>"; };
-		43012A922591987F009AE472 /* Fruits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fruits.json; sourceTree = "<group>"; };
-		43012A932591987F009AE472 /* MalformedFruits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MalformedFruits.json; sourceTree = "<group>"; };
 		43012A942591987F009AE472 /* JSONEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodable.swift; sourceTree = "<group>"; };
-		43012A962591987F009AE472 /* MockAnalyticsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAnalyticsProvider.swift; sourceTree = "<group>"; };
-		43012A972591987F009AE472 /* MockHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
 		43012AA025923EC7009AE472 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43012AA2259243E4009AE472 /* AppInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitializer.swift; sourceTree = "<group>"; };
 		43012AA42593DCCB009AE472 /* Cryptocurrencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cryptocurrencies.json; sourceTree = "<group>"; };
@@ -143,9 +107,13 @@
 		43012AC32597A487009AE472 /* CryptoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModelTests.swift; sourceTree = "<group>"; };
 		43012AC525A0D663009AE472 /* URLRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestSender.swift; sourceTree = "<group>"; };
 		43012AC825A0D812009AE472 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
+		43012ACA25A0D86D009AE472 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultHttpClient.swift; path = CryptocurrencyApp/Networking/DefaultHttpClient.swift; sourceTree = SOURCE_ROOT; };
 		43012ACE25A10123009AE472 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
+		4382D16825F9520A00BFF90A /* ScreenId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenId.swift; sourceTree = "<group>"; };
+		4382D16A25F9568200BFF90A /* RequestDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDescriptor.swift; sourceTree = "<group>"; };
+		4382D16D25F956C000BFF90A /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		4382D16F25F9589100BFF90A /* MockedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedError.swift; sourceTree = "<group>"; };
 		43BDFDB825A841B700F3672F /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		43BDFDBA25A99D1400F3672F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		43BDFDBC25A99D3900F3672F /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
@@ -223,6 +191,7 @@
 				43012A5C259193BE009AE472 /* Analytics */,
 				43012A6125919431009AE472 /* Controllers */,
 				43012A6C259194DF009AE472 /* DataProviders */,
+				4382D16725F9502A00BFF90A /* DependencyInjection */,
 				43012A9F25923EA1009AE472 /* Firebase */,
 				43012A6F2591956E009AE472 /* Helpers */,
 				43012A78259196B5009AE472 /* Model */,
@@ -242,8 +211,6 @@
 				43BDFDC025A9AB9100F3672F /* Fixtures */,
 				43DA6D8225A6EC1300C1EF06 /* Mock.generated.swift */,
 				43012A912591987F009AE472 /* JSONs */,
-				43012AB025948672009AE472 /* Analytics */,
-				43012A952591987F009AE472 /* Mocks */,
 				43BDFDC925AA432A00F3672F /* Networking */,
 				43012AAD2594862A009AE472 /* DataProviders */,
 				43012AAE2594863B009AE472 /* Decoders */,
@@ -260,7 +227,6 @@
 				43012A3425918F51009AE472 /* AppDelegate.swift */,
 				43012A3625918F51009AE472 /* SceneDelegate.swift */,
 				43012AA2259243E4009AE472 /* AppInitializer.swift */,
-				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -277,8 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				43BDFDD025AB336100F3672F /* Providers */,
-				43BDFDCF25AB334100F3672F /* Deprecated */,
 				43BDFDCD25AB31E600F3672F /* AnalyticsProviderProtocol.swift */,
+				4382D16825F9520A00BFF90A /* ScreenId.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -288,34 +254,13 @@
 			children = (
 				43012AB5259767AC009AE472 /* CryptoDetail */,
 				43012AB4259767A0009AE472 /* CryptoList */,
-				43012A6225919431009AE472 /* FruitList */,
-				43012A6525919431009AE472 /* FruitDetail */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		43012A6225919431009AE472 /* FruitList */ = {
-			isa = PBXGroup;
-			children = (
-				43012A6325919431009AE472 /* FruitListViewController.swift */,
-				43012A6425919431009AE472 /* FruitListViewModel.swift */,
-			);
-			path = FruitList;
-			sourceTree = "<group>";
-		};
-		43012A6525919431009AE472 /* FruitDetail */ = {
-			isa = PBXGroup;
-			children = (
-				43012A6625919431009AE472 /* FruitDetailViewController.swift */,
-				43012A6725919431009AE472 /* FruitDetailViewModel.swift */,
-			);
-			path = FruitDetail;
 			sourceTree = "<group>";
 		};
 		43012A6C259194DF009AE472 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
-				43012A6D259194DF009AE472 /* FruitsDataProvider.swift */,
 				43012AAB259484AB009AE472 /* CryptoDataProvider.swift */,
 				43012AC125979C54009AE472 /* CryptoStaticDataProvider.swift */,
 			);
@@ -339,7 +284,6 @@
 		43012A78259196B5009AE472 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43012A79259196B5009AE472 /* Fruit.swift */,
 				43012AA72593E621009AE472 /* Cryptocurrency.swift */,
 			);
 			path = Model;
@@ -348,11 +292,10 @@
 		43012A7B259196E0009AE472 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				43012AC725A0D7E2009AE472 /* Deprecated */,
 				43012AC525A0D663009AE472 /* URLRequestSender.swift */,
 				43012AC825A0D812009AE472 /* HttpClient.swift */,
 				43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */,
-				43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */,
+				4382D16C25F9568800BFF90A /* Supporting Files */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -361,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				43012A8325919707009AE472 /* Router.swift */,
-				43012A8425919707009AE472 /* DIContainer.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -370,19 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				43012AB125948693009AE472 /* Cryptocurrencies */,
-				43012AA62593DCD8009AE472 /* Fruits */,
 				43012A942591987F009AE472 /* JSONEncodable.swift */,
 			);
 			path = JSONs;
-			sourceTree = "<group>";
-		};
-		43012A952591987F009AE472 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				43012A962591987F009AE472 /* MockAnalyticsProvider.swift */,
-				43012A972591987F009AE472 /* MockHttpClient.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		43012A9F25923EA1009AE472 /* Firebase */ = {
@@ -393,19 +325,9 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		43012AA62593DCD8009AE472 /* Fruits */ = {
-			isa = PBXGroup;
-			children = (
-				43012A922591987F009AE472 /* Fruits.json */,
-				43012A932591987F009AE472 /* MalformedFruits.json */,
-			);
-			path = Fruits;
-			sourceTree = "<group>";
-		};
 		43012AAD2594862A009AE472 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
-				43012A8E25919838009AE472 /* FruitsDataProviderTests.swift */,
 				43012AB22594876C009AE472 /* CryptoDataProviderTests.swift */,
 			);
 			path = DataProviders;
@@ -414,7 +336,6 @@
 		43012AAE2594863B009AE472 /* Decoders */ = {
 			isa = PBXGroup;
 			children = (
-				43012A8D25919838009AE472 /* FruitJSONDecoderTests.swift */,
 				43012AA9259401D0009AE472 /* CryptocurrencyDecoderTests.swift */,
 			);
 			path = Decoders;
@@ -423,18 +344,9 @@
 		43012AAF25948665009AE472 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				43012A88259197EA009AE472 /* FruitDetailViewModelTests.swift */,
 				43012AC32597A487009AE472 /* CryptoListViewModelTests.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		43012AB025948672009AE472 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				43012A89259197EA009AE472 /* AnalyticsProviderTests.swift */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		43012AB125948693009AE472 /* Cryptocurrencies */ = {
@@ -465,14 +377,22 @@
 			path = CryptoDetail;
 			sourceTree = "<group>";
 		};
-		43012AC725A0D7E2009AE472 /* Deprecated */ = {
+		4382D16725F9502A00BFF90A /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
-				43012A7C259196E0009AE472 /* DefaultDeprecatedHttpClient.swift */,
-				43012A7D259196E0009AE472 /* DeprecatedHttpClient.swift */,
-				43012A7E259196E0009AE472 /* DeprecatedURLRequestSender.swift */,
+				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
 			);
-			path = Deprecated;
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		4382D16C25F9568800BFF90A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43012ACA25A0D86D009AE472 /* HttpMethod.swift */,
+				4382D16D25F956C000BFF90A /* HttpError.swift */,
+				4382D16A25F9568200BFF90A /* RequestDescriptor.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		43BDFDC025A9AB9100F3672F /* Fixtures */ = {
@@ -480,6 +400,7 @@
 			children = (
 				43012A87259197EA009AE472 /* Fixtures.swift */,
 				43BDFDC125A9ABA300F3672F /* CryptocurrencyFixtures.swift */,
+				4382D16F25F9589100BFF90A /* MockedError.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -490,15 +411,6 @@
 				43BDFDC725AA42D000F3672F /* DefaultHttpClientTests.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		43BDFDCF25AB334100F3672F /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				43012A5D259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift */,
-				43012A5E259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift */,
-			);
-			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		43BDFDD025AB336100F3672F /* Providers */ = {
@@ -629,10 +541,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43012A992591987F009AE472 /* MalformedFruits.json in Resources */,
 				43BDFDC425AA16DC00F3672F /* CryptocurrenciesMalformed.json in Resources */,
 				43BDFDCC25AB30BF00F3672F /* CryptocurrenciesEmpty.json in Resources */,
-				43012A982591987F009AE472 /* Fruits.json in Resources */,
 				43012AA52593DCCB009AE472 /* Cryptocurrencies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,42 +636,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */,
-				43012ACB25A0D86D009AE472 /* NetworkingEnums.swift in Sources */,
+				43012ACB25A0D86D009AE472 /* HttpMethod.swift in Sources */,
 				43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */,
+				4382D16E25F956C000BFF90A /* HttpError.swift in Sources */,
 				43012ABC25976824009AE472 /* CryptoListViewModel.swift in Sources */,
-				43012A81259196E0009AE472 /* DeprecatedURLRequestSender.swift in Sources */,
 				43BDFDCE25AB31E600F3672F /* AnalyticsProviderProtocol.swift in Sources */,
-				43012A7A259196B5009AE472 /* Fruit.swift in Sources */,
 				43BDFDD425AB33DB00F3672F /* DefaultAnayticsProvider.swift in Sources */,
 				43BDFDC625AA191B00F3672F /* Assertions.swift in Sources */,
-				43012A6825919431009AE472 /* FruitListViewController.swift in Sources */,
 				43012A772591956E009AE472 /* Closures.swift in Sources */,
-				43012A80259196E0009AE472 /* DeprecatedHttpClient.swift in Sources */,
-				43012A7F259196E0009AE472 /* DefaultDeprecatedHttpClient.swift in Sources */,
 				43012AC225979C54009AE472 /* CryptoStaticDataProvider.swift in Sources */,
-				43012A8625919707009AE472 /* DIContainer.swift in Sources */,
 				43BDFDD225AB337200F3672F /* DebugLogAnalyticsProvider.swift in Sources */,
-				43012A6A25919431009AE472 /* FruitDetailViewController.swift in Sources */,
 				43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */,
 				43012AAC259484AB009AE472 /* CryptoDataProvider.swift in Sources */,
+				4382D16B25F9568200BFF90A /* RequestDescriptor.swift in Sources */,
+				4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */,
 				43012ABA259767FF009AE472 /* CryptoDetailViewController.swift in Sources */,
 				43012AC925A0D812009AE472 /* HttpClient.swift in Sources */,
 				43012A742591956E009AE472 /* PerformanceTimer.swift in Sources */,
 				43012A3525918F51009AE472 /* AppDelegate.swift in Sources */,
 				43012ABE2597683E009AE472 /* CryptoDetailViewModel.swift in Sources */,
-				43012A60259193BE009AE472 /* DeprecatedAnalyticsProviderProtocol.swift in Sources */,
 				43012A8525919707009AE472 /* Router.swift in Sources */,
 				43012AC625A0D663009AE472 /* URLRequestSender.swift in Sources */,
-				43012A6B25919431009AE472 /* FruitDetailViewModel.swift in Sources */,
 				43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */,
-				43012A6E259194DF009AE472 /* FruitsDataProvider.swift in Sources */,
 				43012AB8259767CF009AE472 /* CryptoListViewController.swift in Sources */,
-				43012A6925919431009AE472 /* FruitListViewModel.swift in Sources */,
 				43012AA3259243E4009AE472 /* AppInitializer.swift in Sources */,
 				43012AA82593E621009AE472 /* Cryptocurrency.swift in Sources */,
 				43012A762591956E009AE472 /* StoryboardExtensions.swift in Sources */,
 				43012A3725918F51009AE472 /* SceneDelegate.swift in Sources */,
-				43012A5F259193BE009AE472 /* DeprecatedAnalyticsStatsEndpointProvider.swift in Sources */,
 				43012AC0259793D7009AE472 /* DependencyInjection.swift in Sources */,
 				43BDFDD625AB33FA00F3672F /* FirebaseAnalyticsProvider.swift in Sources */,
 				43012A752591956E009AE472 /* Decoder.swift in Sources */,
@@ -772,20 +673,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43012A9C2591987F009AE472 /* MockHttpClient.swift in Sources */,
 				43BDFDCA25AA456300F3672F /* DefaultHttpClientTests.swift in Sources */,
-				43012A8B259197EA009AE472 /* FruitDetailViewModelTests.swift in Sources */,
 				43BDFDB925A841B700F3672F /* FileReader.swift in Sources */,
 				43012A8A259197EA009AE472 /* Fixtures.swift in Sources */,
-				43012A8C259197EA009AE472 /* AnalyticsProviderTests.swift in Sources */,
 				43012AB32594876C009AE472 /* CryptoDataProviderTests.swift in Sources */,
-				43012A8F25919838009AE472 /* FruitJSONDecoderTests.swift in Sources */,
 				43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */,
+				4382D17025F9589100BFF90A /* MockedError.swift in Sources */,
 				43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */,
 				43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */,
 				43012AC42597A488009AE472 /* CryptoListViewModelTests.swift in Sources */,
-				43012A9B2591987F009AE472 /* MockAnalyticsProvider.swift in Sources */,
-				43012A9025919838009AE472 /* FruitsDataProviderTests.swift in Sources */,
 				43BDFDC225A9ABA300F3672F /* CryptocurrencyFixtures.swift in Sources */,
 				43012A9A2591987F009AE472 /* JSONEncodable.swift in Sources */,
 				43012AAA259401D0009AE472 /* CryptocurrencyDecoderTests.swift in Sources */,

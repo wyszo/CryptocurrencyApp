@@ -8,5 +8,6 @@
 import Foundation
 
 protocol AnalyticsProviderProtocol: AnyObject, AutoMockable {
+    func screenView(_: ScreenId)
     func cryptocurrencyListItemSelected(_: Cryptocurrency)
 }
