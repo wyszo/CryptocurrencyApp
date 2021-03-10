@@ -10,8 +10,9 @@ import Resolver
 
 class CryptoListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     private var adapter: TableViewAdapter?
+    
     @Injected private var router: RouterProtocol
     @Injected private var viewModel: CryptoListViewModel
     
@@ -19,6 +20,7 @@ class CryptoListViewController: UIViewController {
         super.viewDidLoad()
         initializeStrings()
         initializeList()
+        viewModel.attachedToView()
     }
     
     private func initializeStrings() {

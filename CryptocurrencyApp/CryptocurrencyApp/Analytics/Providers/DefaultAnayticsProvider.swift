@@ -21,7 +21,11 @@ class DefaultAnalyticsProvider: AnalyticsProviderProtocol, Resolving {
     }
     
     func add(provider: AnalyticsProviderProtocol) {
-        self.enabledProviders.append(provider)
+        enabledProviders.append(provider)
+    }
+
+    func screenView(_ screenId: ScreenId) {
+        enabledProviders.forEach { $0.screenView(screenId) }
     }
     
     func cryptocurrencyListItemSelected(_ crypto: Cryptocurrency) {

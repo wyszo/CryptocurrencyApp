@@ -59,6 +59,7 @@
 		43012ACB25A0D86D009AE472 /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */; };
 		43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */; };
 		43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43012ACE25A10123009AE472 /* AutoMockable.swift */; };
+		4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16825F9520A00BFF90A /* ScreenId.swift */; };
 		43BDFDB925A841B700F3672F /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDB825A841B700F3672F /* FileReader.swift */; };
 		43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBC25A99D3900F3672F /* TestUtilities.swift */; };
 		43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBA25A99D1400F3672F /* Environment.swift */; };
@@ -146,6 +147,7 @@
 		43012ACA25A0D86D009AE472 /* NetworkingEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		43012ACC25A0DA5E009AE472 /* DefaultHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultHttpClient.swift; path = CryptocurrencyApp/Networking/DefaultHttpClient.swift; sourceTree = SOURCE_ROOT; };
 		43012ACE25A10123009AE472 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
+		4382D16825F9520A00BFF90A /* ScreenId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenId.swift; sourceTree = "<group>"; };
 		43BDFDB825A841B700F3672F /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		43BDFDBA25A99D1400F3672F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		43BDFDBC25A99D3900F3672F /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				43012A5C259193BE009AE472 /* Analytics */,
 				43012A6125919431009AE472 /* Controllers */,
 				43012A6C259194DF009AE472 /* DataProviders */,
+				4382D16725F9502A00BFF90A /* DependencyInjection */,
 				43012A9F25923EA1009AE472 /* Firebase */,
 				43012A6F2591956E009AE472 /* Helpers */,
 				43012A78259196B5009AE472 /* Model */,
@@ -260,7 +263,6 @@
 				43012A3425918F51009AE472 /* AppDelegate.swift */,
 				43012A3625918F51009AE472 /* SceneDelegate.swift */,
 				43012AA2259243E4009AE472 /* AppInitializer.swift */,
-				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 				43BDFDD025AB336100F3672F /* Providers */,
 				43BDFDCF25AB334100F3672F /* Deprecated */,
 				43BDFDCD25AB31E600F3672F /* AnalyticsProviderProtocol.swift */,
+				4382D16825F9520A00BFF90A /* ScreenId.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -473,6 +476,14 @@
 				43012A7E259196E0009AE472 /* DeprecatedURLRequestSender.swift */,
 			);
 			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		4382D16725F9502A00BFF90A /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
+			);
+			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
 		43BDFDC025A9AB9100F3672F /* Fixtures */ = {
@@ -744,6 +755,7 @@
 				43012A6A25919431009AE472 /* FruitDetailViewController.swift in Sources */,
 				43012A5B25919389009AE472 /* TableViewAdapter.swift in Sources */,
 				43012AAC259484AB009AE472 /* CryptoDataProvider.swift in Sources */,
+				4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */,
 				43012ABA259767FF009AE472 /* CryptoDetailViewController.swift in Sources */,
 				43012AC925A0D812009AE472 /* HttpClient.swift in Sources */,
 				43012A742591956E009AE472 /* PerformanceTimer.swift in Sources */,

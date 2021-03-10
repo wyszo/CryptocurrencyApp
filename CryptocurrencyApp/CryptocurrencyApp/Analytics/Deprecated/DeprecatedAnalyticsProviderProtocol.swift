@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum ScreenId: String {
-    case fruitList
-    case fruitDetail
-}
-
 struct ScreenInfo {
     let screenId: ScreenId
 }

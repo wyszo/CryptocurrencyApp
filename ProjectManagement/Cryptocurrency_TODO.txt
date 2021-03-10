@@ -10,7 +10,6 @@ Tasks:
 [ ] Implement all failing unit tests, so that I can merge unit_test_fixes branch with develop
 [ ] Implement missing CryptocurrencyListViewModel tests
 [ ] Update unit tests for CryptocurrencyDataProvider
-[ ] Make analytics call on getCryptocurrencies
 [ ] Write a unit test for that
 [ ] Explain the app architecture in the Readme file
 [ ] Implement FirebaseAnalyticsProvider

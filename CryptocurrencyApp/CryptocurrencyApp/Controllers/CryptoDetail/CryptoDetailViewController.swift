@@ -24,6 +24,7 @@ class CryptoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        viewModel?.attachedToView()
     }
     
     func updateUI() {
