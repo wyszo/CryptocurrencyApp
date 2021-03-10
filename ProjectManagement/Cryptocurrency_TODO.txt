@@ -12,7 +12,6 @@ Tasks:
 [ ] Update unit tests for CryptocurrencyDataProvider
 [ ] Make analytics call on getCryptocurrencies
 [ ] Write a unit test for that
-[ ] Make DefaultAnalyticsProvider generic and able to handle multiple analytics providers (instead of just two hardcoded ones)
 [ ] Explain the app architecture in the Readme file
 [ ] Implement FirebaseAnalyticsProvider
 [ ] Rename RequestMetadata to RequestDescriptor

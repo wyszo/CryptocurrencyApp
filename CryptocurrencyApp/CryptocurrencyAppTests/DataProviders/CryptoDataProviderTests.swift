@@ -68,14 +68,6 @@ class CryptoDataProviderTests: XCTestCase {
     }
     
     /**
-     * When: getCryptocurrencies method is called
-     * Then: analytics call should be made
-     */
-    func testRequestAnalytics() {
-        XCTFail("Not implemented yet")
-    }
-    
-    /**
      *  Given: getCryptocurrencies request is made
      *  When:  server returns json with an empty list
      *  Then:  getCryptocurrencies returns an empty array

@@ -14,24 +14,14 @@ import Resolver
  */
 class DefaultAnalyticsProvider: AnalyticsProviderProtocol, Resolving {
     
-    private var debugLog: DebugLogAnalyticsProvider?
-    private var firebase: FirebaseAnalyticsProvider?
-    
     private var enabledProviders = [AnalyticsProviderProtocol]()
     
-    init(enabledDebugLog: Bool,
-         enableFirebase: Bool) {
-        
-        if enabledDebugLog {
-            let debugLog = resolver.resolve(DebugLogAnalyticsProvider.self)
-            enabledProviders.append(debugLog)
-            self.debugLog = debugLog
-        }
-        if enableFirebase {
-            let firebase = resolver.resolve(FirebaseAnalyticsProvider.self)
-            enabledProviders.append(firebase)
-            self.firebase = firebase
-        }
+    init(providers: [AnalyticsProviderProtocol]) {
+        self.enabledProviders = providers
+    }
+    
+    func add(provider: AnalyticsProviderProtocol) {
+        self.enabledProviders.append(provider)
     }
     
     func cryptocurrencyListItemSelected(_ crypto: Cryptocurrency) {
