@@ -20,7 +20,7 @@ class CryptoDataProviderTests: XCTestCase {
     override func setUp() {
         super.setUp()
         dependenciesResolver.resetState()
-        httpClient = dependenciesResolver.resolveHttpClientMock()
+        httpClient = dependenciesResolver.httpClientMock
         sut = CryptoDataProvider()
     }
     

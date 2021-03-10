@@ -19,14 +19,11 @@ class CryptoListViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        dependenciesResolver.resetState()
         
-        analyticsProvider = dependenciesResolver.resolveAnalyticsProviderMock()
-        cryptoDataProvider = CryptoDataProviderProtocolMock()
+        analyticsProvider = dependenciesResolver.analyticsProviderMock
+        cryptoDataProvider = dependenciesResolver.cryptoDataProviderMock
         sut = CryptoListViewModel()
-    }
-    
-    override func tearDown() {
-        sut = nil
     }
 
     /**

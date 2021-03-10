@@ -9,7 +9,6 @@ Milestone #3: Update data to handle cryptocurrencies
 Tasks:
 [ ] Implement all failing unit tests, so that I can merge unit_test_fixes branch with develop
 [ ] Implement missing CryptocurrencyListViewModel tests
-[ ] Implement DebugLogAnalyticsProvider
 [ ] Update unit tests for CryptocurrencyDataProvider
 [ ] Make analytics call on getCryptocurrencies
 [ ] Write a unit test for that
