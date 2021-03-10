@@ -16,8 +16,18 @@ class TestDependenciesResolver: Resolving {
     
     func resetState() {
         Resolver.reset()
-        Resolver.defaultScope = Resolver.cached
+        recreateMocks()
         registerMocks()
+    }
+    
+    private(set) var httpClientMock: HttpClientMock!
+    private(set) var analyticsProviderMock: AnalyticsProviderProtocolMock!
+    private(set) var cryptoDataProviderMock: CryptoDataProviderProtocolMock!
+    
+    private func recreateMocks() {
+        httpClientMock = HttpClientMock()
+        analyticsProviderMock = AnalyticsProviderProtocolMock()
+        cryptoDataProviderMock = CryptoDataProviderProtocolMock()
     }
     
     private func registerMocks() {
@@ -25,11 +35,13 @@ class TestDependenciesResolver: Resolving {
             return RouterProtocolMock()
         }
         resolver.register(HttpClient.self) {
-            return HttpClientMock()
+            return self.httpClientMock
         }
-    }
-    
-    func resolveHttpClientMock() -> HttpClientMock {
-        return resolver.optional(HttpClient.self) as! HttpClientMock
+        resolver.register(AnalyticsProviderProtocol.self) {
+            return self.analyticsProviderMock
+        }
+        resolver.register(CryptoDataProviderProtocol.self) {
+            return self.cryptoDataProviderMock
+        }
     }
 }

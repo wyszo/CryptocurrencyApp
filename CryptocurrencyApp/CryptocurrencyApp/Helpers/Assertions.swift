@@ -8,8 +8,9 @@
 import Foundation
 
 func assertionFailureIfNotTesting(_ message: String) {
-    guard Environment.isRunningUnitTests() == false else {
+    guard !Environment.unitTests else {
         return
     }
     assertionFailure(message)
 }
+

@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, Resolving {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard Environment.isRunningUnitTests() == false else {
+        guard !Environment.unitTests else {
             return
         }
         

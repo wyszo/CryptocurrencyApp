@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyListViewModel.swift
+//  CryptoListViewModel.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -9,14 +9,15 @@ import Foundation
 import Resolver
 import PromiseKit
 
-class CryptocurrencyListViewModel {
+class CryptoListViewModel {
     var navbarTitle: String {
         return "Cryptocurrency List"
     }
     
     private var cryptocurrencyList: CryptocurrencyList?
     
-    @Injected var dataProvider: CryptocurrencyDataProviderProtocol
+    @Injected private var dataProvider: CryptoDataProviderProtocol
+    @Injected private var analyticsProvider: AnalyticsProviderProtocol
     
     func fetch() -> Promise<CryptocurrencyList> {
         let promise = dataProvider.getCryptocurrencies()
@@ -35,5 +36,9 @@ class CryptocurrencyListViewModel {
             return nil
         }
         return currencies[index]
+    }
+    
+    func itemSelected(cryptocurrency: Cryptocurrency) {
+        analyticsProvider.cryptocurrencyListItemSelected(cryptocurrency)
     }
 }

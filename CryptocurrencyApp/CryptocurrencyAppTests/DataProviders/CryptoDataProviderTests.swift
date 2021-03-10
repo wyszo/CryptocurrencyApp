@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyDataProviderTests.swift
+//  CryptoDataProviderTests.swift
 //  CryptocurrencyAppTests
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -10,21 +10,18 @@ import SwiftyMocky
 import PromiseKit
 @testable import CryptocurrencyApp
 
-class CryptocurrencyDataProviderTests: XCTestCase {
-    private var sut: CryptocurrencyDataProvider!
+class CryptoDataProviderTests: XCTestCase {
+    private var sut: CryptoDataProvider!
     private let fixtures = Fixtures()
     private let fileReader = FileReader()
     private let dependenciesResolver = TestDependenciesResolver()
     private var httpClient: HttpClientMock!
     
     override func setUp() {
-        httpClient = dependenciesResolver.resolveHttpClientMock()
-        sut = CryptocurrencyDataProvider()
-    }
-    
-    override func tearDown() {
-        sut = nil
+        super.setUp()
         dependenciesResolver.resetState()
+        httpClient = dependenciesResolver.httpClientMock
+        sut = CryptoDataProvider()
     }
     
     func testRequestSend() {
@@ -37,6 +34,7 @@ class CryptocurrencyDataProviderTests: XCTestCase {
         // When: getCryptocurrencies method is called
         let result = sut.getCryptocurrencies()
         waitFor(promise: result)
+        waitFor(promise: stubbedPromise)
         
         // Then: correct network request is made
         Verify(httpClient, 1, .sendRequest(metadata: .any))

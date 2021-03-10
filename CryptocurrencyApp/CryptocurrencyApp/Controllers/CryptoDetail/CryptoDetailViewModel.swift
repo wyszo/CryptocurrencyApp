@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyDetailViewModel.swift
+//  CryptoDetailViewModel.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CryptocurrencyDetailViewModel {
+class CryptoDetailViewModel {
     private let cryptocurrency: Cryptocurrency
     
     var name: String {

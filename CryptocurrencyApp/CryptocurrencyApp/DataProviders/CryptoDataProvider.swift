@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyDataProvider.swift
+//  CryptoDataProvider.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -9,11 +9,11 @@ import Foundation
 import PromiseKit
 import Resolver
 
-protocol CryptocurrencyDataProviderProtocol {
+protocol CryptoDataProviderProtocol: AnyObject, AutoMockable {
     func getCryptocurrencies() -> Promise<CryptocurrencyList>
 }
 
-class CryptocurrencyDataProvider: CryptocurrencyDataProviderProtocol {
+class CryptoDataProvider: CryptoDataProviderProtocol {
     
     @Injected private var httpClient: HttpClient
     

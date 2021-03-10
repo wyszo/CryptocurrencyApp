@@ -1,5 +1,5 @@
 //
-//  CryptocurrencyDetailViewController.swift
+//  CryptoDetailViewController.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2020 Thomas Wyszomirski. All rights reserved.
@@ -8,14 +8,14 @@
 import UIKit
 import Resolver
 
-class CryptocurrencyDetailViewController: UIViewController {
+class CryptoDetailViewController: UIViewController {
     
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var shortName: UILabel!
     @IBOutlet private weak var price: UILabel!
     @IBOutlet private weak var change7d: UILabel!
     
-    var viewModel: CryptocurrencyDetailViewModel? {
+    var viewModel: CryptoDetailViewModel? {
         didSet {
             updateUI()
         }
