@@ -42,6 +42,7 @@
 		4382D16925F9520A00BFF90A /* ScreenId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16825F9520A00BFF90A /* ScreenId.swift */; };
 		4382D16B25F9568200BFF90A /* RequestDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16A25F9568200BFF90A /* RequestDescriptor.swift */; };
 		4382D16E25F956C000BFF90A /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16D25F956C000BFF90A /* HttpError.swift */; };
+		4382D17025F9589100BFF90A /* MockedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4382D16F25F9589100BFF90A /* MockedError.swift */; };
 		43BDFDB925A841B700F3672F /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDB825A841B700F3672F /* FileReader.swift */; };
 		43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBC25A99D3900F3672F /* TestUtilities.swift */; };
 		43BDFDBE25A99DD500F3672F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDFDBA25A99D1400F3672F /* Environment.swift */; };
@@ -112,6 +113,7 @@
 		4382D16825F9520A00BFF90A /* ScreenId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenId.swift; sourceTree = "<group>"; };
 		4382D16A25F9568200BFF90A /* RequestDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDescriptor.swift; sourceTree = "<group>"; };
 		4382D16D25F956C000BFF90A /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		4382D16F25F9589100BFF90A /* MockedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedError.swift; sourceTree = "<group>"; };
 		43BDFDB825A841B700F3672F /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		43BDFDBA25A99D1400F3672F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		43BDFDBC25A99D3900F3672F /* TestUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 			children = (
 				43012A87259197EA009AE472 /* Fixtures.swift */,
 				43BDFDC125A9ABA300F3672F /* CryptocurrencyFixtures.swift */,
+				4382D16F25F9589100BFF90A /* MockedError.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				43012A8A259197EA009AE472 /* Fixtures.swift in Sources */,
 				43012AB32594876C009AE472 /* CryptoDataProviderTests.swift in Sources */,
 				43DA6D8325A6EC1300C1EF06 /* Mock.generated.swift in Sources */,
+				4382D17025F9589100BFF90A /* MockedError.swift in Sources */,
 				43DA6D8825A83BE500C1EF06 /* TestDependenciesResolver.swift in Sources */,
 				43BDFDBD25A99D3900F3672F /* TestUtilities.swift in Sources */,
 				43012AC42597A488009AE472 /* CryptoListViewModelTests.swift in Sources */,

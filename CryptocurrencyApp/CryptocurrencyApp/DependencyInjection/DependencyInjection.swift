@@ -26,7 +26,7 @@ extension Resolver {
         
         let providers: [AnalyticsProviderProtocol] = [
             resolve(DebugLogAnalyticsProvider.self),
-            resolve(FirebaseAnalyticsProvider.self)
+            // resolve(FirebaseAnalyticsProvider.self)
         ]
         
         register(AnalyticsProviderProtocol.self) {
