@@ -61,17 +61,31 @@ class CryptoListViewModelTests: XCTestCase {
         // Then: It should return an error
         XCTAssertEqual(capturedError as? MockedError, stubbedError)
     }
-    
-    /**
-     * Given: fetch() method called
-     * And:   fetch succeeded with at least 1 item
-     * And:   fetch() method called again
-     * When:  fetch method failed
-     * And:   itemAtIndex(0) called
-     * Then:  it should return cached value
-     */
+
     func testFetchSuccessThenFailureDoesNotClearCache() {
-        XCTFail("Not implemented yet")
+        // Given: Data provider getCryptocurrencies stubbed with success
+        let list = cryptoFixtures.defaultList
+        let promiseOne = Promise<CryptocurrencyList>.value(list)
+        Given(cryptoDataProvider, .getCryptocurrencies(willReturn: promiseOne))
+
+        // And: Fetch executed and completed
+        let fetchOne = sut.fetch()
+        waitFor(promise: fetchOne)
+        
+        // And: Data provider getCryptocurrencies stubbed with an error
+        let stubbedError = MockedError.genericError
+        let promiseTwo = Promise<CryptocurrencyList>.init(error: stubbedError)
+        Given(cryptoDataProvider, .getCryptocurrencies(willReturn: promiseTwo))
+
+        // And: Another fetch executed and completed
+        let fetchTwo = sut.fetch()
+        waitFor(promise: fetchTwo)
+        
+        // When: itemAtIndex(0) called
+        let item = sut.itemAtIndex(0)
+        
+        // Then: It should return cached correct item
+        XCTAssertEqual(item, cryptoFixtures.bitcoin)
     }
 
     func testItemSelectedAnalytics() {
