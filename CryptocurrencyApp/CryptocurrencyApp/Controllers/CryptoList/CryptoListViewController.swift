@@ -36,12 +36,10 @@ class CryptoListViewController: UIViewController {
         
         viewModel.fetch().done { [weak self] cryptoList in
             guard let `self` = self else {
-                assertionFailure("ViewController instance deallocated prematurely!")
-                return
+                assertionFailure("ViewController instance deallocated prematurely!"); return
             }
             guard let adapter = self.adapter else {
-                assertionFailure("Adapter instance deallocated prematurely!")
-                return
+                assertionFailure("Adapter instance deallocated prematurely!"); return
             }
             adapter.numberOfItems = cryptoList.cryptocurrencies.count
         }.catch { error in
@@ -50,20 +48,17 @@ class CryptoListViewController: UIViewController {
         
         adapter.didPullToRefresh = { [weak self] in
             guard let `self` = self else {
-                assertionFailure("ViewController instance deallocated prematurely!")
-                return
+                assertionFailure("ViewController instance deallocated prematurely!"); return
             }
             _ = self.viewModel.fetch()
         }
         
         adapter.didSelectRow = { [weak self] row in
             guard let `self` = self else {
-                assertionFailure("ViewController deallocated!")
-                return
+                assertionFailure("ViewController deallocated!"); return
             }
             guard let currency = self.viewModel.itemAtIndex(row) else {
-                assertionFailure("Data model inconsistency, row doesn't exist")
-                return
+                assertionFailure("Data model inconsistency, row doesn't exist"); return
             }
             self.viewModel.itemSelected(cryptocurrency: currency)
             self.router.presentCryptoDetailViewController(currency)
@@ -71,8 +66,7 @@ class CryptoListViewController: UIViewController {
         
         adapter.cellForRow = { [weak self] row, cell in
             guard let `self` = self else {
-                assertionFailure("ViewController class deallocated unnexpectedly!")
-                return
+                assertionFailure("ViewController class deallocated unnexpectedly!"); return
             }
             cell.textLabel?.text = self.viewModel.itemAtIndex(row)?.shortDescription
         }
