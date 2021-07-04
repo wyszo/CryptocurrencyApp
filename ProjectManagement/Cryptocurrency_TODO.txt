@@ -8,19 +8,13 @@ Milestone #3: Update data to handle cryptocurrencies
 
 Tasks:
 [ ] Implement all failing unit tests, so that I can merge unit_test_fixes branch with develop
-[ ] Implement missing CryptocurrencyListViewModel tests
-[ ] Update unit tests for CryptocurrencyDataProvider
-[ ] Write a unit test for that
+[ ] Implement missing DefaultHttpClientTests
 [ ] Explain the app architecture in the Readme file (provide a diagram)
 [ ] Put ViewControllers storyboard initialisation in resolver
 [ ] Implement FirebaseAnalyticsProvider
-[ ] Rename RequestMetadata to RequestDescriptor
 [ ] Cleanup switching between mock and real data provider in DependencyInjection.swift
 [ ] Remove list data on pull to refresh
 [ ] Improve project Readme
-[ ] Update unit tests for the new network stack
-[ ] Add CryptocurrencyListViewController
-[ ] Add CryptocurrencyDetailViewController
 [ ] Put a localizable string Navbar title
 [ ] Localize strings using R.swift library
 [ ] In DefaultHttpClient implement that if two subsequent requests with the same parameters are being made (before the first one returns), only one network requst is made under the hood and they both return the same promise
@@ -29,14 +23,7 @@ Tasks:
 [ ] Display < 0 price change in red
 [ ] Display > 0 price change in green
 [ ] Turn off stats analytics for now
-[ ] Rename FruitListVC to CryptocurrencyListVC
-[ ] Rename FruitListVM to CryptocurrencyListVM
-[ ] Rename FruitDetailVC
-[ ] Rename FruitDetailVM
-[ ] Rename Fruit
-[ ] Update Fruit reference in Tests
 [ ] Separate schema from host in APISettings in CryptocurrencyDataProvider
-[ ] Inject dependencies using Resolver
 [ ] Maybe get a remote config file from Firebase (potentially with API settings and baseURL, etc)
 [ ] Enable Firebase Performance Measurement (and possibly deprecate manually using PerformanceTimer)
 [ ] Review the code file by file and refactor and improve
