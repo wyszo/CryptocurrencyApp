@@ -7,6 +7,7 @@
 
 import XCTest
 import SwiftyMocky
+import PromiseKit
 @testable import CryptocurrencyApp
 
 class CryptoListViewModelTests: XCTestCase {
@@ -33,7 +34,21 @@ class CryptoListViewModelTests: XCTestCase {
      * Then:  it should return a correct item
      */
     func testFetchSuccessThenItemAtIndex() {
-        XCTFail("Not implemented yet")
+        
+        // Given: Data provider getCryptocurrencies stubbed with success
+        let list = cryptoFixtures.defaultList
+        let promise = Promise<CryptocurrencyList>.value(list)
+        Given(cryptoDataProvider, .getCryptocurrencies(willReturn: promise))
+        
+        // And: Fetch executed and completed
+        let fetch = sut.fetch()
+        waitFor(promise: fetch)
+        
+        // When: ItemAtIndex(0) called
+        let item = sut.itemAtIndex(0)
+        
+        // Then: It should return correct item
+        XCTAssertEqual(item, cryptoFixtures.bitcoin)
     }
     
     /**

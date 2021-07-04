@@ -11,7 +11,7 @@ Tasks:
 [ ] Implement missing CryptocurrencyListViewModel tests
 [ ] Update unit tests for CryptocurrencyDataProvider
 [ ] Write a unit test for that
-[ ] Explain the app architecture in the Readme file
+[ ] Explain the app architecture in the Readme file (provide a diagram)
 [ ] Put ViewControllers storyboard initialisation in resolver
 [ ] Implement FirebaseAnalyticsProvider
 [ ] Rename RequestMetadata to RequestDescriptor
