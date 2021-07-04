@@ -24,14 +24,16 @@ class CryptoListViewModel {
     }
     
     func fetch() -> Promise<CryptocurrencyList> {
-        let promise = dataProvider.getCryptocurrencies()
-        _ = promise.done { list in
-            self.cryptocurrencyList = list
+        return Promise<CryptocurrencyList> { seal in
+            let getCrypto = dataProvider.getCryptocurrencies()
+            _ = getCrypto.done { list in
+                self.cryptocurrencyList = list
+                seal.fulfill(list)
+            }
+            getCrypto.catch { error in
+                seal.reject(error)
+            }
         }
-        promise.catch { _ in
-            self.cryptocurrencyList = nil
-        }
-        return promise
     }
     
     func itemAtIndex(_ index: Int) -> Cryptocurrency? {
