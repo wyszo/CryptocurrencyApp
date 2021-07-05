@@ -23,11 +23,13 @@ class TestDependencyResolver: Resolving {
     private(set) var httpClientMock: HttpClientMock!
     private(set) var analyticsProviderMock: AnalyticsProviderProtocolMock!
     private(set) var cryptoDataProviderMock: CryptoDataProviderProtocolMock!
+    private(set) var requestSenderMock: URLRequestSenderProtocolMock!
     
     private func recreateMocks() {
         httpClientMock = HttpClientMock()
         analyticsProviderMock = AnalyticsProviderProtocolMock()
         cryptoDataProviderMock = CryptoDataProviderProtocolMock()
+        requestSenderMock = URLRequestSenderProtocolMock()
     }
     
     private func registerMocks() {
@@ -42,6 +44,9 @@ class TestDependencyResolver: Resolving {
         }
         resolver.register(CryptoDataProviderProtocol.self) {
             return self.cryptoDataProviderMock
+        }
+        resolver.register(URLRequestSenderProtocol.self) {
+            return self.requestSenderMock
         }
     }
 }

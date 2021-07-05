@@ -9,10 +9,14 @@ import XCTest
 @testable import CryptocurrencyApp
 
 class DefaultHttpClientTests: XCTestCase {
-    var sut: DefaultHttpClient!
+    private var sut: DefaultHttpClient!
+    private let dependencyResolver = TestDependencyResolver()
+    private var requestSenderMock: URLRequestSenderMock!
     
     override func setUp() {
         super.setUp()
+        dependencyResolver.resetState()
+        requestSenderMock = dependencyResolver.requestSenderMock
     }
     
     override func tearDown() {
