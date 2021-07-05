@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import SwiftyMocky
+import PromiseKit
 @testable import CryptocurrencyApp
 
 class DefaultHttpClientTests: XCTestCase {
@@ -17,25 +19,35 @@ class DefaultHttpClientTests: XCTestCase {
         super.setUp()
         dependencyResolver.resetState()
         requestSenderMock = dependencyResolver.requestSenderMock
+        sut = DefaultHttpClient()
     }
     
     override func tearDown() {
         super.tearDown()
     }
     
-    /**
-     * Given: RequestSender.send stubbed with success
-     * When:  SendRequest called
-     * Then:  It shuld send a request with correct path and method
-     */
     func testSendRequest() {
-        XCTFail("Not implemented yet")
+        // Given: RequestSender.send stubbed with success
+        let stubbbedData = Data(base64Encoded: "data")!
+        let promise = Promise<Data>.value(stubbbedData)
+        Given(requestSenderMock, .send(request: .any, willReturn: promise))
+       
+        // When:  SendRequest called
+        let result = sut.sendRequest(method: .get,
+                                     path: "http://path")
+        waitFor(promise: result)
+        
+        // Then:  It shuld send a request with correct path and method
+        Verify(requestSenderMock, 1, .send(request: .any))
+        
+        let expectedRequest = URLRequest(url: URL(string: "http://path")!)
+        Verify(requestSenderMock, 1, .send(request: .value(expectedRequest)))
     }
     
     /**
      * Given: RequestSender.send stubbed with an error
      * When:  SendRequest called
-     * Then:  It should return the same error 
+     * Then:  It should return the same error
      */
     func testSendRequestFailure() {
         XCTFail("Not implemented yet")
