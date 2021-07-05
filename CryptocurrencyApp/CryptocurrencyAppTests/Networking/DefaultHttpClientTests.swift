@@ -27,7 +27,7 @@ class DefaultHttpClientTests: XCTestCase {
     }
     
     func testSendRequestSuccess() {
-        // Given: RequestSender.send stubbed with success
+        // Given:  RequestSender.send stubbed with success
         let stubbbedData = Data(base64Encoded: "data")!
         let promise = Promise<Data>.value(stubbbedData)
         Given(requestSenderMock, .send(request: .any, willReturn: promise))
@@ -44,13 +44,8 @@ class DefaultHttpClientTests: XCTestCase {
         Verify(requestSenderMock, 1, .send(request: .value(expectedRequest)))
     }
     
-    /**
-     * Given: RequestSender.send stubbed with an error
-     * When:  SendRequest called
-     * Then:  It should return the same error
-     */
     func testSendRequestFailure() {
-        // Given: RequestSender.send stubbed with failure
+        // Given:  RequestSender.send stubbed with failure
         let expectedError = MockedError.genericError
         let promise = Promise<Data>.init(error: expectedError)
         Given(requestSenderMock, .send(request: .any, willReturn: promise))
@@ -65,19 +60,26 @@ class DefaultHttpClientTests: XCTestCase {
                 value: &capturedData,
                 error: &capturedError)
         
-        // Then: It should fail with an error
+        // Then:  It should fail with an error
         XCTAssertNil(capturedData)
         XCTAssertNotNil(capturedError)
         XCTAssertEqual(capturedError as? MockedError, expectedError)
     }
     
-    /**
-     * Given: RequestSender.send stubbed with success
-     * When:  SendRequest is called with query params
-     * Then:  It should send request with correct URL
-     */
-    func testQueryParams() {
-        XCTFail("Not implemented yet")
+    func testSendRequestQueryParams() {
+        // Given: RequestSender.send stubbed with success
+        let stubbbedData = Data(base64Encoded: "data")!
+        let promise = Promise<Data>.value(stubbbedData)
+        Given(requestSenderMock, .send(request: .any, willReturn: promise))
+        
+        // When:  SendRequest called with query param
+        let params = [ "foo": "bar" ]
+        let result = sut.sendRequest(method: .get, path: "http://path", queryParameters: params)
+        waitFor(promise: result)
+        
+        // Then:  It should send a request with a correct url containing query params
+        let expectedRequest = URLRequest(url: URL(string: "http://path?foo=bar")!)
+        Verify(requestSenderMock, 1, .send(request: .value(expectedRequest)))
     }
     
     /**
