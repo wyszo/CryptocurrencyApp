@@ -35,7 +35,7 @@ extension Resolver {
     }
     
     private static func registerNetworkingStack() {
-        register(URLRequestSender.self) {
+        register(URLRequestSenderProtocol.self) {
             DefaultRequestSender()
         }.scope(unique)
         

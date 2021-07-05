@@ -11,7 +11,7 @@ import XCTest
 class DefaultHttpClientTests: XCTestCase {
     private var sut: DefaultHttpClient!
     private let dependencyResolver = TestDependencyResolver()
-    private var requestSenderMock: URLRequestSenderMock!
+    private var requestSenderMock: URLRequestSenderProtocolMock!
     
     override func setUp() {
         super.setUp()

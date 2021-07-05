@@ -1,5 +1,5 @@
 //
-//  URLRequestSender.swift
+//  DefaultRequestSender.swift
 //  CryptocurrencyApp
 //
 //  Copyright © 2021 Thomas Wyszomirski. All rights reserved.
@@ -8,11 +8,7 @@
 import Foundation
 import PromiseKit
 
-public protocol URLRequestSender: AutoMockable {
-    func send(request: URLRequest) -> Promise<Data>
-}
-
-public class DefaultRequestSender: URLRequestSender {
+public class DefaultRequestSender: URLRequestSenderProtocol {
     private let session = URLSession.shared
     
     public func send(request: URLRequest) -> Promise<Data> {

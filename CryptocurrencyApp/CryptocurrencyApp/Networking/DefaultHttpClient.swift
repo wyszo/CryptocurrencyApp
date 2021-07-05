@@ -10,7 +10,7 @@ import PromiseKit
 import Resolver
 
 class DefaultHttpClient: HttpClient {
-    @Injected private var requestSender: URLRequestSender
+    @Injected private var requestSender: URLRequestSenderProtocol
 
     func sendRequest(method: HttpMethod,
                      path: String,
