@@ -14,13 +14,13 @@ class CryptoDataProviderTests: XCTestCase {
     private var sut: CryptoDataProvider!
     private let fixtures = Fixtures()
     private let fileReader = FileReader()
-    private let dependenciesResolver = TestDependenciesResolver()
+    private let dependencyResolver = TestDependencyResolver()
     private var httpClient: HttpClientMock!
     
     override func setUp() {
         super.setUp()
-        dependenciesResolver.resetState()
-        httpClient = dependenciesResolver.httpClientMock
+        dependencyResolver.resetState()
+        httpClient = dependencyResolver.httpClientMock
         sut = CryptoDataProvider()
     }
     

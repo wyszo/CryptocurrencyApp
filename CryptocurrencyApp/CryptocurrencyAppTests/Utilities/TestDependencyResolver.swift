@@ -1,5 +1,5 @@
 //
-//  TestDependenciesResolver.swift
+//  TestDependencyResolver.swift
 //  CryptocurrencyAppTests
 //
 //  Copyright © 2021 Thomas Wyszomirski. All rights reserved.
@@ -8,7 +8,7 @@
 import Resolver
 @testable import CryptocurrencyApp
 
-class TestDependenciesResolver: Resolving {
+class TestDependencyResolver: Resolving {
     
     init() {
         resetState()
