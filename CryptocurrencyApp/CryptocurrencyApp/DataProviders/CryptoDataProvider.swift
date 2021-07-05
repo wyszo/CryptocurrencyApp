@@ -21,7 +21,8 @@ class CryptoDataProvider: CryptoDataProviderProtocol {
         
         let metadata = RequestDescriptor(type: .get,
                                          apiPath: RequestConstants.getCryptocurrenciesPath,
-                                         apiHost: APISettings.host)
+                                         apiHost: APISettings.host,
+                                         queryParams: nil)
         
         return Promise<CryptocurrencyList> { seal in
             httpClient.sendRequest(metadata: metadata).done { data in

@@ -41,7 +41,8 @@ class CryptoDataProviderTests: XCTestCase {
 
         let expectedRequest = RequestDescriptor(type: .get,
                                                 apiPath: "Cryptocurrencies.json",
-                                                apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
+                                                apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/",
+                                                queryParams: nil)
         Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
     }
     

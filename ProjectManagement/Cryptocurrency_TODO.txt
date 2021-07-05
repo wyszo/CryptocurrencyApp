@@ -17,7 +17,6 @@ Tasks:
 [ ] Improve project Readme
 [ ] Put a localizable string Navbar title
 [ ] Localize strings using R.swift library
-[ ] In DefaultHttpClient implement that if two subsequent requests with the same parameters are being made (before the first one returns), only one network requst is made under the hood and they both return the same promise
 [ ] handle CryptocurrencyDataProvider network error in the UI
 [ ] Wire Swiftlint
 [ ] Display < 0 price change in red

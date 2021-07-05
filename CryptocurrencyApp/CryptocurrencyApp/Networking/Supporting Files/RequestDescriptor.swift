@@ -7,10 +7,11 @@
 
 import Foundation
 
-public struct RequestDescriptor: Equatable {
+public struct RequestDescriptor: Equatable, Hashable {
     let type: HttpMethod
     let apiPath: String
     let apiHost: String
+    let queryParams: [String: String]? 
     
     var fullUriString: String {
         return apiHost + apiPath

@@ -89,7 +89,25 @@ class DefaultHttpClientTests: XCTestCase {
      * Then:  Only one network request should be made
      */
     func testTwoSubsequentSameCallsMakeOnlyOneRequest() {
-        XCTFail("Not implemented yet!")
+        // Given: RequestSender.send stubbed with success
+        let stubbbedData = Data(base64Encoded: "data")!
+        let promise = Promise<Data>.value(stubbbedData)
+        Given(requestSenderMock, .send(request: .any, willReturn: promise))
+        
+        // And:  SendRequest called but has not returned yet
+        let resultOne = sut.sendRequest(method: .get,
+                                        path: "http://path")
+        
+        // When:  Another sendRequest call is made with the same parameters
+        let resultTwo = sut.sendRequest(method: .get,
+                                        path: "http://path")
+        
+        // And:  Requests completed
+        waitFor(promise: resultOne)
+        waitFor(promise: resultTwo)
+        
+        // Then:  It shuld send only one request
+        Verify(requestSenderMock, 1, .send(request: .any))
     }
     
     /**
@@ -111,6 +129,17 @@ class DefaultHttpClientTests: XCTestCase {
      * Then:  Both calls return a correct error
      */
     func testTwoSubsequentSameCallsReturnCorrectErrorOnFailure() {
+        XCTFail("Not implemented yet!")
+    }
+    
+    /**
+     * Given: SendRequest call is made
+     * And:   The request has completed
+     * And:   Another sendRequest call is made with the same parameters
+     * When:  The request completes
+     * Then:  RequestSender should send two requests
+     */
+    func testTwoSubsequentCallsOneAfterAnotherNotCached() {
         XCTFail("Not implemented yet!")
     }
 }

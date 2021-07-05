@@ -17,7 +17,7 @@ PromiseKit is a well-known library that simplifies writing asynchronous code.
 
 Resolver solves a problem where dependencies of view controllers/presenters/view models further in the flow have to be passed down the flows even to the objects that don't need them, so they can be passed further along. It also introduces some syntactic sugar to be able to automatically resolve dependencies marked with @Injected keyword. 
 
-SwiftyMocky is a great framework for automatically generating mocks from protocol definitions and providing a Given statement for stubbing return values and Verify for asserting that the methods have been executed on a mock with expected parameters. It saves a lot of time by eliminating a need to write mocks manually. 
+SwiftyMocky is a great framework for automatically generating mocks from protocol definitions and providing a Given statement for stubbing return values and Verify for asserting that the methods have been executed on a mock with expected parameters. It saves a lot of time by eliminating a need to write mocks manually. And that in turn lets you introduce and test well more complex business logic, which gives you confidence that more complex functionality is not going to break even after new members are introduced to the team and start moving and changing things around (without knowing all the project requirements and intricacies).  
 
 ## Architecture 
 
