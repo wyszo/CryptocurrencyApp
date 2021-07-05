@@ -82,19 +82,13 @@ class DefaultHttpClientTests: XCTestCase {
         Verify(requestSenderMock, 1, .send(request: .value(expectedRequest)))
     }
     
-    /**
-     * Given: SendRequest call is made
-     * And:   The request has not completed yet
-     * When:  Another sendRequest call is made with the same parameters
-     * Then:  Only one network request should be made
-     */
     func testTwoSubsequentSameCallsMakeOnlyOneRequest() {
         // Given: RequestSender.send stubbed with success
         let stubbbedData = Data(base64Encoded: "data")!
         let promise = Promise<Data>.value(stubbbedData)
         Given(requestSenderMock, .send(request: .any, willReturn: promise))
         
-        // And:  SendRequest called but has not returned yet
+        // And:  SendRequest called but has not completed yet
         let resultOne = sut.sendRequest(method: .get,
                                         path: "http://path")
         
@@ -102,23 +96,50 @@ class DefaultHttpClientTests: XCTestCase {
         let resultTwo = sut.sendRequest(method: .get,
                                         path: "http://path")
         
-        // And:  Requests completed
+        // And:  Both requests completed
         waitFor(promise: resultOne)
         waitFor(promise: resultTwo)
         
-        // Then:  It shuld send only one request
+        // Then:  Only one request should be sent
         Verify(requestSenderMock, 1, .send(request: .any))
     }
     
-    /**
-     * Given: SendRequest call is made
-     * And:   The request has not completed yet
-     * And:   Another sendRequest call is made with the same parameters
-     * When:  The request succeeds
-     * Then:  Both calls return correct value
-     */
     func testTwoSubsequentSameCallsReturnCorrectValueOnSuccess() {
-        XCTFail("Not implemented yet!")
+        // Given: RequestSender.send stubbed with success
+        let stubbbedData = Data(base64Encoded: "data")!
+        let promise = Promise<Data>.value(stubbbedData)
+        Given(requestSenderMock, .send(request: .any, willReturn: promise))
+        
+        // And:  SendRequest called
+        let resultOne = sut.sendRequest(method: .get,
+                                        path: "http://path")
+        
+        // And:  Another sendRequest call is made with the same parameters
+        let resultTwo = sut.sendRequest(method: .get,
+                                        path: "http://path")
+        
+        // When:  The requests succeed
+        var capturedDataOne: Data?
+        var capturedErrorOne: Error?
+        waitFor(promise: resultOne,
+                value: &capturedDataOne,
+                error: &capturedErrorOne)
+        
+        var capturedDataTwo: Data?
+        var capturedErrorTwo: Error?
+        waitFor(promise: resultTwo,
+                value: &capturedDataTwo,
+                error: &capturedErrorTwo)
+        
+        // Then:  No errors should be thrown
+        XCTAssertNil(capturedErrorOne)
+        XCTAssertNil(capturedErrorTwo)
+        
+        // And:  Both calls should return correct value
+        XCTAssertNotNil(capturedDataOne)
+        XCTAssertNotNil(capturedDataTwo)
+        XCTAssertEqual(capturedDataOne, stubbbedData)
+        XCTAssertEqual(capturedDataTwo, stubbbedData)
     }
     
     /**
