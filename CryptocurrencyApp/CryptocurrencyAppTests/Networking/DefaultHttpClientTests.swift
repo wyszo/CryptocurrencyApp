@@ -24,6 +24,33 @@ class DefaultHttpClientTests: XCTestCase {
     }
     
     /**
+     * Given: RequestSender.send stubbed with success
+     * When:  SendRequest called
+     * Then:  It shuld send a request with correct path and method
+     */
+    func testSendRequest() {
+        XCTFail("Not implemented yet")
+    }
+    
+    /**
+     * Given: RequestSender.send stubbed with an error
+     * When:  SendRequest called
+     * Then:  It should return the same error 
+     */
+    func testSendRequestFailure() {
+        XCTFail("Not implemented yet")
+    }
+    
+    /**
+     * Given: RequestSender.send stubbed with success
+     * When:  SendRequest is called with query params
+     * Then:  It should send request with correct URL
+     */
+    func testQueryParams() {
+        XCTFail("Not implemented yet")
+    }
+    
+    /**
      * Given: SendRequest call is made
      * And:   The request has not completed yet
      * When:  Another sendRequest call is made with the same parameters
