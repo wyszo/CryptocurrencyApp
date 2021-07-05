@@ -26,7 +26,7 @@ class DefaultHttpClientTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSendRequest() {
+    func testSendRequestSuccess() {
         // Given: RequestSender.send stubbed with success
         let stubbbedData = Data(base64Encoded: "data")!
         let promise = Promise<Data>.value(stubbbedData)
@@ -50,7 +50,25 @@ class DefaultHttpClientTests: XCTestCase {
      * Then:  It should return the same error
      */
     func testSendRequestFailure() {
-        XCTFail("Not implemented yet")
+        // Given: RequestSender.send stubbed with failure
+        let expectedError = MockedError.genericError
+        let promise = Promise<Data>.init(error: expectedError)
+        Given(requestSenderMock, .send(request: .any, willReturn: promise))
+        
+        // When:  SendRequest called
+        let result = sut.sendRequest(method: .get,
+                                     path: "http://path")
+        
+        var capturedData: Data?
+        var capturedError: Error?
+        waitFor(promise: result,
+                value: &capturedData,
+                error: &capturedError)
+        
+        // Then: It should fail with an error
+        XCTAssertNil(capturedData)
+        XCTAssertNotNil(capturedError)
+        XCTAssertEqual(capturedError as? MockedError, expectedError)
     }
     
     /**
