@@ -20,5 +20,6 @@ class AppInitialiser {
     
     private func initializeDependencyInjection() {
         Resolver.registerDependencies()
+        Resolver.registerViewControllers()
     }
 }

@@ -7,8 +7,8 @@ See: Roadmap.txt for more generic project vision
 Milestone #3: Update data to handle cryptocurrencies
 
 Tasks:
-[ ] Explain the app architecture in the Readme file (provide a diagram)
 [ ] Put ViewControllers storyboard initialisation in resolver
+[ ] Explain the app architecture in the Readme file (provide a diagram)
 [ ] Implement FirebaseAnalyticsProvider
 [ ] Cleanup switching between mock and real data provider in DependencyInjection.swift
 [ ] Remove list data on pull to refresh

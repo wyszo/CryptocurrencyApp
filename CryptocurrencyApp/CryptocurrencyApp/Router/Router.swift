@@ -35,22 +35,11 @@ class Router: RouterProtocol, Resolving {
     }
     
     func presentCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) {
-        guard let controller = createCryptoDetailViewController(cryptocurrency) else {
-            assertionFailure("CryptoDetailViewController initialization failed!"); return
-        }
+        let detailController = resolver.resolve(CryptoDetailViewController.self, args: cryptocurrency)
+        
         guard let navigationController = navigationController else {
             assertionFailure("Missing navigationController!"); return
         }
-        navigationController.pushViewController(controller, animated: true)
-    }
-    
-    private func createCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) -> UIViewController? {
-        guard let controller = try? UIStoryboard.main.viewController(ofType: CryptoDetailViewController.self) else {
-            assertionFailure("CryptoDetailViewController initialization failed!")
-            return nil
-        }
-        
-        controller.viewModel = resolver.optional(args: cryptocurrency)
-        return controller
+        navigationController.pushViewController(detailController, animated: true)
     }
 }

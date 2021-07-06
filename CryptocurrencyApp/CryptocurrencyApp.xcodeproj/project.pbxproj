@@ -59,6 +59,7 @@
 		43FF46E4269299B700BAB507 /* DefaultRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF46E3269299B700BAB507 /* DefaultRequestSender.swift */; };
 		43FF46E526929CEE00BAB507 /* TestDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA6D8725A83BE500C1EF06 /* TestDependencyResolver.swift */; };
 		43FF46E72693BFF200BAB507 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 43FF46E62693BFF200BAB507 /* Readme.md */; };
+		43FF46E92698D2D400BAB507 /* Resolver+ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF46E82698D2D400BAB507 /* Resolver+ViewControllers.swift */; };
 		48653A60B10C11453D084026 /* Pods_CryptocurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5129BABD7490164E68C65 /* Pods_CryptocurrencyApp.framework */; };
 		EE63AE022C95CF3A9281C6D9 /* Pods_CryptocurrencyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA49E6BEE71AB95D82562EC /* Pods_CryptocurrencyAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		43DA6D8725A83BE500C1EF06 /* TestDependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDependencyResolver.swift; sourceTree = "<group>"; };
 		43FF46E3269299B700BAB507 /* DefaultRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequestSender.swift; sourceTree = "<group>"; };
 		43FF46E62693BFF200BAB507 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../Readme.md; sourceTree = "<group>"; };
+		43FF46E82698D2D400BAB507 /* Resolver+ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+ViewControllers.swift"; sourceTree = "<group>"; };
 		79559685D86639DBF738C955 /* Pods-CryptocurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyApp/Pods-CryptocurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5D56C195AA3623E5963A2B /* Pods-CryptocurrencyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9547CBB5E42BB1245FAECD07 /* Pods-CryptocurrencyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptocurrencyAppTests.release.xcconfig"; path = "Target Support Files/Pods-CryptocurrencyAppTests/Pods-CryptocurrencyAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				43012ABF259793D7009AE472 /* DependencyInjection.swift */,
+				43FF46E82698D2D400BAB507 /* Resolver+ViewControllers.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FF46E92698D2D400BAB507 /* Resolver+ViewControllers.swift in Sources */,
 				43012ACD25A0DA5E009AE472 /* DefaultHttpClient.swift in Sources */,
 				43012ACB25A0D86D009AE472 /* HttpMethod.swift in Sources */,
 				43012ACF25A10123009AE472 /* AutoMockable.swift in Sources */,
