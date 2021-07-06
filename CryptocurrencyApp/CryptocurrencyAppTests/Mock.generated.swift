@@ -857,7 +857,7 @@ open class RouterProtocolMock: RouterProtocol, Mock {
 
 // MARK: - URLRequestSender
 
-open class URLRequestSenderMock: URLRequestSender, Mock {
+open class URLRequestSenderProtocolMock: URLRequestSenderProtocol, Mock {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
         SwiftyMockyTestObserver.setup()
         self.sequencingPolicy = sequencingPolicy

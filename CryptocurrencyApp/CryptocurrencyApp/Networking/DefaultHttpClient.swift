@@ -10,11 +10,22 @@ import PromiseKit
 import Resolver
 
 class DefaultHttpClient: HttpClient {
-    @Injected private var requestSender: URLRequestSender
+    @Injected private var requestSender: URLRequestSenderProtocol
 
+    private var inFlightRequests = [RequestDescriptor: Promise<Data>]()
+    
     func sendRequest(method: HttpMethod,
                      path: String,
                      queryParameters: [String: String]? = nil) -> Promise<Data> {
+        
+        let newRequest = RequestDescriptor(type: method,
+                                           apiPath: path,
+                                           apiHost: "",
+                                           queryParams: queryParameters)
+        
+        if let request = requestInFlight(descriptor: newRequest) {
+            return request
+        }
         
         return Promise<Data> { seal in
             var urlComponents = URLComponents(string: path)
@@ -31,13 +42,29 @@ class DefaultHttpClient: HttpClient {
             }
             
             let request = URLRequest(url: absoluteURL)
-            requestSender.send(request: request)
+            let sendRequest = requestSender.send(request: request)
+            inFlightRequests[newRequest] = sendRequest
+            
+            sendRequest
                 .done { data in
+                    self.inFlightRequests.removeValue(forKey: newRequest)
                     seal.fulfill(data)
                 }
                 .catch { error in
+                    self.inFlightRequests.removeValue(forKey: newRequest)
                     seal.reject(error)
                 }
         }
+    }
+    
+    private func requestInFlight(descriptor: RequestDescriptor) -> Promise<Data>? {
+        let inFlight = inFlightRequests.contains { (key, _) in key == descriptor }
+        if inFlight {
+            guard let promise = inFlightRequests[descriptor] else {
+                fatalError("impossible execution path")
+            }
+            return promise
+        }
+        return nil
     }
 }

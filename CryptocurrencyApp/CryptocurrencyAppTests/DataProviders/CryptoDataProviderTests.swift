@@ -14,13 +14,13 @@ class CryptoDataProviderTests: XCTestCase {
     private var sut: CryptoDataProvider!
     private let fixtures = Fixtures()
     private let fileReader = FileReader()
-    private let dependenciesResolver = TestDependenciesResolver()
+    private let dependencyResolver = TestDependencyResolver()
     private var httpClient: HttpClientMock!
     
     override func setUp() {
         super.setUp()
-        dependenciesResolver.resetState()
-        httpClient = dependenciesResolver.httpClientMock
+        dependencyResolver.resetState()
+        httpClient = dependencyResolver.httpClientMock
         sut = CryptoDataProvider()
     }
     
@@ -41,7 +41,8 @@ class CryptoDataProviderTests: XCTestCase {
 
         let expectedRequest = RequestDescriptor(type: .get,
                                                 apiPath: "Cryptocurrencies.json",
-                                                apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/")
+                                                apiHost: "https://storage-cryptocurrency-app-dev.s3-eu-west-1.amazonaws.com/",
+                                                queryParams: nil)
         Verify(httpClient, 1, .sendRequest(metadata: .value(expectedRequest)))
     }
     

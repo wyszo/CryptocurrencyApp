@@ -15,15 +15,15 @@ class CryptoListViewModelTests: XCTestCase {
     private var sut: CryptoListViewModel!
     private var analyticsProvider: AnalyticsProviderProtocolMock!
     private var cryptoDataProvider: CryptoDataProviderProtocolMock!
-    private let dependenciesResolver = TestDependenciesResolver()
+    private let dependencyResolver = TestDependencyResolver()
     private let cryptoFixtures = CryptocurrencyFixtures()
     
     override func setUp() {
         super.setUp()
-        dependenciesResolver.resetState()
+        dependencyResolver.resetState()
         
-        analyticsProvider = dependenciesResolver.analyticsProviderMock
-        cryptoDataProvider = dependenciesResolver.cryptoDataProviderMock
+        analyticsProvider = dependencyResolver.analyticsProviderMock
+        cryptoDataProvider = dependencyResolver.cryptoDataProviderMock
         sut = CryptoListViewModel()
     }
 

@@ -18,12 +18,12 @@ Done:
 +. Add Cocoapods, Resolver for DI
 +. Fetching Cryptocurrency json data from S3 bucket
 +. Introduced PromiseKit for async networking
++. Switch over unit tests to SwiftyMocky
 
 Next: 
 5. Switch Analytics over to Firebase 
 6. Improve code quality
 	6.2. Use R.swift for localizable strings 
-	6.5. Switch over unit tests to SwiftyMocky (in progress, mostly done)
 	6.6. Review app architecture 
 	6.7. Apply UI styling 
 7. Introduce historical graphs 
