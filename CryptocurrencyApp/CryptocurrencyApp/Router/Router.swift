@@ -18,20 +18,9 @@ class Router: RouterProtocol, Resolving {
     private var navigationController: UINavigationController?
     
     func createRootViewController() -> UINavigationController? {
-        guard let vc = createCryptoListViewController() else {
-            assertionFailure("Root ViewController initialization failed!")
-            return nil
-        }
-        navigationController = UINavigationController(rootViewController: vc)
+        let listVC = resolver.resolve(CryptoListViewController.self)
+        navigationController = UINavigationController(rootViewController: listVC)
         return navigationController
-    }
-    
-    private func createCryptoListViewController() -> UIViewController? {
-        guard let listVC = try? UIStoryboard.main.viewController(ofType: CryptoListViewController.self) else {
-            assertionFailure("CryptoListViewController initialization failed!")
-            return nil
-        }
-        return listVC
     }
     
     func presentCryptoDetailViewController(_ cryptocurrency: Cryptocurrency) {
